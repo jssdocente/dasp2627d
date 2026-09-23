@@ -1,0 +1,123 @@
+site_name: Digitalización Aplicada a los Sectores Productivos - Curso 26/27
+site_url: https://jssdocente.github.io/dasp2627d
+use_directory_urls: false
+
+nav:
+  - "Inicio": "index.md"
+  - "Unidad 1: Digitalización en Sectores Productivos":
+      - "Visión General y Mapa Conceptual": temas/01-digitalizacion/index.md
+      - "1.1 Cronología de las Revoluciones e Industria 5.0": temas/01-digitalizacion/01-revoluciones-industriales.md
+      - "1.2 Sistemas Ciberfísicos y Tecnologías Disruptivas": temas/01-digitalizacion/02-sistemas-ciberfisicos-tecnologias.md
+      - "1.3 Estructura Organizativa y Convergencia OT/IT": temas/01-digitalizacion/03-organizacion-convergencia-ot-it.md
+      - "1.4 Edge Computing, Cloud y Sostenibilidad": temas/01-digitalizacion/04-edge-cloud-sostenibilidad.md
+      - "Taller de Debates y Pensamiento Crítico": temas/01-digitalizacion/05-debates-y-dilemas.md
+
+theme:
+  language: es
+  favicon: imagenes/favicon.png
+  name: "material"
+  palette:
+    - scheme: default
+      primary: light blue
+      accent: "Teal"
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Cambiar a modo noche
+    - scheme: slate
+      primary: light blue
+      accent: "Teal"
+      toggle:
+        icon: material/toggle-switch
+        name: Cambiar a modo día
+  icon:
+    annotation: material/plus-circle
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: "imagenes/logofp.png"
+  features:
+    - header.autohide
+    # - toc.integrate
+    - content.tabs.link
+    - content.code.copy
+    - content.code.select
+    - navigation.top
+    - content.code.annotate
+    #- navigation.expand
+    - navigation.path
+    - content.tooltips
+
+  custom_width: false
+
+extra:
+  search:
+    language: "es"
+  social:
+    - icon: material/email-edit
+      link: mailto:<jssgarcia.docente@gmail.com>
+  #analytics:
+  #provider: google
+  #property: G-X6D0LR7TC8
+extra_css:
+  - extra/css/extra.css
+
+plugins:
+  - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+      background: white
+      shadow: true
+      manual: false
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      use_pygments: true
+      linenums: false
+      linenums_style: pymdownx-inline
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      extend_pygments_lang:
+        - name: php
+          lang: php
+          options:
+            startinline: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - footnotes
+  - meta
+  - sane_lists
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+copyright: 2026-2027 Jesús García - Licencia CC BY-NC-SA

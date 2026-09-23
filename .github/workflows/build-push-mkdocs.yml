@@ -1,0 +1,53 @@
+name: build-push-mkdocs
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+# Permisos necesarios para el despliegue nativo en GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite solo un despliegue simultáneo para evitar condiciones de carrera
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Instalar dependencias MkDocs
+        run: |
+          pip install mkdocs mkdocs-material mkdocs-glightbox
+
+      - name: Compilar sitio con MkDocs
+        run: |
+          mkdocs build
+
+      - name: Subir artefacto de GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
