@@ -51,7 +51,7 @@ A lo largo del curso exploraremos los siguientes bloques de aprendizaje:
 
 1. **[Unidad 1: Digitalización de los sectores productivos](./temas/01-digitalizacion/index.md):** Fundamentos, cronología histórica, sistemas ciberfísicos, convergencia OT/IT, Edge vs Cloud, sostenibilidad y taller de debates socioeconómicos.
 
-2. **Unidad 2: Tecnologías Habilitadoras Digitales (THD):** Profundización en Inteligencia Artificial aplicada, visión artificial, gemelos digitales, sensorización y redes industriales.
+2. **[Unidad 2: Tecnologías Digitales Habilitadoras (TDH)](./temas/02-tecnologias-habilitadoras/index.md):** Conectividad 5G/IoT, profundización en Blockchain y Smart Contracts, ciclo de vida e ingeniería de la IA, robótica colaborativa, gemelos digitales y modelos Data-Driven.
 
 3. **Unidad 3: El Dato como Activo Estratégico:** Big Data, analítica predictiva, gobierno del dato, privacidad y soberanía digital en la Unión Europea.
 
