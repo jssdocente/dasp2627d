@@ -101,7 +101,7 @@ flowchart TD
 | :--- | :--- | :--- |
 | **Hardware de Cómputo** | Servidores rack **Dell PowerEdge** o instancias en **AWS EC2**. | Autómatas programables **Siemens S7-1500**, **Rockwell Allen-Bradley ControlLogix**, o **Schneider Modicon M580**. |
 | **Sistemas Operativos** | **Windows Server 2022**, **Ubuntu Server**, **Red Hat Enterprise Linux**. | Sistemas operativos de tiempo real (**RTOS**): **VxWorks**, **QNX**, **FreeRTOS** o firmwares propietarios embebidos. |
-| **Switches y Redes** | Switches de oficina **Cisco Catalyst 9200** (ventilación activa, plástico/metal ligero). | Switches rugerizados carril DIN **Siemens SCALANCE X** o **Moxa EDS-508** (sin ventiladores, toleran $75^\circ\text{C}$ y polvo). |
+| **Switches y Redes** | Switches de oficina **Cisco Catalyst 9200** (ventilación activa, plástico/metal ligero). | Switches rugerizados carril DIN **Siemens SCALANCE X** o **Moxa EDS-508** (sin ventiladores, toleran 75 °C y polvo). |
 | **Software Central** | ERP **SAP S/4HANA**, CRM **Salesforce**, bases de datos **PostgreSQL**. | Software SCADA **Siemens WinCC**, **Ignition SCADA**, o **Wonderware InTouch**. |
 
 ---

@@ -150,7 +150,7 @@ graph LR
 
 La eficiencia energética de un centro de datos se mide mediante el índice **PUE**:
 
-$$\text{PUE} = \frac{\text{Energía Total que entra al Centro de Datos (kW)}}{\text{Energía consumida exclusivamente por los Servidores (kW)}}$$
+> **PUE = Energía Total que entra al Centro de Datos (kW) / Energía consumida exclusivamente por los Servidores (kW)**
 
 #### 📦 Cuadro de Eficiencia en Centros de Datos Reales
 
@@ -158,7 +158,7 @@ $$\text{PUE} = \frac{\text{Energía Total que entra al Centro de Datos (kW)}}{\t
 | :--- | :--- | :--- |
 | **PUE = 1.0** | Ideal teórico perfecto | Toda la energía consumida va a los chips; cero gasto en ventilación o iluminación. |
 | **PUE = 1.1 - 1.2** | Excelente / Vanguardia | **Centro de Datos de Google en Hamina (Finlandia):** Refrigerado exclusivamente con agua marina helada del Golfo de Finlandia, sin climatizadores por compresor. |
-| **PUE = 1.5 - 2.0** | Típico / Tradicional | Centro de datos convencional: por cada $100\text{ kW}$ que gastan los servidores, se gastan otros $80\text{ kW}$ en aparatos de aire acondicionado para que no se quemen. |
+| **PUE = 1.5 - 2.0** | Típico / Tradicional | Centro de datos convencional: por cada 100 kW que gastan los servidores, se gastan otros 80 kW en aparatos de aire acondicionado para que no se quemen. |
 
 ---
 

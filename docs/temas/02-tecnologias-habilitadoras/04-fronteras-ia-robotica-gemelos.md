@@ -6,7 +6,7 @@ La integración de la Inteligencia Artificial con los sistemas físicos está ab
 
 ## 1. Physical AI y Robótica con Modelos VLA (Vision-Language-Action)
 
-Durante décadas, programar un robot industrial implicaba definir trayectorias matemáticas rígidas: coordenadas $(X, Y, Z)$ fijas y ángulos de giro milimétricos. Si una pieza se desplazaba 2 centímetros de su posición habitual, el robot chocaba o fallaba el agarre.
+Durante décadas, programar un robot industrial implicaba definir trayectorias matemáticas rígidas: coordenadas (X, Y, Z) fijas y ángulos de giro milimétricos. Si una pieza se desplazaba 2 centímetros de su posición habitual, el robot chocaba o fallaba el agarre.
 
 La revolución de la **Physical AI (IA Física o Embodied AI)** cambia este paradigma mediante modelos fundacionales **VLA (Vision-Language-Action)**:
 

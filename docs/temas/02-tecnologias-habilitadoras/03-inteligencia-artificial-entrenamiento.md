@@ -53,12 +53,12 @@ mindmap
 ```
 
 1. **Aprendizaje Supervisado (*Supervised Learning*):**
-   - El algoritmo recibe un conjunto de datos etiquetado por humanos: parejas de $(X, y)$, donde $X$ son las características de entrada e $y$ es la respuesta correcta esperada.
+   - El algoritmo recibe un conjunto de datos etiquetado por humanos: parejas de entradas (X) con su respuesta correcta esperada (y).
    - **Clasificación:** Predecir una clase discreta (ej. *¿Es esta soldadura correcta o defectuosa?*).
    - **Regresión:** Predecir un valor numérico continuo (ej. *¿Cuántas horas le quedan al rodamiento antes de romperse?*).
 
 2. **Aprendizaje No Supervisado (*Unsupervised Learning*):**
-   - El sistema recibe únicamente datos de entrada $X$ sin etiquetas ni respuestas correctas. Su misión es descubrir estructuras ocultas, patrones o agrupaciones naturales.
+   - El sistema recibe únicamente datos de entrada (X) sin etiquetas ni respuestas correctas. Su misión es descubrir estructuras ocultas, patrones o agrupaciones naturales.
    - **Clustering (K-Means, DBSCAN):** Agrupación de perfiles de clientes o comportamientos similares de motores.
    - **Detección de anomalías:** Identificar lecturas de sensores que se salen del comportamiento estadístico habitual para alertar de una avería inminente.
 
@@ -93,17 +93,17 @@ flowchart TD
 ---
 
 ### A. La Mecánica Matemática Interna: Loss y Descenso de Gradiente
-Para que una red aprenda, necesita cuantificar cuánto se equivoca y corregir sus conexiones sinápticas (pesos $W$ y sesgos $b$):
+Para que una red aprenda, necesita cuantificar cuánto se equivoca y corregir sus conexiones sinápticas (pesos W y sesgos b):
 
 1. **Función de Pérdida (*Loss Function*):** Mide el error entre la predicción de la red y la realidad.
-   - Para regresión: *Error Cuadrático Medio* ($MSE$).
+   - Para regresión: *Error Cuadrático Medio* (MSE).
    - Para clasificación: *Entropía Cruzada* (*Cross-Entropy Loss*).
 
 2. **Descenso de Gradiente (*Gradient Descent*):** Algoritmo de optimización que busca el mínimo de la función de pérdida descendiendo por la pendiente de mayor inclinación:
 
-$$W_{\text{nuevo}} = W_{\text{actual}} - \eta \cdot \frac{\partial \text{Loss}}{\partial W}$$
+> **Nuevo_Peso = Peso_Actual - (Tasa_de_Aprendizaje × Gradiente_del_Error)**
 
-Donde $\eta$ es la **Tasa de Aprendizaje (*Learning Rate*)**, un hiperparámetro crítico: si es demasiado alta, el modelo oscila y no converge; si es demasiado baja, el entrenamiento tarda semanas.
+Donde la **Tasa de Aprendizaje (*Learning Rate*)** es un hiperparámetro crítico: si es demasiado alta, el modelo oscila y no converge; si es demasiado baja, el entrenamiento tarda semanas.
 
 3. **Retropropagación (*Backpropagation*):** Aplicación recursiva de la regla de la cadena del cálculo diferencial para propagar el error desde la capa de salida hacia atrás, calculando exactamente cuánto contribuyó cada neurona al error final para ajustar su peso en la dirección correcta.
 
@@ -133,9 +133,9 @@ En la industria, el porcentaje global de acierto (*Accuracy*) suele ser una mét
 
 | Concepto | Fórmula | Significado Industrial |
 | :--- | :---: | :--- |
-| **Precisión (*Precision*)** | $\frac{TP}{TP + FP}$ | De todas las piezas que el modelo marcó como defectuosas, ¿cuántas lo eran realmente? (Evita tirar piezas buenas a la basura). |
-| **Sensibilidad (*Recall*)** | $\frac{TP}{TP + FN}$ | De todos los defectos reales que pasaron por la cinta, ¿cuántos logró detectar el modelo? (Evita enviar piezas rotas a clientes). |
-| **Puntuación $F_1$-Score** | $2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$ | **Media armónica** entre Precisión y Recall; la métrica de referencia para evaluar modelos industriales desbalanceados. |
+| **Precisión (*Precision*)** | TP / (TP + FP) | De todas las piezas que el modelo marcó como defectuosas, ¿cuántas lo eran realmente? (Evita tirar piezas buenas a la basura). |
+| **Sensibilidad (*Recall*)** | TP / (TP + FN) | De todos los defectos reales que pasaron por la cinta, ¿cuántos logró detectar el modelo? (Evita enviar piezas rotas a clientes). |
+| **Puntuación F1-Score** | 2 × (Precisión × Recall) / (Precisión + Recall) | **Media armónica** entre Precisión y Recall; la métrica de referencia para evaluar modelos industriales desbalanceados. |
 
 ---
 

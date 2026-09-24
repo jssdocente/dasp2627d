@@ -33,9 +33,9 @@ graph LR
 
 | Componente del CPS | Dispositivo Tecnológico Concreto | Función en el Sistema |
 | :--- | :--- | :--- |
-| **Elemento Físico** | Horno de recocido de piezas de acero en automoción. | Debe mantenerse a $850^\circ\text{C} \pm 2^\circ\text{C}$ sin quemar la aleación. |
+| **Elemento Físico** | Horno de recocido de piezas de acero en automoción. | Debe mantenerse a 850 °C (con un margen de ±2 °C) sin quemar la aleación. |
 | **Sensores (Entrada)** | **Termopares tipo K** de alta temperatura y pirómetros ópticos infrarrojos. | Miden la radiación térmica 50 veces por segundo. |
-| **Red Industrial** | Bus **PROFINET** sobre cable apantallado o **EtherCAT**. | Transporta la señal con latencia determinista inferior a $1\text{ ms}$. |
+| **Red Industrial** | Bus **PROFINET** sobre cable apantallado o **EtherCAT**. | Transporta la señal con latencia determinista inferior a 1 ms. |
 | **Cómputo / Algoritmo** | Autómata **Siemens S7-1500** con bucle PID y modelo predictivo. | Compara temperatura real vs deseada y calcula la corrección. |
 | **Actuadores (Salida)** | **Tiristores de potencia** y válvulas servoasistidas de gas. | Regulan al milímetro el caudal de gas y la corriente de las resistencias. |
 
@@ -99,8 +99,8 @@ classDiagram
 
 | Tipo de Robot | Modelos y Marcas Reales | Ejemplo de Uso en Planta | Ventaja Operativa |
 | :--- | :--- | :--- | :--- |
-| **Cobot Colaborativo** | **Universal Robots UR10e** o **Fanuc CRX-10iA** | Atornillado de salpicaderos de coches en la misma estación donde un operario monta los cables. | No requiere jaulas; si roza al operario con una fuerza superior a $50\text{ N}$, se frena suavemente en $10\text{ ms}$. |
-| **Robot Tradicional** | **KUKA KR Quantec** o **ABB IRB 6700** | Puntos de soldadura pesada del chasis de acero en bruto en líneas cerradas. | Velocidad extrema ($> 2\text{ m/s}$) y capacidad de mover cargas de más de $300\text{ kg}$. |
+| **Cobot Colaborativo** | **Universal Robots UR10e** o **Fanuc CRX-10iA** | Atornillado de salpicaderos de coches en la misma estación donde un operario monta los cables. | No requiere jaulas; si roza al operario con una fuerza superior a 50 Newtons, se frena suavemente en 10 ms. |
+| **Robot Tradicional** | **KUKA KR Quantec** o **ABB IRB 6700** | Puntos de soldadura pesada del chasis de acero en bruto en líneas cerradas. | Velocidad extrema (más de 2 m/s) y capacidad de mover cargas de más de 300 kg. |
 | **Robot Móvil Autónomo (AMR)** | **MiR250 (Mobile Industrial Robots)** | Transporte de cajas de tornillería desde el almacén hasta la línea de montaje. | Navega con sensores **LiDAR y SLAM**, esquivando carretillas y personas sin necesidad de cintas magnéticas en el suelo. |
 
 ---

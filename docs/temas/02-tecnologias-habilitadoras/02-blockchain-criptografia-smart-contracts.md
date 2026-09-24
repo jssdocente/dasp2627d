@@ -81,7 +81,7 @@ Cada bloque contiene el **Hash del bloque anterior**. Si un ciberdelincuente int
 ---
 
 ### Árboles de Merkle (*Merkle Trees*)
-Dentro de un bloque pueden registrarse miles de transacciones ($Tx_1, Tx_2, \dots, Tx_n$). Para no saturar los encabezados de los bloques, las transacciones se empaquetan en un **árbol binario criptográfico**:
+Dentro de un bloque pueden registrarse miles de transacciones (Tx 1, Tx 2, ..., Tx N). Para no saturar los encabezados de los bloques, las transacciones se empaquetan en un **árbol binario criptográfico**:
 
 ```mermaid
 graph TD
@@ -104,7 +104,7 @@ graph TD
 ```
 
 !!! tip "Ventaja Técnica: Pruebas de Inclusión Ligeras (Merkle Proofs)"
-    Gracias a la raíz de Merkle, un sensor industrial o un teléfono móvil (*nodo ligero*) no necesita descargarse los cientos de gigabytes de la blockchain completa para comprobar si una transacción suya fue confirmada. Solo necesita solicitar una rama de hashes de tamaño $\mathcal{O}(\log n)$, verificando matemáticamente la inclusión en cuestión de milisegundos.
+    Gracias a la raíz de Merkle, un sensor industrial o un teléfono móvil (*nodo ligero*) no necesita descargarse los cientos de gigabytes de la blockchain completa para comprobar si una transacción suya fue confirmada. Solo necesita solicitar una rama de hashes de tamaño logarítmico O(log n), verificando matemáticamente la inclusión en cuestión de milisegundos.
 
 ---
 
