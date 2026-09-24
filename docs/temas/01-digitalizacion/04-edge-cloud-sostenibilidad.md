@@ -1,6 +1,6 @@
 # 1.4 Edge Computing, Cloud y Sostenibilidad
 
-La digitalización de una industria genera ingentes volúmenes de datos por segundo. Sin embargo, no todos los datos deben procesarse de la misma manera ni en el mismo lugar. Elegir la arquitectura de computación adecuada entre la nube (*Cloud*) y el extremo (*Edge*) es una de las decisiones más críticas para garantizar la seguridad física, el rendimiento económico y la sostenibilidad medioambiental de una organización.
+La digitalización de una industria genera ingentes volúmenes de datos por segundo. Sin embargo, no todos los datos deben procesarse de la misma manera ni en el mismo lugar. Elegir la arquitectura de computación adecuada entre la nube (**Cloud**) y el extremo (**Edge**) es una de las decisiones más críticas para garantizar la seguridad física, el rendimiento económico y la sostenibilidad medioambiental de una organización.
 
 ---
 
@@ -29,6 +29,7 @@ flowchart TD
 ---
 
 ### A. Cloud Computing (Computación en la Nube)
+
 Consiste en centralizar el almacenamiento y el procesamiento en grandes centros de datos remotos gestionados por proveedores de hiperescala (AWS, Microsoft Azure, Google Cloud).
 
 - **Ventajas:**
@@ -43,9 +44,18 @@ Consiste en centralizar el almacenamiento y el procesamiento en grandes centros 
     - **Coste y saturación de ancho de banda:** Transmitir gigabytes de vídeo industrial continuo por segundo satura la conexión de fibra y dispara los costes de transferencia de salida (*egress data*).
     - **Dependencia de la conectividad:** Si se cae el enlace de fibra o el proveedor de Internet sufre una avería, la fábrica quedaría totalmente paralizada si depende del Cloud para operar.
 
+#### 📦 Cuadro de Tecnologías Concretas en Cloud Industrial
+
+| Proveedor / Plataforma | Servicio Concreto | Función en la Arquitectura Industrial |
+| :--- | :--- | :--- |
+| **Amazon Web Services (AWS)** | **AWS IoT Core** | Broker masivo gestionado que recibe millones de mensajes MQTT de sensores de todo el mundo y los enruta hacia bases de datos. |
+| **Microsoft Azure** | **Azure IoT Hub** y **Digital Twins** | Permite modelar relaciones entre máquinas y edificios, sincronizando la telemetría en la nube. |
+| **Google Cloud Platform (GCP)** | **Google BigQuery** | Almacén de datos (*Data Warehouse*) analítico que ejecuta consultas SQL sobre petabytes de datos de producción en segundos. |
+
 ---
 
 ### B. Edge Computing (Computación en el Borde / Frontera)
+
 Consiste en procesar, analizar y filtrar los datos físicamente cerca de donde se generan: en ordenadores industriales (*IPCs*), pasarelas (*gateways* IoT) o en el propio sensor o cámara inteligente.
 
 - **Ventajas:**
@@ -58,6 +68,15 @@ Consiste en procesar, analizar y filtrar los datos físicamente cerca de donde s
 
     - Capacidad de procesamiento y almacenamiento limitada por el hardware local.
     - Coste de mantenimiento físico y actualización de los equipos repartidos por la planta.
+
+#### 📦 Cuadro de Tecnologías Concretas en Edge Computing
+
+| Hardware / Software Edge | Fabricante / Desarrollador | Caso de Uso Práctico en Planta |
+| :--- | :--- | :--- |
+| **SIMATIC IPC227E / IOT2050** | **Siemens** | Microordenador industrial sin ventiladores (*fanless*) instalado en carril DIN dentro del armario eléctrico de una máquina. |
+| **Edge Gateway Serie 3000** | **Dell Technologies** | Pasarela rugerizada que conecta sensores analógicos antiguos por puerto serie RS-485 y los convierte a MQTT. |
+| **Node-RED** | OpenJS Foundation (Open Source) | Entorno visual de programación por nodos para conectar sensores de planta con bases de datos locales sin escribir miles de líneas de código. |
+| **AWS IoT Greengrass** | AWS | Permite ejecutar funciones serverless (Lambdas), contenedores Docker e inferencias de Machine Learning localmente en el dispositivo Edge sin conexión a Internet. |
 
 ---
 
@@ -105,7 +124,7 @@ sequenceDiagram
 
 ## 4. Tecnología Verde (*Green IT*), ODS y la Paradoja Ambiental
 
-A menudo la digitalización se vende como un proceso "inmaterial" y ecológico porque elimina el uso de papel en las oficinas. Sin embargo, la infraestructura que sostiene el mundo digital tiene una huella física y energética descomunal.
+A menudo la digitalización se vende como un proceso "inmaterial" y ecológico porque elimina el uso de papel en las oficinas. Sin embargo, la infraestructura que sostiene el mundo digital tiene una huella física y energética colosal.
 
 ```mermaid
 graph LR
@@ -127,6 +146,22 @@ graph LR
 
 ---
 
+### La Métrica PUE (*Power Usage Effectiveness*)
+
+La eficiencia energética de un centro de datos se mide mediante el índice **PUE**:
+
+$$\text{PUE} = \frac{\text{Energía Total que entra al Centro de Datos (kW)}}{\text{Energía consumida exclusivamente por los Servidores (kW)}}$$
+
+#### 📦 Cuadro de Eficiencia en Centros de Datos Reales
+
+| Rango PUE | Nivel de Eficiencia | Caso Real en la Industria |
+| :--- | :--- | :--- |
+| **PUE = 1.0** | Ideal teórico perfecto | Toda la energía consumida va a los chips; cero gasto en ventilación o iluminación. |
+| **PUE = 1.1 - 1.2** | Excelente / Vanguardia | **Centro de Datos de Google en Hamina (Finlandia):** Refrigerado exclusivamente con agua marina helada del Golfo de Finlandia, sin climatizadores por compresor. |
+| **PUE = 1.5 - 2.0** | Típico / Tradicional | Centro de datos convencional: por cada $100\text{ kW}$ que gastan los servidores, se gastan otros $80\text{ kW}$ en aparatos de aire acondicionado para que no se quemen. |
+
+---
+
 ### La Cara Oculta del Boom de la Inteligencia Artificial
 
 - **Consumo eléctrico:** El entrenamiento de un único modelo de lenguaje grande (LLM) de vanguardia puede consumir tanta electricidad como el consumo medio de cientos de hogares durante todo un año.
@@ -143,20 +178,4 @@ Como futuros profesionales del desarrollo de software y la infraestructura tecno
 
 2. **Reacondicionamiento y ciclo de vida extendido:** En lugar de reemplazar ordenadores industriales o servidores cada 3 años por política corporativa, actualizar componentes modulares (RAM, SSDs) y reutilizar equipos menos potentes como nodos Edge o cortafuegos perimetrales.
 
-3. **Selección de proveedores Cloud con PUE eficiente:** Escoger regiones de nube (*Cloud Regions*) con métricas PUE (*Power Usage Effectiveness*) cercanas a 1.1 y alimentadas por contratos directos de energía 100% renovable (PPA).
-
----
-
-## Reto de Cálculo: Comparativa de Huella Energética
-
-??? tip "Actividad: Auditoría Energética de Arquitectura"
-    Una planta química dispone de 500 sensores que registran lecturas cada segundo. Te plantean dos opciones:
-    
-    - **Opción A (Cloud puro):** Cada sensor envía todas sus lecturas por conexión 4G/Fibra a un servidor en la nube que procesa 15.700 millones de peticiones al año.
-    - **Opción B (Edge filtrado):** Un microordenador Edge local procesa las lecturas en tiempo real y solo envía a la nube un informe consolidado una vez por hora (o si se detecta una anomalía de presión/temperatura).
-    
-    **Calcula y reflexiona:**
-
-    1. ¿Cuál es la reducción porcentual en el volumen de datos transmitidos por la red exterior?
-
-    2. ¿Qué impacto tiene esta reducción en la factura de telecomunicaciones, la batería de los sensores y el consumo energético de los centros de datos?
+3. **Selección de proveedores Cloud con contratos verdes:** Escoger regiones de nube (*Cloud Regions*) con métricas PUE cercanas a 1.1 y respaldadas por contratos directos de compra de energía 100% renovable (PPA - *Power Purchase Agreements*).

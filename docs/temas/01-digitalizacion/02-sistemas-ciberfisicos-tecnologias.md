@@ -1,12 +1,12 @@
 # 1.2 Sistemas Ciberfísicos (CPS) y Tecnologías Habilitadoras
 
-La piedra angular de la Cuarta Revolución Industrial es la superación de la barrera tradicional entre el mundo físico y el mundo virtual. Los **Sistemas Ciberfísicos** (*Cyber-Physical Systems*, CPS) son el mecanismo tecnológico que hace posible esta integración.
+La piedra angular de la Cuarta Revolución Industrial es la superación de la barrera tradicional entre el mundo físico y el mundo virtual. Los **Sistemas Ciberfísicos** (*Cyber-Physical Systems*, CPS) son el mecanismo tecnológico que hace posible esta integración en plantas industriales, infraestructuras y servicios.
 
 ---
 
 ## 1. ¿Qué es un Sistema Ciberfísico (CPS)?
 
-Un **Sistema Ciberfísico (CPS)** es una integración de computación, redes de comunicación y procesos físicos. A diferencia de un sistema embebido convencional o un ordenador de sobremesa, un CPS opera en un **bucle cerrado de retroalimentación (*feedback loop*)** en tiempo real:
+Un **Sistema Ciberfísico (CPS)** es una integración de computación, redes de comunicación y procesos físicos. A diferencia de un ordenador convencional que solo procesa datos en una pantalla, un CPS opera en un **bucle cerrado de retroalimentación (*feedback loop*)** en tiempo real:
 
 ```mermaid
 graph LR
@@ -29,38 +29,48 @@ graph LR
 
 ---
 
-## 2. Tecnologías Habilitadoras Digitales en el Ecosistema CPS
+### 📦 Cuadro de Ejemplo Tecnológico: Un CPS en la Vida Real
 
-Para que un sistema ciberfísico opere a escala industrial, confluyen varias tecnologías de vanguardia:
+| Componente del CPS | Dispositivo Tecnológico Concreto | Función en el Sistema |
+| :--- | :--- | :--- |
+| **Elemento Físico** | Horno de recocido de piezas de acero en automoción. | Debe mantenerse a $850^\circ\text{C} \pm 2^\circ\text{C}$ sin quemar la aleación. |
+| **Sensores (Entrada)** | **Termopares tipo K** de alta temperatura y pirómetros ópticos infrarrojos. | Miden la radiación térmica 50 veces por segundo. |
+| **Red Industrial** | Bus **PROFINET** sobre cable apantallado o **EtherCAT**. | Transporta la señal con latencia determinista inferior a $1\text{ ms}$. |
+| **Cómputo / Algoritmo** | Autómata **Siemens S7-1500** con bucle PID y modelo predictivo. | Compara temperatura real vs deseada y calcula la corrección. |
+| **Actuadores (Salida)** | **Tiristores de potencia** y válvulas servoasistidas de gas. | Regulan al milímetro el caudal de gas y la corriente de las resistencias. |
+
+---
+
+## 2. Tecnologías Habilitadoras Digitales en el Ecosistema CPS
 
 ```mermaid
 mindmap
   root((Tecnologías Disruptivas de la Industria 4.0))
     Robótica Colaborativa
       Cobots sin jaula
-      Sensores de par y esfuerzo
-      Seguridad intrínseca
+      Universal Robots / KUKA iiwa
+      Guiado manual intuitivo
     Internet de las Cosas Industrial IIoT
-      Sensores inalámbricos
-      Telemetría en tiempo real
-      Bajo consumo energético
+      Sensores de vibración IFM
+      Gateways Siemens IOT2050
+      Protocolos MQTT y OPC-UA
     Gemelos Digitales Digital Twins
-      Simulación física
-      Mantenimiento predictivo
-      Sincronización continua
+      Siemens NX / Mechatronics
+      NVIDIA Omniverse
+      Simulación física en tiempo real
     Visión por Computador
-      Control de calidad en línea
-      Detección de defectos por IA
-      Seguridad en planta
+      Cámaras Cognex y Keyence
+      Modelos YOLO / Deep Learning
+      Inspección 100% de piezas
     Fabricación Aditiva
-      Impresión 3D metal y polímeros
-      Repuestos bajo demanda
-      Reducción de residuos
+      Sinterizado láser metal EOS
+      Polímeros HP Multi Jet Fusion
+      Piezas ligeras aeroespaciales
 ```
 
 ---
 
-### A. Robótica Colaborativa (*Cobots*) vs. Robótica Industrial Tradicional
+### A. Robótica Colaborativa (*Cobots*) vs. Robótica Tradicional
 
 Durante la 3ª Revolución Industrial, los robots industriales (como los brazos soldadores KUKA o Fanuc) operaban encerrados en **jaulas de seguridad**. Si un operario abría la puerta, la máquina ejecutaba una parada de emergencia inmediata debido a su inercia y fuerza letal.
 
@@ -70,56 +80,99 @@ Los **robots colaborativos (*cobots*)** rompen este paradigma:
 classDiagram
     class RobotTradicional {
         +Jaula perimetral obligatoria
-        +Alta velocidad y carga pesada
+        +Alta velocidad y carga pesada (>500 kg)
         +Programación rígida por coordenadas
-        -Peligro mortal por contacto humano
+        -Peligro mortal por impacto
         -Cero adaptabilidad al entorno
     }
 
     class RobotColaborativo {
-        +Espacio de trabajo compartido
-        +Sensores de fuerza y par articular
-        +Limitación de potencia y velocidad
-        +Parada suave ante contacto táctil
+        +Espacio de trabajo compartido sin vallas
+        +Sensores de fuerza y par articular en cada eje
+        +Limitación intrínseca de potencia y velocidad
+        +Parada suave inmediata ante contacto táctil
         +Programación por guiado manual (Lead-through)
     }
 ```
 
-| Criterio | Robot Industrial Clásico | Robot Colaborativo (Cobot) |
-| :--- | :--- | :--- |
-| **Seguridad perimetral** | Valla física / Jaula con barreras fotoeléctricas | Sin jaula física (trabaja codo a codo con personas) |
-| **Carga útil y velocidad** | Muy alta (> 500 kg, > 2 m/s) | Media / Baja (< 20 kg, velocidad adaptativa) |
-| **Puesta en marcha** | Compleja, requiere especialistas de marca | Intuitiva, guiado manual y programación visual |
-| **Flexibilidad** | Producciones masivas estáticas | Cambios rápidos de lote y tareas combinadas |
+#### 📦 Cuadro de Tecnologías Concretas en Robótica
+
+| Tipo de Robot | Modelos y Marcas Reales | Ejemplo de Uso en Planta | Ventaja Operativa |
+| :--- | :--- | :--- | :--- |
+| **Cobot Colaborativo** | **Universal Robots UR10e** o **Fanuc CRX-10iA** | Atornillado de salpicaderos de coches en la misma estación donde un operario monta los cables. | No requiere jaulas; si roza al operario con una fuerza superior a $50\text{ N}$, se frena suavemente en $10\text{ ms}$. |
+| **Robot Tradicional** | **KUKA KR Quantec** o **ABB IRB 6700** | Puntos de soldadura pesada del chasis de acero en bruto en líneas cerradas. | Velocidad extrema ($> 2\text{ m/s}$) y capacidad de mover cargas de más de $300\text{ kg}$. |
+| **Robot Móvil Autónomo (AMR)** | **MiR250 (Mobile Industrial Robots)** | Transporte de cajas de tornillería desde el almacén hasta la línea de montaje. | Navega con sensores **LiDAR y SLAM**, esquivando carretillas y personas sin necesidad de cintas magnéticas en el suelo. |
 
 ---
 
 ### B. Gemelos Digitales (*Digital Twins*)
 
-Un **Gemelo Digital** no es un simple modelo 3D en CAD; es una **representación virtual viva y sincronizada** de un activo físico (una turbina eólica, un motor a reacción o una fábrica entera).
+Un **Gemelo Digital** no es un plano 3D estático en AutoCAD; es una **representación virtual viva y sincronizada** de un activo físico (un motor, un buque o una fábrica entera).
 
-- **Sincronización bidireccional:** El gemelo recibe datos telemétricos de los sensores del mundo real en tiempo real. 
-- **Simulación predictiva:** Mediante modelos de física aplicada y Machine Learning, el gemelo calcula cuándo fallará un rodamiento o cómo responderá la estructura ante una sobrecarga térmica antes de que ocurra en la realidad.
-- **Caso real español - Navantia F-110:** La empresa pública naval española Navantia diseña y construye sus fragatas F-110 integrando un gemelo digital completo del buque. Esto permite a la tripulación y a los ingenieros en tierra diagnosticar averías mecánicas, simular escenarios de combate o planificar mantenimientos preventivos a miles de millas náuticas de distancia.
+```mermaid
+flowchart LR
+    subgraph Activo Físico Real
+        P[Bomba Hidráulica de Alta Presión] -->|Telemetría continua: Presión, Flujo, Vibración| GW[Gateway IoT de Planta]
+    end
+
+    subgraph Gemelo Digital en la Nube
+        GW -->|Protocolo MQTT / WebSockets| TWIN[(Modelo Físico-Digital)]
+        TWIN --> SIM[Simulación de Desgaste por Elementos Finitos]
+        SIM --> PRED[Predicción: Fallo de junta tórica en 48 horas]
+    end
+```
+
+#### 📦 Cuadro de Tecnologías Concretas en Gemelos Digitales
+
+| Herramienta / Software | Desarrollador | Aplicación Concreta en la Industria |
+| :--- | :--- | :--- |
+| **Siemens Mechatronics Concept Designer** | Siemens | Simula la física de una máquina completa (gravedad, fricción, motores) antes de cortar una sola pieza de metal. |
+| **NVIDIA Omniverse / Isaac Sim** | NVIDIA | Crea réplicas fotorrealistas de fábricas enteras con física precisa para entrenar brazos robóticos mediante IA antes de instalarlos. |
+| **Caso Real Español: Navantia F-110** | Navantia | Gemelo digital completo de las nuevas fragatas de la Armada Española para predecir averías en alta mar y ensayar maniobras tácticas. |
 
 ---
 
 ### C. Visión por Computador e Inspección Automatizada
 
-La combinación de cámaras industriales de alta velocidad y redes neuronales convolucionales (CNN) permite inspeccionar el 100% de la producción en tiempo real:
+La visión artificial combina cámaras industriales de alta velocidad, iluminación estroboscópica controlada y redes neuronales convolucionales (CNN):
 
-- Detección microscópica de grietas en obleas de silicio o piezas de automoción.
-- Verificación del correcto sellado de envases farmacéuticos y alimentarios.
-- Prevención de riesgos laborales: cámaras que alertan si un trabajador entra en una zona de riesgo sin casco o chaleco reflectante.
+```mermaid
+flowchart TD
+    PROD[Envase de Medicamento en cinta a 300 uds/min] --> CAM[Cámara Industrial 4K con LED estroboscópico]
+    CAM --> IA[Red Neuronal de Clasificación YOLOv8]
+    IA -->|¿Tapón bien sellado y código de lote legible?| DEC{Evaluación}
+    DEC -->|SÍ| OK[Sigue a embalaje]
+    DEC -->|NO| REJ[Actuador neumático expulsa el envase defectuoso]
+```
+
+#### 📦 Cuadro de Tecnologías Concretas en Visión Artificial
+
+| Tecnología / Producto | Fabricante | Aplicación en la Vida Real |
+| :--- | :--- | :--- |
+| **Cámaras Inteligentes In-Sight 2800** | **Cognex** | Verificación de etiquetado y nivel de llenado en embotelladoras de refrescos a 60.000 botellas por hora. |
+| **Sistemas de Visión Serie CV-X** | **Keyence** | Inspección microscópica de soldaduras en placas de circuitos electrónicos de telefonía móvil. |
+| **Cámaras 3D ToF (Time-of-Flight)** | **Basler** | Detección volumétrica de cajas desalineadas en palets de centros logísticos para guiar brazos despaletizadores. |
 
 ---
 
 ### D. Fabricación Aditiva (Impresión 3D Industrial)
 
-La manufactura tradicional es eminentemente **sustractiva** (fresar, tornear o cortar un bloque de metal, desperdiciando hasta el 70% del material en virutas). La fabricación aditiva deposita material capa a capa únicamente donde es necesario:
+La manufactura tradicional es **sustractiva** (fresar o cortar un bloque de metal de 10 kg para obtener una pieza de 2 kg, tirando 8 kg en virutas). La fabricación aditiva deposita material capa a capa exclusivamente donde se necesita:
 
-- Geometrías complejas y estructuras aligeradas de titanio para la industria aeroespacial.
-- Producción de repuestos descatalogados directamente en la fábrica del cliente, eliminando almacenes gigantescos y transporte internacional de recambios.
+```mermaid
+graph TD
+    CAD[Diseño Optimizado por Topología en CAD] --> SLICE[Software Laminador Slicer]
+    SLICE --> 3D["Impresora Láser de Polvo Metálico (SLM)"]
+    3D --> PIEZA["Pieza de Titanio Hueca: 50% más ligera y misma resistencia"]
+```
+
+#### 📦 Cuadro de Tecnologías Concretas en Fabricación Aditiva
+
+| Tecnología 3D | Maquinaria Concreta | Material Utilizado | Caso de Uso Real |
+| :--- | :--- | :--- | :--- |
+| **Sinterizado Láser de Metal (DMLS / SLM)** | **EOS M 290** | Polvo de Titanio (Ti6Al4V) e Inconel | Soportes estructurales de turbinas en **Airbus** y toberas de cohetes aeroespaciales. |
+| **Multi Jet Fusion (MJF)** | **HP Jet Fusion 5200** | Polvo de Poliamida (Nylon PA12) | Producción bajo demanda de repuestos descatalogados de electrodomésticos en series cortas. |
+| **Estereolitografía Médica (SLA)** | **Formlabs Form 4** | Resinas biocompatibles | Guías quirúrgicas personalizadas y alineadores dentales invisibles fabricados a medida en 2 horas. |
 
 ---
 
@@ -157,21 +210,3 @@ A menudo se asume erróneamente que "cuanta más automatización y menos humanos
 
 ### Lección técnica para Grado Superior:
 Los robots y CPS destacan en tareas de alta precisión milimétrica, esfuerzo físico repetitivo y entornos tóxicos. Sin embargo, la **destreza táctil, la visión flexible ante imprevistos y el sentido común adaptativo del ser humano** siguen siendo insustituibles en la mayoría de tareas complejas de montaje. Por ello, la tendencia no es sustituir personas, sino implantar **cobots colaborativos**.
-
----
-
-## Reto Práctico: Auditoría de Automatización
-
-??? tip "Laboratorio en el Aula: Análisis de Factibilidad de un CPS"
-    Imagina que una conservera local quiere modernizar su línea de envasado de atún. Te piden consejo sobre qué automatizar:
-    
-    1. **Tarea A:** Paletizado de cajas pesadas de 25 kg desde el final de la cinta hasta un palé de madera.
-
-    2. **Tarea B:** Limpieza manual del pescado para retirar espinas y piel residual antes de meterlo en la lata.
-
-    3. **Tarea C:** Etiquetado y lectura de código de barras para trazabilidad alimentaria.
-    
-    **Cuestiones:**
-
-    - ¿Qué tarea asignarías a un robot industrial clásico, cuál a un cobot/visión artificial y cuál mantendrías con operarios humanos?
-    - Justifica tu respuesta considerando costes, ergonomía, destreza y seguridad.

@@ -6,7 +6,7 @@ Uno de los mayores desafíos técnicos y de gestión de la digitalización no es
 
 ## 1. Estructura Empresarial e Identidad Digital
 
-En cualquier organización moderna, los departamentos (Recursos Humanos, Finanzas, Operaciones, TI, Logística) están jerarquizados y requieren accesos diferenciados a la información:
+En cualquier organización moderna, los departamentos (Recursos Humanos, Finanzas, Operaciones, TI, Logística) están jerarquizados y requieren accesos estrictamente diferenciados a la información:
 
 ```mermaid
 graph TD
@@ -22,15 +22,27 @@ graph TD
     IT_DIR -->|"Políticas de Seguridad y Cortafuegos"| AD
 ```
 
+---
+
 ### Control de Acceso y Gestión de Identidades (IAM)
+
 La digitalización de una empresa exige abandonar la gestión manual de contraseñas compartidas mediante sistemas de **Control de Acceso Basado en Roles (RBAC)**:
 
 - **Principio de Mínimo Privilegio (*Least Privilege*):** Un operario de planta solo tiene permisos de lectura sobre la receta del producto y control sobre su estación de trabajo; no puede acceder a las nóminas de RRHH ni modificar las reglas del cortafuegos corporativo.
 - **Autenticación Multifactor (MFA / 2FA):** Exigencia de al menos dos factores distintos de autenticación:
 
-    1. *Algo que sabes:* Contraseña o PIN.
-    2. *Algo que tienes:* Llave de seguridad FIDO2 (YubiKey), app autenticadora TOTP (Google Authenticator) o tarjeta inteligente RFID.
-    3. *Algo que eres:* Biometría (huella dactilar, reconocimiento facial 3D o iris).
+    1. *Algo que sabes:* Contraseña o PIN complejo.
+    2. *Algo que tienes:* Llave de seguridad FIDO2 (YubiKey), app autenticadora TOTP (Google Authenticator) o tarjeta RFID corporativa.
+    3. *Algo que eres:* Biometría (huella dactilar, reconocimiento facial 3D o escaneo de iris).
+
+#### 📦 Cuadro de Tecnologías Concretas en IAM y Autenticación
+
+| Tecnología / Producto | Fabricante / Tipo | Función en la Empresa | Caso de Uso Práctico |
+| :--- | :--- | :--- | :--- |
+| **Microsoft Entra ID** *(antes Azure AD)* | Microsoft (Cloud) | Directorio activo en la nube y gestión unificada de identidades corporativas. | Si se despide a un empleado, revocar su cuenta en Entra ID bloquea al instante su acceso al correo, al ERP y a las máquinas de planta. |
+| **Keycloak** | Red Hat / Open Source | Servidor de gestión de identidades y accesos (IAM) autoalojado (*On-Premise*). | Autenticación mediante **Single Sign-On (SSO)** y OAuth2/OpenID Connect en servidores propios sin cuotas por usuario. |
+| **YubiKey Serie 5** | **Yubico** (Hardware FIDO2) | Llave criptográfica física USB/NFC resistente al agua y a golpes. | Los técnicos de mantenimiento conectan su YubiKey al PC industrial para autorizar cambios en el código del PLC; inmune a ataques de *phishing*. |
+| **Lectores Biométricos Suprema** | **Suprema BioMini** | Sensor dactilar óptico rugerizado con detección de dedos falsos de silicona. | Fichaje horario y apertura de puertas de acceso restringido en zonas con polvo o grasa industrial. |
 
 !!! warning "El dilema ético y técnico de la biometría"
     A diferencia de una contraseña comprometida (que se restablece en 10 segundos con un nuevo hash en base de datos), **los datos biométricos no se pueden cambiar**. Si una base de datos con las huellas o el escaneo facial de los trabajadores es sustraída por ciberdelincuentes, la identidad de esos empleados queda expuesta de por vida. Por ello, el RGPD europeo cataloga la biometría como dato de categoría especial y exige cifrado de extremo a extremo y procesado en local.
@@ -83,14 +95,59 @@ flowchart TD
 
 ---
 
-## 4. La Superficie de Ataque Industrial y Casos Históricos
+### 📦 Cuadro de Tecnologías y Marcas Concretas: ¿Qué se usa en cada lado?
 
-Históricamente, los sistemas industriales de planta estaban aislados del exterior mediante lo que se denominaba un **aislamiento por espacio de aire (*air gap*)**. La digitalización ha derribado ese aislamiento: ahora las máquinas de planta envían datos a la nube para mantenimiento predictivo, lo que abre la puerta a ciberataques devastadores.
+| Capa Tecnológica | Tecnología Típica en Oficina (IT) | Tecnología Típica en Fábrica (OT) |
+| :--- | :--- | :--- |
+| **Hardware de Cómputo** | Servidores rack **Dell PowerEdge** o instancias en **AWS EC2**. | Autómatas programables **Siemens S7-1500**, **Rockwell Allen-Bradley ControlLogix**, o **Schneider Modicon M580**. |
+| **Sistemas Operativos** | **Windows Server 2022**, **Ubuntu Server**, **Red Hat Enterprise Linux**. | Sistemas operativos de tiempo real (**RTOS**): **VxWorks**, **QNX**, **FreeRTOS** o firmwares propietarios embebidos. |
+| **Switches y Redes** | Switches de oficina **Cisco Catalyst 9200** (ventilación activa, plástico/metal ligero). | Switches rugerizados carril DIN **Siemens SCALANCE X** o **Moxa EDS-508** (sin ventiladores, toleran $75^\circ\text{C}$ y polvo). |
+| **Software Central** | ERP **SAP S/4HANA**, CRM **Salesforce**, bases de datos **PostgreSQL**. | Software SCADA **Siemens WinCC**, **Ignition SCADA**, o **Wonderware InTouch**. |
+
+---
+
+## 4. La Segmentación Segura: El Modelo Purdue
+
+Para conectar la planta a los sistemas de negocio sin exponer las máquinas a internet, la industria utiliza la arquitectura segmentada del **Modelo Purdue (ISA-95)**:
+
+```mermaid
+graph TD
+    classDef it fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
+    classDef dmz fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
+    classDef ot fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+
+    N5["Nivel 4/5: Red Corporativa IT (ERP, Correo, Acceso a Internet)"]:::it
+    FW1["🔒 Cortafuegos IT/OT Principal"]
+    
+    N35["Nivel 3.5: DMZ Industrial (Servidor Historiador, Servidor Parches WSUS, Jump Host)"]:::dmz
+    FW2["🔒 Cortafuegos Industrial con Inspección Profunda (DPI)"]
+    
+    N3["Nivel 3: Control de Operaciones de Planta (Servidor SCADA / MES)"]:::ot
+    N2["Nivel 2: Control de Supervisión (Pantallas HMI locales, Puestos de Control)"]:::ot
+    N1["Nivel 1: Control Básico (Autómatas PLC, Variadores de Frecuencia)"]:::ot
+    N0["Nivel 0: Proceso Físico (Sensores de Caudal, Válvulas, Brazos Robóticos)"]:::ot
+
+    N5 --- FW1 --- N35 --- FW2 --- N3 --- N2 --- N1 --- N0
+```
+
+#### 📦 Cuadro de Tecnologías Concretas en Ciberseguridad Industrial
+
+| Dispositivo / Software | Fabricante | Función en la Red Industrial |
+| :--- | :--- | :--- |
+| **Firewall Rugged PA-400R** | **Palo Alto Networks** | Cortafuegos industrial que entiende protocolos OT (Modbus, Profinet) bloqueando comandos anómalos hacia los PLCs. |
+| **Sensor de Red Claroty / Nozomi** | **Nozomi Networks** | Monitoriza pasivamente el tráfico de red de planta para detectar ciberataques sin interrumpir las máquinas. |
+| **Servidor Historiador OSIsoft PI** | **AVEVA (OSIsoft)** | Ubicado en la DMZ; recopila millones de datos de sensores de planta para que el ERP los consulte sin tocar los PLCs. |
+
+---
+
+## 5. La Superficie de Ataque Industrial y Casos Históricos
+
+Históricamente, los sistemas de planta estaban aislados del exterior mediante un **aislamiento físico (*air gap*)**. La digitalización ha derribado ese aislamiento para enviar telemetría a la nube, abriendo la puerta a incidentes graves:
 
 ```mermaid
 graph LR
     Hacker([Ciberdelincuente]) -->|Phishing a empleado de oficina| PC[PC de Oficina IT]
-    PC -->|Movimiento Lateral por red mal segmentada| DMZ[Servidor Intermedio / DMZ]
+    PC -->|Movimiento Lateral por red sin segmentar| DMZ[Servidor Intermedio]
     DMZ -->|Salto a red industrial| PLC[Autómata PLC / SCADA]
     PLC -->|Manipulación de parámetros físicos| Fabrica[(Catástrofe Física / Parada de Planta)]
 ```
@@ -105,28 +162,10 @@ graph LR
 
 ---
 
-## 5. El Marco Regulatorio Europeo: Directiva NIS2
+## 6. El Marco Regulatorio Europeo: Directiva NIS2
 
 Ante la avalancha de ataques a infraestructuras críticas, la Unión Europea aprobó la **Directiva NIS2 (Network and Information Security 2)**:
 
 - **Ámbito ampliado:** Ya no solo afecta a multinacionales de energía o telecomunicaciones; ahora obliga a pymes y proveedores de sectores esenciales (sanidad, tratamiento de aguas, logística alimentaria, automoción, industria química).
-- **Régimen sancionador:** Multas de hasta 10 millones de euros o el 2% del volumen de negocio global, junto con **responsabilidad civil e inhabilitación directa de los directivos** que descuiden la seguridad de sus redes.
+- **Régimen sancionador:** Multas de hasta **10 millones de euros o el 2% del volumen de negocio global**, junto con **responsabilidad civil e inhabilitación directa de los directivos** que descuiden la seguridad de sus redes.
 - **Obligaciones técnicas:** Segmentación estricta de redes de control industrial mediante el **Modelo Purdue**, planes de respuesta a incidentes en menos de 24 horas y auditoría continua de la cadena de suministro de software.
-
----
-
-## Reto de Laboratorio: Segmentación de Red con el Modelo Purdue
-
-??? tip "Actividad Técnica: Arquitectura de Red Segura IT / OT"
-    Imagina que eres contratado por una embotelladora industrial. El director de TI propone conectar los PLCs de la línea de llenado directamente al switch de la oficina para poder ver el estado de las botellas desde su portátil por WiFi.
-    
-    **Tu tarea:**
-
-    1. Diseña un esquema básico aplicando el **Modelo Purdue** con al menos 3 capas:
-
-        - *Nivel 0/1:* Sensores de nivel y PLCs de planta.
-        - *Nivel 2/3:* Servidores SCADA locales e historiadores de datos de planta.
-        - *Nivel 3.5 / DMZ:* Cortafuegos con políticas de filtrado donde reside el servidor que publica datos hacia el ERP corporativo.
-        - *Nivel 4:* Red corporativa IT.
-
-    2. Explica tres razones técnicas por las que conectar los autómatas directamente a la WiFi de oficina supone una negligencia grave de seguridad.
