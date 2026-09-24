@@ -24,11 +24,13 @@ graph TD
 
 ### Control de Acceso y Gestión de Identidades (IAM)
 La digitalización de una empresa exige abandonar la gestión manual de contraseñas compartidas mediante sistemas de **Control de Acceso Basado en Roles (RBAC)**:
+
 - **Principio de Mínimo Privilegio (*Least Privilege*):** Un operario de planta solo tiene permisos de lectura sobre la receta del producto y control sobre su estación de trabajo; no puede acceder a las nóminas de RRHH ni modificar las reglas del cortafuegos corporativo.
 - **Autenticación Multifactor (MFA / 2FA):** Exigencia de al menos dos factores distintos de autenticación:
-  1. *Algo que sabes:* Contraseña o PIN.
-  2. *Algo que tienes:* Llave de seguridad FIDO2 (YubiKey), app autenticadora TOTP (Google Authenticator) o tarjeta inteligente RFID.
-  3. *Algo que eres:* Biometría (huella dactilar, reconocimiento facial 3D o iris).
+
+    1. *Algo que sabes:* Contraseña o PIN.
+    2. *Algo que tienes:* Llave de seguridad FIDO2 (YubiKey), app autenticadora TOTP (Google Authenticator) o tarjeta inteligente RFID.
+    3. *Algo que eres:* Biometría (huella dactilar, reconocimiento facial 3D o iris).
 
 !!! warning "El dilema ético y técnico de la biometría"
     A diferencia de una contraseña comprometida (que se restablece en 10 segundos con un nuevo hash en base de datos), **los datos biométricos no se pueden cambiar**. Si una base de datos con las huellas o el escaneo facial de los trabajadores es sustraída por ciberdelincuentes, la identidad de esos empleados queda expuesta de por vida. Por ello, el RGPD europeo cataloga la biometría como dato de categoría especial y exige cifrado de extremo a extremo y procesado en local.
@@ -96,7 +98,9 @@ graph LR
 ### Casos Reales Paradigmáticos:
 
 1. **Stuxnet (2010):** El primer ciberarma militar conocida de la historia. Infectó sistemas SCADA de Siemens mediante memorias USB y alteró las frecuencias de rotación de las centrifugadoras de enriquecimiento de uranio en la planta iraní de Natanz, destruyéndolas físicamente mientras en las pantallas de los operadores mostraba lecturas falsas de normalidad.
+
 2. **Ransomware Colonial Pipeline (2021):** Un grupo de ciberdelincuentes secuestró los sistemas de facturación (IT) del mayor oleoducto de la costa este de EEUU. Por miedo a que el malware saltara a la red operativa de bombeo (OT), la compañía cerró el oleoducto durante 6 días, provocando compras de pánico de gasolina y crisis de transporte en varios estados.
+
 3. **Ciberataque al Hospital Clínic de Barcelona (2023):** Un ransomware secuestró miles de historiales clínicos y paralizó servicios de radioterapia y quirófanos programados durante semanas, evidenciando que en el ámbito sanitario la convergencia IT/OT compromete directamente la salud de los pacientes.
 
 ---
@@ -104,6 +108,7 @@ graph LR
 ## 5. El Marco Regulatorio Europeo: Directiva NIS2
 
 Ante la avalancha de ataques a infraestructuras críticas, la Unión Europea aprobó la **Directiva NIS2 (Network and Information Security 2)**:
+
 - **Ámbito ampliado:** Ya no solo afecta a multinacionales de energía o telecomunicaciones; ahora obliga a pymes y proveedores de sectores esenciales (sanidad, tratamiento de aguas, logística alimentaria, automoción, industria química).
 - **Régimen sancionador:** Multas de hasta 10 millones de euros o el 2% del volumen de negocio global, junto con **responsabilidad civil e inhabilitación directa de los directivos** que descuiden la seguridad de sus redes.
 - **Obligaciones técnicas:** Segmentación estricta de redes de control industrial mediante el **Modelo Purdue**, planes de respuesta a incidentes en menos de 24 horas y auditoría continua de la cadena de suministro de software.
@@ -116,9 +121,12 @@ Ante la avalancha de ataques a infraestructuras críticas, la Unión Europea apr
     Imagina que eres contratado por una embotelladora industrial. El director de TI propone conectar los PLCs de la línea de llenado directamente al switch de la oficina para poder ver el estado de las botellas desde su portátil por WiFi.
     
     **Tu tarea:**
+
     1. Diseña un esquema básico aplicando el **Modelo Purdue** con al menos 3 capas:
-       - *Nivel 0/1:* Sensores de nivel y PLCs de planta.
-       - *Nivel 2/3:* Servidores SCADA locales e historiadores de datos de planta.
-       - *Nivel 3.5 / DMZ:* Cortafuegos con políticas de filtrado donde reside el servidor que publica datos hacia el ERP corporativo.
-       - *Nivel 4:* Red corporativa IT.
+
+        - *Nivel 0/1:* Sensores de nivel y PLCs de planta.
+        - *Nivel 2/3:* Servidores SCADA locales e historiadores de datos de planta.
+        - *Nivel 3.5 / DMZ:* Cortafuegos con políticas de filtrado donde reside el servidor que publica datos hacia el ERP corporativo.
+        - *Nivel 4:* Red corporativa IT.
+
     2. Explica tres razones técnicas por las que conectar los autómatas directamente a la WiFi de oficina supone una negligencia grave de seguridad.

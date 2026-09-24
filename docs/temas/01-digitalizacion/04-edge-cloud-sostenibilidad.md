@@ -32,13 +32,16 @@ flowchart TD
 Consiste en centralizar el almacenamiento y el procesamiento en grandes centros de datos remotos gestionados por proveedores de hiperescala (AWS, Microsoft Azure, Google Cloud).
 
 - **Ventajas:**
-  - Capacidad de cómputo y almacenamiento prácticamente ilimitada bajo demanda.
-  - Pago por uso: no requiere amortizar servidores físicos locales multimillonarios.
-  - Servicios gestionados de analítica masiva (*Big Data*) y entrenamiento de modelos de IA.
+
+    - Capacidad de cómputo y almacenamiento prácticamente ilimitada bajo demanda.
+    - Pago por uso: no requiere amortizar servidores físicos locales multimillonarios.
+    - Servicios gestionados de analítica masiva (*Big Data*) y entrenamiento de modelos de IA.
+
 - **Inconvenientes en entornos industriales:**
-  - **Latencia impredecible:** La señal debe recorrer cientos o miles de kilómetros por Internet, con variaciones (*jitter*) inaceptables para control de máquinas.
-  - **Coste y saturación de ancho de banda:** Transmitir gigabytes de vídeo industrial continuo por segundo satura la conexión de fibra y dispara los costes de transferencia de salida (*egress data*).
-  - **Dependencia de la conectividad:** Si se cae el enlace de fibra o el proveedor de Internet sufre una avería, la fábrica quedaría totalmente paralizada si depende del Cloud para operar.
+
+    - **Latencia impredecible:** La señal debe recorrer cientos o miles de kilómetros por Internet, con variaciones (*jitter*) inaceptables para control de máquinas.
+    - **Coste y saturación de ancho de banda:** Transmitir gigabytes de vídeo industrial continuo por segundo satura la conexión de fibra y dispara los costes de transferencia de salida (*egress data*).
+    - **Dependencia de la conectividad:** Si se cae el enlace de fibra o el proveedor de Internet sufre una avería, la fábrica quedaría totalmente paralizada si depende del Cloud para operar.
 
 ---
 
@@ -46,12 +49,15 @@ Consiste en centralizar el almacenamiento y el procesamiento en grandes centros 
 Consiste en procesar, analizar y filtrar los datos físicamente cerca de donde se generan: en ordenadores industriales (*IPCs*), pasarelas (*gateways* IoT) o en el propio sensor o cámara inteligente.
 
 - **Ventajas:**
-  - **Latencia ultrabaja determinista (< 5 ms):** Vital para paradas de emergencia, vehículos autónomos y robótica de precisión.
-  - **Autonomía operativa (*Offline first*):** Si se corta Internet exterior, la fábrica sigue funcionando localmente sin interrupción.
-  - **Privacidad y cumplimiento normativo:** Los datos sensibles o imágenes de trabajadores no salen de las instalaciones locales.
+
+    - **Latencia ultrabaja determinista (< 5 ms):** Vital para paradas de emergencia, vehículos autónomos y robótica de precisión.
+    - **Autonomía operativa (*Offline first*):** Si se corta Internet exterior, la fábrica sigue funcionando localmente sin interrupción.
+    - **Privacidad y cumplimiento normativo:** Los datos sensibles o imágenes de trabajadores no salen de las instalaciones locales.
+
 - **Inconvenientes:**
-  - Capacidad de procesamiento y almacenamiento limitada por el hardware local.
-  - Coste de mantenimiento físico y actualización de los equipos repartidos por la planta.
+
+    - Capacidad de procesamiento y almacenamiento limitada por el hardware local.
+    - Coste de mantenimiento físico y actualización de los equipos repartidos por la planta.
 
 ---
 
@@ -122,6 +128,7 @@ graph LR
 ---
 
 ### La Cara Oculta del Boom de la Inteligencia Artificial
+
 - **Consumo eléctrico:** El entrenamiento de un único modelo de lenguaje grande (LLM) de vanguardia puede consumir tanta electricidad como el consumo medio de cientos de hogares durante todo un año.
 - **Estrés hídrico:** Los centros de datos de refrigeración líquida evaporativa pueden evaporar entre 1 y 3 litros de agua potable por cada kilovatio-hora de energía consumida para evitar que los procesadores GPU se sobrecalienten. Esto genera graves conflictos vecinales en zonas agrícolas con sequía recurrente.
 - **La chatarra electrónica (*e-waste*):** Se generan anualmente más de 50 millones de toneladas de residuos electrónicos en el mundo. Menos del 20% se recicla formalmente; el resto termina en vertederos de países en desarrollo, liberando plomo, mercurio y cadmio al subsuelo.
@@ -133,7 +140,9 @@ graph LR
 Como futuros profesionales del desarrollo de software y la infraestructura tecnológica, vuestras decisiones de diseño importan:
 
 1. **Eficiencia algorítmica y del código:** Un algoritmo mal optimizado que consume un 80% de CPU innecesariamente durante millones de ejecuciones en un servidor equivale a quemar carbón en una central térmica.
+
 2. **Reacondicionamiento y ciclo de vida extendido:** En lugar de reemplazar ordenadores industriales o servidores cada 3 años por política corporativa, actualizar componentes modulares (RAM, SSDs) y reutilizar equipos menos potentes como nodos Edge o cortafuegos perimetrales.
+
 3. **Selección de proveedores Cloud con PUE eficiente:** Escoger regiones de nube (*Cloud Regions*) con métricas PUE (*Power Usage Effectiveness*) cercanas a 1.1 y alimentadas por contratos directos de energía 100% renovable (PPA).
 
 ---
@@ -147,5 +156,7 @@ Como futuros profesionales del desarrollo de software y la infraestructura tecno
     - **Opción B (Edge filtrado):** Un microordenador Edge local procesa las lecturas en tiempo real y solo envía a la nube un informe consolidado una vez por hora (o si se detecta una anomalía de presión/temperatura).
     
     **Calcula y reflexiona:**
+
     1. ¿Cuál es la reducción porcentual en el volumen de datos transmitidos por la red exterior?
+
     2. ¿Qué impacto tiene esta reducción en la factura de telecomunicaciones, la batería de los sensores y el consumo energético de los centros de datos?

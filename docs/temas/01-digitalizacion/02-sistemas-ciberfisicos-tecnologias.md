@@ -22,6 +22,7 @@ graph LR
 ```
 
 ### Características fundamentales de los CPS:
+
 - **Acoplamiento físico-digital estrecho:** El software no se limita a procesar transacciones contables; sus instrucciones mueven brazos mecánicos, abren compuertas de presas hidráulicas o modulan frenos de trenes.
 - **Operación en tiempo real estricto (*hard real-time*):** Si la respuesta algorítmica tarda 50 milisegundos más de lo debido, el sistema puede colisionar físicamente.
 - **Autonomía y adaptabilidad:** Capacidad de reconfigurar parámetros operativos de manera automática ante variaciones del entorno o fallos parciales.
@@ -106,6 +107,7 @@ Un **Gemelo Digital** no es un simple modelo 3D en CAD; es una **representación
 ### C. Visión por Computador e Inspección Automatizada
 
 La combinación de cámaras industriales de alta velocidad y redes neuronales convolucionales (CNN) permite inspeccionar el 100% de la producción en tiempo real:
+
 - Detección microscópica de grietas en obleas de silicio o piezas de automoción.
 - Verificación del correcto sellado de envases farmacéuticos y alimentarios.
 - Prevención de riesgos laborales: cámaras que alertan si un trabajador entra en una zona de riesgo sin casco o chaleco reflectante.
@@ -115,6 +117,7 @@ La combinación de cámaras industriales de alta velocidad y redes neuronales co
 ### D. Fabricación Aditiva (Impresión 3D Industrial)
 
 La manufactura tradicional es eminentemente **sustractiva** (fresar, tornear o cortar un bloque de metal, desperdiciando hasta el 70% del material en virutas). La fabricación aditiva deposita material capa a capa únicamente donde es necesario:
+
 - Geometrías complejas y estructuras aligeradas de titanio para la industria aeroespacial.
 - Producción de repuestos descatalogados directamente en la fábrica del cliente, eliminando almacenes gigantescos y transporte internacional de recambios.
 
@@ -123,15 +126,18 @@ La manufactura tradicional es eminentemente **sustractiva** (fresar, tornear o c
 ## 3. Sectores de Aplicación Transformados por los CPS
 
 ### 1. Sanidad y Medicina de Precisión
+
 - **Telemonitorización hospitalaria y domiciliaria:** Camas inteligentes y sensores vestibles (*wearables*) que monitorizan arritmias cardíacas o desaturación de oxígeno, alertando al equipo médico antes de que ocurra un evento crítico.
 - **Interfaces Cerebro-Computadora (BCI):** Prótesis biónicas controladas por señales neuronales y sistemas de rehabilitación motora para pacientes con secuelas cerebrovasculares.
 
 ### 2. Agricultura Inteligente (*Smart Agro*)
+
 - Drones agrícolas con cámaras multiespectrales para medir el estrés hídrico y plagas en cultivos.
 - Tractores y cosechadoras autónomas guiadas por GPS RTK de precisión centimétrica.
 - Sistemas de fertirriego ciberfísicos que dosifican agua y nutrientes analizando la conductividad y humedad del suelo en tiempo real.
 
 ### 3. Logística y Vehículos Guiados Automáticos
+
 - Almacenes automatizados donde flotas de **AMR (Autonomous Mobile Robots)** desplazan estanterías completas hasta el puesto del operario humano (*Goods-to-Person*), optimizando las rutas de recogida y empaquetado (*picking*).
 
 ---
@@ -160,9 +166,12 @@ Los robots y CPS destacan en tareas de alta precisión milimétrica, esfuerzo f�
     Imagina que una conservera local quiere modernizar su línea de envasado de atún. Te piden consejo sobre qué automatizar:
     
     1. **Tarea A:** Paletizado de cajas pesadas de 25 kg desde el final de la cinta hasta un palé de madera.
+
     2. **Tarea B:** Limpieza manual del pescado para retirar espinas y piel residual antes de meterlo en la lata.
+
     3. **Tarea C:** Etiquetado y lectura de código de barras para trazabilidad alimentaria.
     
     **Cuestiones:**
+
     - ¿Qué tarea asignarías a un robot industrial clásico, cuál a un cobot/visión artificial y cuál mantendrías con operarios humanos?
     - Justifica tu respuesta considerando costes, ergonomía, destreza y seguridad.

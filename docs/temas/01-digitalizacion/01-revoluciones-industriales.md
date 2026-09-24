@@ -50,9 +50,10 @@ timeline
 - **Hito industrial clave:** La invención del primer **Controlador Lógico Programable (PLC)** (el *Modicon 084* en 1968 por Dick Morley), que permitió reprogramar secuencias de fabricación en lugar de recablear relés físicos.
 - **Aparición de la Ingeniería del Software:** En este periodo, pioneras como **Margaret Hamilton** (directora del equipo que programó el software de navegación del Programa Espacial Apolo en el MIT) acuñaron y dignificaron la disciplina de la ingeniería de software como ciencia crítica.
 - **Comunicaciones y digitalización:**
-  - Nacimiento y despliegue global de **Internet** y la **World Wide Web** (1990) ideada por Tim Berners-Lee en el CERN.
-  - Aparición de los ordenadores personales (PC), las bases de datos relacionales y la telefonía móvil digital.
-  - Comienza la transición energética hacia fuentes renovables (solar fotovoltaica y eólica).
+
+    - Nacimiento y despliegue global de **Internet** y la **World Wide Web** (1990) ideada por Tim Berners-Lee en el CERN.
+    - Aparición de los ordenadores personales (PC), las bases de datos relacionales y la telefonía móvil digital.
+    - Comienza la transición energética hacia fuentes renovables (solar fotovoltaica y eólica).
 
 ---
 
@@ -70,6 +71,7 @@ flowchart LR
   - **Fusión de esferas:** Convergencia entre los sistemas físicos, el software computacional y la analítica avanzada.
   - **Sistemas Ciberfísicos (CPS):** Máquinas conectadas a la red capaces de recopilar datos con sensórica masiva, autodiagnosticarse y colaborar con humanos o con otras máquinas en tiempo real.
   - **Cuatro pilares tecnológicos disruptivos:**
+
     1. **Conectividad masiva y cómputo ubicuo:** Nube (*Cloud*), computación en el extremo (*Edge Computing*), redes industriales y redes 5G.
     2. **Inteligencia y datos:** Big Data, analítica predictiva y modelos de Inteligencia Artificial (Machine Learning / Deep Learning).
     3. **Interacción persona-máquina:** Realidad Aumentada (AR), Realidad Virtual (VR), robótica colaborativa (*cobots*) y vehículos de guiado automático (AGV / AMR).
@@ -114,6 +116,7 @@ La digitalización no solo altera las herramientas de trabajo, sino el perfil co
 
 ### A. Competencias Duras (*Hard Skills*)
 Habilidades técnicas, especializadas y certificables:
+
 - **Desarrollo y scripting:** Programación moderna (Python, Kotlin, Java, JavaScript/TypeScript).
 - **Gestión del dato e IA:** Manejo de consultas SQL/NoSQL, canalizaciones de datos (*pipelines*) y consumo de APIs de aprendizaje automático.
 - **Ciberseguridad básica aplicada:** Principios de mínimo privilegio, configuración segura de cortafuegos y gestión de identidades (IAM).
@@ -121,6 +124,7 @@ Habilidades técnicas, especializadas y certificables:
 
 ### B. Competencias Blandas (*Soft Skills*)
 Habilidades interpersonales y socioemocionales de creciente valor:
+
 - **Pensamiento analítico y crítico:** Capacidad de cuestionar los resultados de un algoritmo o modelo de IA antes de darlo por bueno.
 - **Resolución de problemas complejos:** Afrontar situaciones imprevistas con enfoques multidisciplinares.
 - **Adaptabilidad y aprendizaje continuo (*Lifelong Learning*):** En tecnología, un marco de trabajo (*framework*) puede quedar obsoleto en 3 o 4 años.

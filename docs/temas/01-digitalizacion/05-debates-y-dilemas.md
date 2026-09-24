@@ -12,10 +12,15 @@ En este taller se presentan cinco grandes dilemas del mundo contemporáneo estru
 ## Índice de Debates
 
 1. [Debate 1: La Revolución de la IA y el Futuro del Empleo Técnico](#debate-1-la-revolucion-de-la-ia-y-el-futuro-del-empleo-tecnico)
+
 2. [Debate 2: La Digitalización y la "España Vaciada": ¿Salvavidas o Abandono Rural?](#debate-2-la-digitalizacion-y-la-espana-vaciada-salvavidas-o-abandono-rural)
+
 3. [Debate 3: La Brecha Digital Plateada ("Soy mayor, no idiota")](#debate-3-la-brecha-digital-plateada-soy-mayor-no-idiota)
+
 4. [Debate 4: Soberanía del Dato vs. Dependencia de Nubes Extranjeras](#debate-4-soberania-del-dato-vs-dependencia-de-nubes-extranjeras)
+
 5. [Debate 5: La Paradoja Ecológica de la IA y los Centros de Datos](#debate-5-la-paradoja-ecologica-de-la-ia-y-los-centros-de-datos)
+
 6. [Guía Metodológica para el Docente: Dinámica en el Aula y Rúbrica](#guia-metodologica-para-el-docente-dinamica-en-el-aula-y-rubrica)
 
 ---
@@ -133,6 +138,7 @@ graph LR
 ```
 
 ### Contexto y Puntos de Conflicto:
+
 - La inmensa mayoría de las empresas europeas almacenan sus datos industriales, historiales médicos y bases de clientes en servidores de tres multinacionales estadounidenses.
 - La ley **US CLOUD Act** permite a agencias federales estadounidenses acceder a datos custodiados por empresas de su país, incluso si los servidores físicos residen en Europa.
 - **Pregunta para debatir:** ¿Es viable y realista construir una "Nube Soberana Europea" (iniciativas como Gaia-X), o Europa ya ha perdido irremediablemente la batalla de la infraestructura digital frente a Estados Unidos y China?
@@ -148,6 +154,7 @@ pie title "¿Hacia dónde va la balanza medioambiental de la IA?"
 ```
 
 ### Contexto y Puntos de Conflicto:
+
 - Las tecnológicas anuncian que la IA "diseñará nuevos materiales para baterías y optimizará la red eléctrica".
 - Al mismo tiempo, la demanda energética de los centros de datos dedicados a IA está retrasando el cierre de centrales de carbón y gas en países desarrollados y secando acuíferos locales para refrigeración por evaporación.
 - **Pregunta para debatir:** ¿Tiene sentido moral gastar 500 ml de agua potable y la energía de una bombilla encendida durante 20 minutos para que un usuario le pida a una IA que dibuje a un gato con sombrero o redacte un correo superficial?
@@ -178,7 +185,9 @@ gantt
 ```
 
 ### Reglas Clave:
+
 1. **Asignación aleatoria de postura:** A los grupos no se les permite elegir su posición; se sortea minutos antes de debatir. Esto les obliga a empatizar y preparar argumentos incluso contrarios a su opinión personal.
+
 2. **Prohibido el argumento sin datos:** Cualquier afirmación debe apoyarse en datos técnicos, normativos (RGPD, NIS2, ODS) o ejemplos reales documentados.
 
 ---

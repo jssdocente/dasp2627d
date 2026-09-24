@@ -50,9 +50,13 @@ mindmap
 A lo largo del curso exploraremos los siguientes bloques de aprendizaje:
 
 1. **[Unidad 1: Digitalización de los sectores productivos](./temas/01-digitalizacion/index.md):** Fundamentos, cronología histórica, sistemas ciberfísicos, convergencia OT/IT, Edge vs Cloud, sostenibilidad y taller de debates socioeconómicos.
+
 2. **Unidad 2: Tecnologías Habilitadoras Digitales (THD):** Profundización en Inteligencia Artificial aplicada, visión artificial, gemelos digitales, sensorización y redes industriales.
+
 3. **Unidad 3: El Dato como Activo Estratégico:** Big Data, analítica predictiva, gobierno del dato, privacidad y soberanía digital en la Unión Europea.
+
 4. **Unidad 4: Ciberseguridad y Resiliencia en Entornos Productivos:** Seguridad en infraestructuras críticas, normativa NIS2, planes de continuidad y respuesta ante incidentes.
+
 5. **Unidad 5: Transformación Digital y Personas:** Gestión del cambio, cultura ágil, impacto en el empleo y diseño centrado en el usuario.
 
 ---

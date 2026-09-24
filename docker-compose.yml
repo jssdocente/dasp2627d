@@ -6,7 +6,7 @@ services:
       context: ./.docker
       dockerfile: dockerfile
 
-    container_name: Mkdocs-pmdm2627
+    container_name: Mkdocs-dasp2627
     ports:
       - "8005:8000"
     volumes:
