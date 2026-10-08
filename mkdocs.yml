@@ -10,7 +10,7 @@ nav:
       - "1.2 Sistemas Ciberfísicos y Tecnologías Disruptivas": temas/01-digitalizacion/02-sistemas-ciberfisicos-tecnologias.md
       - "1.3 Estructura Organizativa y Convergencia OT/IT": temas/01-digitalizacion/03-organizacion-convergencia-ot-it.md
       - "1.4 Edge Computing, Cloud y Sostenibilidad": temas/01-digitalizacion/04-edge-cloud-sostenibilidad.md
-      - "Taller de Debates y Pensamiento Crítico": temas/01-digitalizacion/05-debates-y-dilemas.md
+      - "1.5 Actividades Prácticas, Retos y Debates": temas/01-digitalizacion/05-Actividades.md
   - "Unidad 2: Tecnologías Digitales Habilitadoras (TDH)":
       - "Visión General y Mapa Conceptual": temas/02-tecnologias-habilitadoras/index.md
       - "2.1 Conectividad Avanzada, 5G e IoT Industrial": temas/02-tecnologias-habilitadoras/01-conectividad-redes-5g-iot.md
