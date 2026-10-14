@@ -38,12 +38,13 @@ Cada pareja de trabajo seleccionará o recibirá asignada **una misión de inves
 
 - **El Desafío:** Elegir un sector productivo tradicional (por ejemplo: *fabricación de calzado, panadería/harinera, almazara de aceite de oliva, bodega de vino, carpintería/muebles o transporte de mercancías*) y reconstruir cómo se ha transformado a lo largo de las **5 revoluciones industriales**.
 - **Líneas de investigación para la pareja:**
-  - ¿Qué fuente de energía y herramientas mecánicas se usaban en la **1ª Revolución**? ¿Qué riesgos físicos sufrían los obreros?
-  - ¿Cómo introdujo la **2ª Revolución** la electrificación y la producción en cadena? ¿Cómo cambió el precio final del producto?
-  - ¿Cuándo entraron los primeros autómatas (PLCs) y la informática básica en la **3ª Revolución**?
-  - ¿Cómo opera la **4ª Revolución** con sensores IoT, telemetría y software en tiempo real?
-  - ¿Qué aporta la **Industria 5.0** en este sector respecto a economía circular, bienestar del trabajador y personalización sostenible?
-- **Entregable:** Línea temporal visual (infografía o póster técnico) que compare el sector en las 5 eras.
+
+    - ¿Qué fuente de energía y herramientas mecánicas se usaban en la **1ª Revolución**? ¿Qué riesgos físicos sufrían los obreros?
+    - ¿Cómo introdujo la **2ª Revolución** la electrificación y la producción en cadena? ¿Cómo cambió el precio final del producto?
+    - ¿Cuándo entraron los primeros autómatas (PLCs) y la informática básica en la **3ª Revolución**?
+    - ¿Cómo opera la **4ª Revolución** con sensores IoT, telemetría y software en tiempo real?
+    - ¿Qué aporta la **Industria 5.0** en este sector respecto a economía circular, bienestar del trabajador y personalización sostenible?
+    - **Entregable:** Línea temporal visual (infografía o póster técnico) que compare el sector en las 5 eras.
 
 ??? example "📖 Caso de Ejemplo Guiado: La Fabricación de Cerveza a lo largo de las 5 Revoluciones"
     Para que os sirva de guía, así se estructuraría la evolución histórica en el **sector cervecero**:
@@ -60,11 +61,13 @@ Cada pareja de trabajo seleccionará o recibirá asignada **una misión de inves
 
 - **El Desafío:** Identificar una máquina o proceso tradicional que funcione de manera "ciega" o manual (ej. un secadero de jamones, un invernadero, una máquina de inyección de plástico o un horno de panadería) y diseñar su transformación completa en un **Sistema Ciberfísico (CPS)**.
 - **Líneas de investigación para la pareja:**
-  - **1. Capa Física (Sentir):** ¿Qué magnitudes físicas causan mermas o averías? ¿Qué sensores concretos se deben instalar para monitorizarlas en tiempo real?
-  - **2. Capa Ciber (Pensar):** ¿Qué algoritmo o software procesará las lecturas? ¿Qué decisiones debe tomar el sistema de forma autónoma sin esperar a que un operario pulse un botón?
-  - **3. Capa Actuadora (Actuar):** ¿Qué componentes físicos ejecutarán la acción correctora (electroválvulas, pistones, motores, frenos)?
-  - **4. Tecnología Habilitadora Complementaria:** Justificar la integración de al menos una tecnología del tema: *¿Cobot colaborativo, Gemelo Digital, Visión por Computador o Fabricación Aditiva?*
-- **Entregable:** Diagrama de bloques del bucle cerrado (Mermaid) y justificación económica del ahorro de mermas y tiempo.
+
+    - **1. Capa Física (Sentir):** ¿Qué magnitudes físicas causan mermas o averías? ¿Qué sensores concretos se deben instalar para monitorizarlas en tiempo real?
+    - **2. Capa Ciber (Pensar):** ¿Qué algoritmo o software procesará las lecturas? ¿Qué decisiones debe tomar el sistema de forma autónoma sin esperar a que un operario pulse un botón?
+    - **3. Capa Actuadora (Actuar):** ¿Qué componentes físicos ejecutarán la acción correctora (electroválvulas, pistones, motores, frenos)?
+    - **4. Tecnología Habilitadora Complementaria:** Justificar la integración de al menos una tecnología del tema: *¿Cobot colaborativo, Gemelo Digital, Visión por Computador o Fabricación Aditiva?*
+
+  - **Entregable:** Diagrama de bloques del bucle cerrado (Mermaid) y justificación económica del ahorro de mermas y tiempo.
 
 ??? example "📖 Caso de Ejemplo Guiado: CPS en una Bodega de Crianza de Vino"
     - **Proceso Físico Crítico:** Crianza de vino en 2.000 barricas de roble durante 18 meses.
@@ -81,11 +84,13 @@ Cada pareja de trabajo seleccionará o recibirá asignada **una misión de inves
 
 - **El Desafío:** Analizar un incidente real documentado donde la convergencia IT/OT falló (ej. *el ciberataque Colonial Pipeline en 2021, el intento de envenenamiento de la planta potabilizadora de Oldsmar en 2021, o el ransomware al Hospital Clínic de Barcelona en 2023*) y diseñar la arquitectura blindada que lo hubiera evitado.
 - **Líneas de investigación para la pareja:**
-  - ¿Cuál fue el **vector de ataque inicial**? (¿phishing a un oficinista, contraseña filtrada sin MFA, memoria USB infectada?).
-  - ¿Cómo logró el malware saltar de la red corporativa de oficina (IT) a la red de producción física (OT)?
-  - ¿Qué nivel del **Modelo Purdue** falló o brillaba por su ausencia?
-  - ¿Qué sanciones y responsabilidades directas exigiría hoy la directiva europea **NIS2** a los directivos de esa empresa por negligencia?
-- **Entregable:** Diagrama de red "Antes (vulnerable) vs. Después (blindada con DMZ y Modelo Purdue)" y decálogo de medidas de seguridad obligatorias.
+
+    - ¿Cuál fue el **vector de ataque inicial**? (¿phishing a un oficinista, contraseña filtrada sin MFA, memoria USB infectada?).
+    - ¿Cómo logró el malware saltar de la red corporativa de oficina (IT) a la red de producción física (OT)?
+    - ¿Qué nivel del **Modelo Purdue** falló o brillaba por su ausencia?
+    - ¿Qué sanciones y responsabilidades directas exigiría hoy la directiva europea **NIS2** a los directivos de esa empresa por negligencia?
+    
+  - **Entregable:** Diagrama de red "Antes (vulnerable) vs. Después (blindada con DMZ y Modelo Purdue)" y decálogo de medidas de seguridad obligatorias.
 
 ??? example "📖 Caso de Ejemplo Guiado: El Ciberataque a la Planta de Agua Potable de Oldsmar (Florida)"
     - **¿Qué ocurrió en la realidad?** En febrero de 2021, un atacante remoto tomó el control del ordenador del operador de la planta de tratamiento de aguas de Oldsmar utilizando el software de acceso remoto **TeamViewer**. El atacante movió el ratón en la pantalla y modificó los parámetros del autómata que dosifica el hidróxido de sodio (sosa cáustica) en el agua potable, subiéndolo de 100 partes por millón (ppm) a un nivel altamente tóxico y corrosivo de 11.100 ppm. Por suerte, un operador humano presente en la sala vio el cursor moverse solo y canceló la orden manualmente.
@@ -105,10 +110,12 @@ Cada pareja de trabajo seleccionará o recibirá asignada **una misión de inves
 
 - **El Desafío:** Diseñar la arquitectura técnica de procesamiento para una empresa de servicios o manufactura (ej. una flota de 100 carretillas autónomas en un gran almacén logístico, o una red de 500 sensores de vibración y vídeo en una refinería).
 - **Líneas de investigación para la pareja:**
-  - Aplicar las **Tres Preguntas de Oro** para decidir componente a componente qué tareas se ejecutan en el **Edge** (local) y qué tareas van al **Cloud** (nube).
-  - **Cálculo de ingeniería de datos:** Estimar matemáticamente el volumen de datos si enviaran el vídeo/telemetría continua a la nube frente a procesar en local y enviar solo alertas. ¿Qué ahorro supone en ancho de banda y latencia?
-  - **Propuesta de Green IT para los programadores:** Redactar 3 directrices de buenas prácticas de software (evitar *polling*, compresión, arquitecturas reactivas) y de ciclo de vida del hardware para mitigar el consumo energético y la huella hídrica de los centros de datos.
-- **Entregable:** Matriz comparativa de asignación arquitectónica (Edge vs. Cloud) y decálogo de software verde.
+
+    - Aplicar las **Tres Preguntas de Oro** para decidir componente a componente qué tareas se ejecutan en el **Edge** (local) y qué tareas van al **Cloud** (nube).
+    - **Cálculo de ingeniería de datos:** Estimar matemáticamente el volumen de datos si enviaran el vídeo/telemetría continua a la nube frente a procesar en local y enviar solo alertas. ¿Qué ahorro supone en ancho de banda y latencia?
+    - **Propuesta de Green IT para los programadores:** Redactar 3 directrices de buenas prácticas de software (evitar *polling*, compresión, arquitecturas reactivas) y de ciclo de vida del hardware para mitigar el consumo energético y la huella hídrica de los centros de datos.
+    
+  - **Entregable:** Matriz comparativa de asignación arquitectónica (Edge vs. Cloud) y decálogo de software verde.
 
 ??? example "📖 Caso de Ejemplo Guiado: Flota de Drones Autónomos para Inspección Solar"
     - **Escenario:** Una planta solar fotovoltaica en el desierto con 80.000 paneles solares. Una flota de 5 drones recorre los campos para detectar celdas solares rotas o sobrecalentadas mediante cámaras térmicas e infrarrojas.
