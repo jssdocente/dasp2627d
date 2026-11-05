@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">Cómo se combinan las seis THD</title>
+  <desc id="d">Un dato nace en un sensor IoT, viaja a la nube, se analiza con Big Data y alimenta a la IA, que propone una decisión. Blockchain aporta registro compartido entre empresas y la ciberseguridad protege toda la cadena.</desc>
+  <defs><marker id="f" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L8 3L0 6z" fill="#455a64"/></marker></defs>
+  <rect width="900" height="400" rx="12" fill="#ffffff"/>
+  <rect x="20" y="20" width="860" height="46" rx="8" fill="#ffebee" stroke="#c62828" stroke-width="2"/>
+  <text x="450" y="50" text-anchor="middle" font-size="19" font-weight="700" fill="#b71c1c">Ciberseguridad: protege cada eslabón</text>
+  <g font-size="17" text-anchor="middle">
+    <rect x="30" y="110" width="150" height="110" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+    <text x="105" y="150" font-weight="700" fill="#1b5e20">IoT</text><text x="105" y="178" fill="#263238">Mide y</text><text x="105" y="200" fill="#263238">actúa</text>
+    <rect x="245" y="110" width="150" height="110" rx="10" fill="#e1f5fe" stroke="#0277bd" stroke-width="2"/>
+    <text x="320" y="150" font-weight="700" fill="#01579b">Cloud</text><text x="320" y="178" fill="#263238">Transporta</text><text x="320" y="200" fill="#263238">y guarda</text>
+    <rect x="460" y="110" width="150" height="110" rx="10" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+    <text x="535" y="150" font-weight="700" fill="#bf360c">Big Data</text><text x="535" y="178" fill="#263238">Limpia y</text><text x="535" y="200" fill="#263238">analiza</text>
+    <rect x="675" y="110" width="195" height="110" rx="10" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+    <text x="772" y="150" font-weight="700" fill="#4a148c">IA / ML</text><text x="772" y="178" fill="#263238">Predice y</text><text x="772" y="200" fill="#263238">recomienda</text>
+  </g>
+  <g stroke="#455a64" stroke-width="3" marker-end="url(#f)"><line x1="182" y1="165" x2="240" y2="165"/><line x1="397" y1="165" x2="455" y2="165"/><line x1="612" y1="165" x2="670" y2="165"/></g>
+  <path d="M772 222 V275 H105 V226" fill="none" stroke="#455a64" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#f)"/>
+  <text x="440" y="265" text-anchor="middle" font-size="16" fill="#37474f">La decisión vuelve al mundo físico o al negocio</text>
+  <rect x="220" y="305" width="460" height="72" rx="10" fill="#fffde7" stroke="#f9a825" stroke-width="2"/>
+  <text x="450" y="335" text-anchor="middle" font-size="17" font-weight="700" fill="#e65100">Blockchain: solo cuando hay varias partes</text>
+  <text x="450" y="360" text-anchor="middle" font-size="16" fill="#263238">Registro compartido entre quienes no se fían entre sí</text>
+</svg>

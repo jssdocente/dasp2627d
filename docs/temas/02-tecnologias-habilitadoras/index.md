@@ -1,75 +1,57 @@
-# Unidad 2: Tecnologías Digitales Habilitadoras (TDH)
+# Unidad 2: Tecnologías Habilitadoras Digitales (THD)
 
-## 🌐 Visión General y Justificación
+Inteligencia artificial, nube, *blockchain*... Todo el mundo habla de ellas, pero ¿qué aportan de verdad? ¿Cuándo merece la pena usarlas y cuándo son solo humo? En esta unidad **investigarás casos reales** para aprender a responder con datos, una habilidad muy útil cuando trabajes en una empresa.
 
-Las **Tecnologías Digitales Habilitadoras (TDH)** son el conjunto de herramientas tecnológicas de vanguardia con un elevado potencial transformador y transversal. No son fines en sí mismas, sino los catalizadores que permiten rediseñar modelos productivos, optimizar cadenas de suministro, generar nuevos modelos de negocio y avanzar hacia la sostenibilidad y la descarbonización.
-
-En esta unidad profundizaremos con rigor técnico en los dos grandes motores de disrupción actual —la **Inteligencia Artificial** y la tecnología **Blockchain / DLT**—, integrándolos junto a la conectividad avanzada (**5G / IoT**), la robótica colaborativa (**Cobots**), los **Gemelos Digitales** y la integración estratégica de sistemas en la empresa.
+!!! danger "Tu tarea en esta unidad"
+    Se evalúa con un [Proyecto de Investigación sobre una THD](./proyecto-investigacion-thd.md) y un cuestionario. Las fechas se publican en Moodle.
 
 ---
 
-## 🗺️ Mapa Conceptual de la Unidad
+## Ruta de la Unidad
 
 ```mermaid
-graph TD
-    classDef conn fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
-    classDef bc fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
-    classDef ai fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
-    classDef rob fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
-    classDef biz fill:#fce4ec,stroke:#c2185b,stroke-width:2px;
-
-    C["1. Conectividad & IoT<br/>5G Industrial · NB-IoT · PoE"]:::conn
-    BC["2. Blockchain & Smart Contracts<br/>Criptografía · Consenso PoS · EVM · Tokens ERC"]:::bc
-    AI["3. Inteligencia Artificial & Modelos<br/>Pipeline ML · Deep Learning · Backpropagation · RAG"]:::ai
-    FRO["4. Fronteras IA & Robótica<br/>Physical AI · TinyML · Cobots · Gemelos Digitales"]:::rob
-    BIZ["5. Modelos de Negocio & Datos<br/>RaaS · Proptech · ISA-95 · Cultura Data-Driven"]:::biz
-
-    C --> BC
-    C --> AI
-    AI --> FRO
-    BC --> BIZ
-    FRO --> BIZ
+flowchart LR
+    A["Entender<br/>2.1 Qué son las THD"] --> B["Conocer<br/>2.2 a 2.8 Las tecnologías"]
+    B --> C["Analizar<br/>2.9 Impacto en la empresa"]
+    C --> D["Investigar<br/>2.10 Fuentes y casos"]
+    D --> E["Comunicar<br/>2.11 Informe y exposición"]
+    B -.-> P["Tu proyecto"]
+    D -.-> P
+    E -.-> P
 ```
 
 ---
 
-## 🎯 Objetivos de Aprendizaje
+## Qué Vas a Aprender
 
-Al finalizar esta unidad, serás capaz de:
+Al terminar esta unidad serás capaz de:
 
-- **Evaluar tecnologías de conectividad industrial**, distinguiendo cuándo aplicar **5G Standalone**, **NB-IoT** o **Power over Ethernet (PoE)** en función del ancho de banda y la latencia.
-- **Comprender la arquitectura interna de una Blockchain**, explicando el papel de las funciones hash criptográficas, los árboles de Merkle, los mecanismos de consenso (**PoW vs. PoS**) y el funcionamiento de la **EVM (Ethereum Virtual Machine)**.
-- **Diferenciar estándares de tokens y activos digitales**, contrastando tokens fungibles (**ERC-20**) con tokens no fungibles (**ERC-721**) para su aplicación en la economía digital y la trazabilidad de la cadena de suministro.
-- **Dominar el ciclo de vida y entrenamiento de modelos de Machine Learning y Deep Learning**, analizando la función de pérdida, el descenso de gradiente, la retropropagación y las métricas de rendimiento (puntuación F1-Score, matriz de confusión).
-- **Identificar las técnicas modernas de IA generativa aplicada**, tales como **Transfer Learning**, **Fine-Tuning con LoRA** y arquitecturas **RAG (Retrieval-Augmented Generation)**.
-- **Analizar las fronteras emergentes de la IA en la industria**, incluyendo **Physical AI**, **TinyML / Edge AI** y el cumplimiento del **Reglamento Europeo de IA (EU AI Act)**.
-- **Reconocer el impacto transformador de las TDH en los modelos de negocio**, analizando la servitización (**Robot as a Service - RaaS**), la integración vertical y horizontal de sistemas (**ISA-95**) y la cultura empresarial guiada por datos (**Data-Driven**).
+- Identificar las principales THD y explicar qué aporta cada una.
+- Relacionarlas con el desarrollo de productos y servicios, y con los nuevos mercados que generan.
+- Distinguir su efecto en la planta y en el negocio, y las mejoras en los entornos IT y OT.
+- Valorar su relación con una economía sostenible y eficiente, con sus ventajas y sus costes.
+- Elaborar un informe que relacione tecnologías, características y áreas de aplicación.
 
 ---
 
-## 📚 Glosario de Términos Clave
+## Contenidos
 
-| Término | Emoticono | Definición Técnica |
-| :--- | :---: | :--- |
-| **TDH** | 🚀 | *Tecnologías Digitales Habilitadoras*. Tecnologías disruptivas de base transversal con capacidad de transformar procesos industriales y crear nuevos mercados. |
-| **NB-IoT** | 📡 | *Narrowband IoT*. Estándar celular de banda estrecha para comunicaciones masivas M2M de bajo consumo energético y gran penetración en interiores. |
-| **Merkle Tree** | 🌲 | Estructura de datos en árbol binario criptográfico donde cada hoja es el hash de una transacción y la raíz (*Merkle Root*) resume el bloque completo. |
-| **PoS (Proof of Stake)** | 🪙 | Mecanismo de consenso en redes blockchain donde los validadores bloquean capital (*staking*) para proponer y validar bloques sin gastar energía masiva. |
-| **Smart Contract** | 📜 | Programa inmutable desplegado en una blockchain que ejecuta automáticamente acuerdos y transacciones cuando se cumplen condiciones predefinidas. |
-| **Backpropagation** | 🔄 | Algoritmo fundamental de entrenamiento de redes neuronales que calcula el gradiente de la función de pérdida respecto a cada peso mediante la regla de la cadena. |
-| **RAG** | 🔍 | *Retrieval-Augmented Generation*. Técnica que conecta un modelo LLM con una base de datos vectorial externa para enriquecer la respuesta con datos actualizados y privados. |
-| **TinyML** | 🔬 | Rama de la IA centrada en ejecutar inferencias de modelos cuantizados y optimizados en microcontroladores de consumo ultra-bajo (milivatios). |
-| **Physical AI** | 🦾 | Modelos de IA con comprensión del mundo físico, gravedad y cinemática, capaces de controlar robots y humanoides mediante modelos de visión-lenguaje-acción (VLA). |
-| **RaaS** | 💼 | *Robot as a Service*. Modelo de negocio de suscripción donde la empresa paga por horas de operación o tareas completadas por el robot sin comprar el hardware. |
+| Sección | Qué encontrarás | Para tu proyecto |
+| :--- | :--- | :--- |
+| **[2.1 ¿Qué son las THD?](./thd-que-son.md)** | Concepto y cómo se combinan | Introducción |
+| **[2.2 Internet de las Cosas](./thd-iot.md)** | Del sensor a la decisión | Si te toca IoT |
+| **[2.3 Cloud](./thd-cloud.md)** | Modelos y responsabilidad | Si te toca *cloud* |
+| **[2.4 Big Data](./thd-big-data.md)** | Del dato al KPI | Si te toca *Big Data* |
+| **[2.5 IA y Machine Learning](./thd-ia.md)** | Aprender de datos y sus sesgos | Si te toca IA/ML |
+| **[2.6 Blockchain](./thd-blockchain.md)** | Registro compartido y sus límites | Si te toca *blockchain* |
+| **[2.7 Ciberseguridad](./thd-ciberseguridad.md)** | Cómo avanza un ataque y cómo cortarlo | Si te toca ciberseguridad |
+| **[2.8 Otras THD](./thd-otras.md)** | Robótica, gemelos digitales, 5G y más | Contexto general |
+| **[2.9 Impacto en la empresa](./thd-impacto.md)** | Planta y negocio, IT y OT, mercados, sostenibilidad | Conclusiones y ampliación |
+| **[2.10 Investigar y comparar](./thd-investigar.md)** | Fuentes, análisis y comparación de casos | Búsqueda, casos y comparativa |
+| **[2.11 Informe y exposición](./thd-informe-exposicion.md)** | Redacción, presentación y revisión | Entregables |
 
----
+**Cómo usar estas páginas.** Cada tecnología sigue la misma estructura que se te pide en el proyecto: qué es en tres ideas, miniglosario, casos reales, riesgos y buenas prácticas. Fíjate en cómo está hecho, pero recuerda que **tus casos deben ser distintos**.
 
-## 📑 Índice de Contenidos
+!!! actividad "Busca este bloque"
+    Las actividades de clase aparecen en un bloque como este, con su duración. Intenta resolverlas antes de abrir la orientación desplegable.
 
-Explora cada una de las secciones temáticas de la unidad:
-
-- **[2.1 Conectividad Avanzada, 5G e IoT Industrial](./01-conectividad-redes-5g-iot.md):** 5G Standalone, NB-IoT, PoE y arquitecturas de telecomunicación en planta.
-- **[2.2 Blockchain, Criptografía y Smart Contracts](./02-blockchain-criptografia-smart-contracts.md):** Bloque exhaustivo sobre criptografía asimétrica, Merkle, PoW/PoS, EVM, tokens ERC-20/721 y wallets.
-- **[2.3 Inteligencia Artificial y Entrenamiento de Modelos](./03-inteligencia-artificial-entrenamiento.md):** Taxonomía formal, pipeline completo de ML, función de pérdida, retropropagación, métricas, Fine-Tuning y RAG.
-- **[2.4 Fronteras de la IA, Robótica y Gemelos Digitales](./04-fronteras-ia-robotica-gemelos.md):** Physical AI, TinyML, Cobots, Gemelos Digitales cognitivos y visión por computador.
-- **[2.5 Modelos de Negocio, Integración y Estrategia Data-Driven](./05-modelos-negocio-integracion-sectores.md):** Casos reales (Áster, BBVA, Petit Hostel, Teresa de Pedro), RaaS, Proptech, norma ISA-95 y cultura del dato.

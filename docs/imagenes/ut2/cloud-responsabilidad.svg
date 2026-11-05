@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">Quién gestiona qué en cada modelo cloud</title>
+  <desc id="d">Comparación por capas de on-premise, IaaS, PaaS y SaaS: cuanto más a la derecha, más capas gestiona el proveedor y menos la empresa.</desc>
+  <rect width="900" height="460" rx="12" fill="#ffffff"/>
+  <g font-size="17" font-weight="700" text-anchor="middle" fill="#263238"><text x="265" y="40">On-premise</text><text x="425" y="40">IaaS</text><text x="585" y="40">PaaS</text><text x="745" y="40">SaaS</text></g>
+  <g font-size="15" fill="#263238" text-anchor="end"><text x="165" y="85">Aplicación</text><text x="165" y="135">Datos</text><text x="165" y="185">Sistema operativo</text><text x="165" y="235">Servidores</text><text x="165" y="285">Almacenamiento</text><text x="165" y="335">Edificio y energía</text></g>
+  <g id="col" stroke="#ffffff" stroke-width="3">
+    <g fill="#ffcc80"><rect x="190" y="60" width="150" height="50"/><rect x="190" y="110" width="150" height="50"/><rect x="190" y="160" width="150" height="50"/><rect x="190" y="210" width="150" height="50"/><rect x="190" y="260" width="150" height="50"/><rect x="190" y="310" width="150" height="50"/></g>
+    <g fill="#ffcc80"><rect x="350" y="60" width="150" height="50"/><rect x="350" y="110" width="150" height="50"/><rect x="350" y="160" width="150" height="50"/></g>
+    <g fill="#90caf9"><rect x="350" y="210" width="150" height="50"/><rect x="350" y="260" width="150" height="50"/><rect x="350" y="310" width="150" height="50"/></g>
+    <g fill="#ffcc80"><rect x="510" y="60" width="150" height="50"/><rect x="510" y="110" width="150" height="50"/></g>
+    <g fill="#90caf9"><rect x="510" y="160" width="150" height="50"/><rect x="510" y="210" width="150" height="50"/><rect x="510" y="260" width="150" height="50"/><rect x="510" y="310" width="150" height="50"/></g>
+    <rect x="670" y="110" width="150" height="50" fill="#ffcc80"/>
+    <g fill="#90caf9"><rect x="670" y="60" width="150" height="50"/><rect x="670" y="160" width="150" height="50"/><rect x="670" y="210" width="150" height="50"/><rect x="670" y="260" width="150" height="50"/><rect x="670" y="310" width="150" height="50"/></g>
+  </g>
+  <rect x="210" y="395" width="24" height="24" fill="#ffcc80"/><text x="244" y="413" font-size="16" fill="#263238">Lo gestiona tu empresa</text>
+  <rect x="500" y="395" width="24" height="24" fill="#90caf9"/><text x="534" y="413" font-size="16" fill="#263238">Lo gestiona el proveedor</text>
+  <text x="450" y="447" text-anchor="middle" font-size="14" fill="#546e7a">Los datos siempre son responsabilidad de tu empresa, también en SaaS.</text>
+</svg>
