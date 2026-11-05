@@ -21,12 +21,10 @@ graph TD
     CPS["2. Sistemas Ciberfísicos (CPS)<br/>IoT + Cobots + Digital Twins + IA"]:::tech
     Conv["3. Convergencia OT / IT<br/>Seguridad en Planta vs Oficina (NIS2)"]:::sec
     Arch["4. Arquitectura & Sostenibilidad<br/>Edge vs Cloud | Green IT & ODS"]:::imp
-    Debates["5. Actividades & Debates<br/>Misiones de Investigación + Torneo Oxford"]:::imp
 
     RevInd --> CPS
     CPS --> Conv
     Conv --> Arch
-    Arch --> Debates
     CPS -.-> Arch
 ```
 
@@ -69,4 +67,3 @@ Explora cada una de las secciones detalladas de la unidad:
 - **[1.2 Sistemas Ciberfísicos y Tecnologías Disruptivas](./02-sistemas-ciberfisicos-tecnologias.md):** CPS, cobots, IIoT, visión artificial, gemelos digitales e impresión 3D industrial.
 - **[1.3 Estructura Organizativa y Convergencia OT/IT](./03-organizacion-convergencia-ot-it.md):** Gobernanza del dato, control de accesos (IAM/2FA), choque cultural entre planta y sistemas, y ciberseguridad industrial (NIS2).
 - **[1.4 Edge Computing, Cloud y Sostenibilidad](./04-edge-cloud-sostenibilidad.md):** Decisiones de arquitectura técnica, latencia, ODS 9 y 13, y el coste medioambiental de la IA.
-- **[1.5 Actividades Prácticas, Retos de Investigación y Debates](./05-Actividades.md):** Misiones de investigación técnica aplicada en parejas sobre los temas 1.1 al 1.4 y Torneo de Debates Oxford con dilemas éticos y tecnológicos.

@@ -1,3 +1,8 @@
+---
+search:
+  exclude: true
+---
+
 # 1.5 Actividades Prácticas, Retos de Investigación y Debates
 
 La digitalización no se aprende únicamente memorizando conceptos teóricos; se consolida **analizando problemas reales, investigando soluciones técnicas viables y defendiendo decisiones de diseño con rigor y datos contrastados**.
