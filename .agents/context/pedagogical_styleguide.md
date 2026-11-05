@@ -1,86 +1,63 @@
-# Guía de Estilo Pedagógico y Estándares de Código
+# Guía de Estilo Pedagógico
 
-Esta guía define las convenciones de redacción docente, estructura de temas y estándares de código que los agentes deben aplicar al generar o editar material en este repositorio.
-
----
-
-## 1. Perfil del Estudiante y Tono Pedagógico
-
-### Audiencia
-- Estudiantes de **2º curso de DAM** (Ciclo Formativo de Grado Superior).
-- Poseen conocimientos previos de:
-  - Programación Orientada a Objetos en Java (1º DAM).
-  - Bases de datos relacionales SQL (MySQL / PostgreSQL).
-  - Entornos IDE (IntelliJ, Eclipse o VSCode) y control de versiones Git básico.
-- Se inician por primera vez en:
-  - Sintaxis idiomática y paradigmas funcionales de Kotlin.
-  - Programación reactiva y declarativa (Jetpack Compose).
-  - Ciclo de vida y gestión de memoria en dispositivos móviles.
-  - Motores de videojuegos basados en componentes (Unity).
-
-### Tono y Enfoque Didáctico
-1. **Pragmático y orientado a proyectos:** Explicar el "por qué" antes del "cómo". Evitar teoría enciclopédica desvinculada de casos reales.
-2. **Evolución guiada:** Partir del ejemplo más simple posible (Happy Path) y refinarlo añadiendo gestión de errores, estado y arquitectura.
-3. **Señalización explícita de errores comunes ("Gotchas"):** Anticipar fallos típicos que cometen los alumnos (ej. olvidar `remember`, bloquear el hilo principal de UI, no gestionar nulos adecuadamente).
-4. **Respeto a las convenciones oficiales:** Emplear las guías de estilo oficiales de Google Android y Jetpack Compose.
+Convenciones para redactar los apuntes de DASP. El modelo de referencia son las páginas 1.1 a 1.5, ya reescritas con este enfoque.
 
 ---
 
-## 2. Estructura Estándar de una Lección / Tema
+## 1. Audiencia y Tono
 
-Cada nuevo documento de contenido (`.md`) debe estructurarse idealmente en las siguientes secciones:
-
-1. **Título y Breve Introducción:** 2-3 párrafos resumiendo el objetivo del tema y qué problema resuelve.
-2. **Conceptos Clave:** Explicación teórica concisa apoyada en esquemas o diagramas Mermaid.
-3. **Ejemplo Práctico Paso a Paso:** Código mínimo funcional con explicaciones intercaladas.
-4. **Buenas Prácticas y Errores Frecuentes:** Cajas de advertencia (`!!! warning` o `!!! tip`).
-5. **Ejercicios Propuestos / Retos:** Pequeños ejercicios graduados por dificultad (Básico, Intermedio, Avanzado) para que los alumnos practiquen de forma autónoma.
-6. **Recursos y Enlaces Oficiales:** Enlaces a la documentación de Android Developers, Codelabs o repositorio del módulo.
+- **Audiencia:** alumnado de 2.º de Grado Superior, grupos DAW2A y DAM2B. Tiene base de programación, pero no des por supuesta experiencia en planta industrial ni en gestión de empresas.
+- **Finalidad:** desarrollar criterio para decidir, no memorizar vocabulario.
+- **Tono:** directo y didáctico. Explica el porqué antes que el cómo y dirígete al alumnado cuando ayude.
+- **Lenguaje inclusivo:** usa formas como "técnico o técnica" o "alumnado".
+- **Mirada crítica:** muestra también costes, riesgos y fracasos, no solo las ventajas de cada tecnología.
 
 ---
 
-## 3. Estándares de Código: Kotlin y Android (Jetpack Compose)
+## 2. Recursos que Definen el Estilo
 
-### 3.1. Nomenclatura y Convenciones
-- **Funciones Composable:** En `PascalCase` que devuelven `Unit` y representen elementos de UI:
-  ```kotlin
-  @Composable
-  fun UserProfileCard(user: User, onEditClick: () -> Unit) { ... }
-  ```
-- **Funciones regulares y lambdas:** En `camelCase`:
-  ```kotlin
-  fun calculateDiscount(price: Double): Double
-  ```
-- **Variables de Estado:** Usar nombres claros y descriptivos. Cuando se expone estado desde un ViewModel:
-  ```kotlin
-  // En el ViewModel:
-  private val _uiState = MutableStateFlow(GameListUiState())
-  val uiState: StateFlow<GameListUiState> = _uiState.asStateFlow()
-  ```
+1. **Pregunta o problema de partida:** títulos como "¿Qué es...?" o "¿Qué intenta solucionar...?".
+2. **Analogía cotidiana:** cuerpo humano, castillo medieval, batidora frente a ayudante de cocina.
+3. **"Situación Real en la Industria":** un caso concreto, con empresas y tecnologías identificables.
+4. **Cuadros comparativos:** antes y después, o tecnología A frente a B.
+5. **Diagrama Mermaid:** para flujos, capas y arquitecturas, no como adorno.
+6. **Cajas de aviso:** casos y advertencias (`!!! warning`, `!!! danger`, `!!! note`).
+7. **Lección para el técnico:** cierre con la decisión o el criterio que debe quedar claro.
 
-### 3.2. Reglas de Diseño de Composables
-1. **State Hoisting (Elevación del Estado):**
-   - Siempre que sea posible, hacer los composables **stateless** (sin estado interno acoplado), recibiendo los datos mediante parámetros y notificando eventos mediante callbacks lambda (`() -> Unit`).
-2. **Modifiers:**
-   - Todo composable reutilizable debe aceptar como primer parámetro opcional `modifier: Modifier = Modifier` y aplicarlo al elemento raíz.
-3. **Evitar lógica de negocio en la UI:**
-   - La capa de presentación solo debe renderizar el estado y reenviar eventos al `ViewModel`. No realizar cálculos complejos, consultas a BD o llamadas de red dentro de un composable.
-4. **Preview con datos de prueba:**
-   - Incluir anotaciones `@Preview(showBackground = true)` en componentes aislados para facilitar la visualización en Android Studio.
+### Ejemplos reales
+
+Es la seña de identidad de estos apuntes frente a otros materiales:
+
+- Usa empresas, incidentes y proyectos reales, con fecha y fuente enlazada. Incluye también fracasos y casos disputados.
+- Explica qué problema había, qué se decidió, cómo funciona y qué resultado tuvo, en lugar de limitarte a enumerar ventajas.
+- No inventes empresas ni datos. Un caso ficticio solo es válido como ejercicio y debe identificarse como tal.
+- Prefiere ejemplos cercanos (España, Extremadura, pymes) y situaciones que el alumnado pueda encontrar en su empresa de formación.
+- Evita frases grandilocuentes («sin precedentes», «revolucionario»). Si algo es importante, demuéstralo con un dato o un caso.
 
 ---
 
-## 4. Estándares de Código: Unity y C#
+## 3. Estructura de las Unidades
 
-### 4.1. Nomenclatura
-- **Clases y Métodos:** `PascalCase` (ej. `PlayerController`, `TakeDamage`).
-- **Variables públicas o serializadas:** `camelCase` con atributo explicativo:
-  ```csharp
-  [SerializeField] private float movementSpeed = 5f;
-  ```
-- **Nombres de componentes:** Describir su comportamiento (ej. `HealthSystem`, `CoinCollector`).
+Cada unidad vive en `docs/temas/NN-nombre/`:
 
-### 4.2. Buenas Prácticas en Scripts
-- Evitar el uso intensivo de `FindObjectOfType` o `GameObject.Find` en `Update()`. Cachear referencias en `Awake()` o `Start()`.
-- Usar `FixedUpdate()` para operaciones de físicas sobre `Rigidbody`.
-- Mantener scripts modulares y desacoplados con responsabilidades únicas.
+- `index.md`: visión general, mapa conceptual Mermaid, objetivos, glosario y enlaces a sus secciones visibles.
+- `01-...md` a `0N-...md`: una sección por tema. Empieza con `# N.M Título` y una introducción de 1 o 2 párrafos; separa las secciones con `---`.
+- Página de actividades: misiones de investigación en parejas con caso guiado (`??? example`), debates Oxford, reflexión individual y rúbrica. Sigue el modelo de `01-digitalizacion/05-Actividades.md`, que está oculta (ver `mkdocs_stack.md`).
+
+---
+
+## 4. Vinculación con el Currículo
+
+- Cada sección nueva debe responder a una unidad de trabajo y a criterios de evaluación concretos (`dasp_curriculum.md`).
+- Ajusta la profundidad a las horas de la unidad, a razón de 1 hora semanal: prioriza lo que exige el currículo y marca como ampliación lo demás.
+- Evaluación: las tareas puntuables determinan la nota, así que cada unidad debe ofrecer tareas alineadas con sus criterios.
+- Conecta los ejemplos con el trabajo de una persona de DAM o DAW: qué software se construye, se integra o se mantiene en cada sector. Cuando ayude, propón variantes web (DAW) y multiplataforma (DAM).
+- El código, si aparece, debe ser breve e ilustrativo. No es un módulo de programación.
+
+---
+
+## 5. Fuentes y Actualización
+
+- Comprueba la vigencia de la normativa (NIS2, RGPD, Reglamento de IA) y de las cifras antes de publicarlas.
+- Prefiere fuentes primarias: BOE, EUR-Lex, organismos oficiales, documentación del fabricante.
+- Si un caso está disputado, preséntalo como tal.

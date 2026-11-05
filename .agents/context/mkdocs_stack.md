@@ -1,163 +1,102 @@
-# Pila Tecnológica de Documentación (MkDocs Material & Docker)
-
-Este documento detalla la infraestructura, configuración y extensiones del sitio de documentación para asegurar que cualquier contenido generado sea 100% compatible con el renderizador.
+# Pila de Documentación (MkDocs Material y Docker)
 
 ---
 
-## 1. Entorno de Ejecución Local con Docker
+## 1. Servidor Local
 
-El proyecto utiliza un contenedor Docker para aislar todas las dependencias de Python y MkDocs.
+La imagen `jssdocente/mkdocs-daw` (`.docker/dockerfile`) incluye MkDocs, Material y glightbox.
 
-### Archivos de Configuración Docker:
-- **`docker-compose.yml`**:
-  - Servicio: `mkdocs`
-  - Imagen base construida desde: `.docker/dockerfile`
-  - Contenedor: `Mkdocs-pmdm2627`
-  - Mapeo de puertos: `8005:8000` (El sitio se visualiza en `http://localhost:8005`)
-  - Volumen montado: `./:/docs`
-  - Comando de ejecución: `serve --dev-addr 0.0.0.0:8000 --dirtyreload`
-  - Variable de entorno: `WATCHDOG_USE_POLLING=true` (garantiza detección de cambios en sistemas host macOS/Linux)
-- **`.docker/dockerfile`**:
-  - Basado en `squidfunk/mkdocs-material`
-  - Instala dependencias adicionales listadas en `.docker/user-requirements.txt` (actualmente `mkdocs-glightbox` y fijación de versión `click<8.2.2`).
-
-### Comandos de Gestión:
 ```bash
-# Iniciar servidor de documentación en segundo plano
 docker compose up -d
-
-# Ver registros de compilación / advertencias de mkdocs en tiempo real
 docker compose logs -f mkdocs
-
-# Acceder a la terminal dentro del contenedor
-docker compose exec mkdocs sh
-
-# Detener el contenedor
 docker compose down
 ```
 
----
-
-## 2. Configuración de `mkdocs.yml`
-
-El archivo `mkdocs.yml` define el tema, el árbol de navegación (`nav`), los plugins y las extensiones markdown activas.
-
-### Parámetros Principales
-- `site_name`: 2º DAM - Programación Multimedia y Desarrollo móvil - Curso 26/27
-- `site_url`: https://jssdocente.github.io/pmdm2627d
-- `use_directory_urls`: `false` (los archivos generados terminan en `.html` explícito, facilitando navegación sin servidor web complejo).
-- `theme`:
-  - `name: material`
-  - `language: es`
-  - Paletas de color: Modo claro (primary: light blue, accent: Teal) y modo oscuro (slate).
-  - Logo y Favicon: `imagenes/logofp.png` y `imagenes/favicon.png`.
+- **URL:** <http://localhost:8006/dasp2627d/>. El prefijo `/dasp2627d/` viene de `site_url`; sin él se obtiene un error 404.
+- **Convivencia:** PMDM usa el puerto 8005, así que ambos sitios pueden servirse a la vez.
 
 ---
 
-## 3. Extensiones Markdown Soportadas
+## 2. Comprobar Cambios
 
-Al redactar contenido en archivos `.md`, se pueden (y deben) aprovechar las siguientes capacidades avanzadas configuradas:
+Compilación estricta, sin escribir en el repositorio ni tocar el servidor en marcha:
 
-### 3.1. Cajas de Aviso (Admonitions)
-Permiten resaltar información de manera estructurada:
+```bash
+docker run --rm -v "$PWD:/docs:ro" jssdocente/mkdocs-daw build --strict -d /tmp/site
+```
+
+La instalación local de `mkdocs` no sirve porque no tiene glightbox.
+
+La compilación **no detecta** dos fallos habituales, así que revísalos en la página renderizada:
+
+- Diagramas Mermaid con errores de sintaxis.
+- Listas fundidas en un párrafo.
+
+---
+
+## 3. Sintaxis Disponible
+
+Extensiones activas en `mkdocs.yml`: admonition, details, tabbed, superfences con Mermaid, highlight, tasklist, snippets, emoji, footnotes, `attr_list`, `md_in_html`, `sane_lists` y `toc`. Las imágenes tienen zoom automático con glightbox.
+
 ```markdown
-!!! note "Nota Importante"
-    Contenido explicativo indentado con 4 espacios.
+!!! warning "Título"
+    Contenido indentado con 4 espacios.
 
-!!! tip "Consejo de Buenas Prácticas"
-    Evita instanciar ViewModels dentro de sub-composables.
+??? example "Desplegable"
+    Cerrado por defecto; `???+` lo muestra abierto.
 
-!!! warning "Atención con permisos en Android"
-    Los permisos peligrosos deben solicitarse en tiempo de ejecución.
-
-??? example "Código Ocultable / Desplegable"
-    Este bloque aparece contraído por defecto (`???`) o abierto (`???+`).
+=== "Opción A"
+    Contenido de la pestaña.
 ```
 
-### 3.2. Pestañas de Contenido (Content Tabs)
-Ideal para comparar código o configuraciones alternativas:
-```markdown
-=== "Kotlin (Jetpack Compose)"
-    ```kotlin
-    @Composable
-    fun Saludo(nombre: String) {
-        Text(text = "Hola $nombre")
-    }
-    ```
-
-=== "XML Clásico (Views)"
-    ```xml
-    <TextView
-        android:id="@+id/tvSaludo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    ```
-```
-
-### 3.3. Diagramas Mermaid (`pymdownx.superfences`)
-Generación de diagramas de arquitectura, flujos o secuencia sin imágenes externas:
-````markdown
-```mermaid
-graph TD
-    A[UI / Composable] -->|Dispara Evento| B[ViewModel]
-    B -->|Ejecuta Caso de Uso| C[Repositorio]
-    C -->|Consulta| D[(Base de datos Room)]
-    C -->|Petición| E[API REST]
-    C -->|Actualiza Datos| B
-    B -->|Emite StateFlow| A
-```
-````
-
-### 3.4. Zoom de Imágenes con Lightbox (`mkdocs-glightbox`)
-Cualquier imagen insertada con sintaxis estándar `![Descripción](ruta/a/imagen.png)` dispone automáticamente de zoom y visualización modal sin configuración adicional.
-
-### 3.5. Resaltado y Selección de Código (`pymdownx.highlight`)
-- `content.code.copy`: Botón de copiado integrado en cada bloque de código.
-- `content.code.annotate`: Permite añadir notas numeradas al código usando `(1)` y listándolas debajo:
-  ```kotlin
-  val viewModel: MiViewModel by viewModel() // (1)
-  ```
-  1. Inyección de dependencia gestionada por Koin.
-
-### 3.6. Reglas Críticas de Formato de Listas en Python-Markdown
-
-El motor de renderizado `Python-Markdown` exige un formato estricto para no colapsar elementos en una sola línea:
-
-1. **Línea en blanco obligatoria antes de cualquier lista:**
-   ```markdown
-   <!-- ❌ INCORRECTO (Se unirá todo en un solo párrafo): -->
-   Instala los siguientes paquetes:
-   - Android SDK Build-Tools
-   - Android Emulator
-
-   <!-- ✅ CORRECTO: -->
-   Instala los siguientes paquetes:
-
-   - Android SDK Build-Tools
-   - Android Emulator
-   ```
-
-2. **Sublistas anidadas con 4 espacios:**
-   ```markdown
-   <!-- ✅ CORRECTO (Línea en blanco + 4 espacios de indentación): -->
-   1. Paso principal con sublista:
-
-       - Sub-elemento A
-       - Sub-elemento B
-   ```
-
-3. **Separación entre elementos numerados complejos (`1.`, `2.`, `3.`):**
-   Dejar siempre una línea en blanco entre pasos numerados que contengan explicaciones, sublistas o código para forzar el renderizado espaciado (loose list).
-
-4. **Preferencia por guiones (`-`):**
-   Utilizar siempre `-` en lugar de `*` para evitar confusiones sintácticas con el formato de cursiva/negrita.
+Clases CSS propias (`docs/extra/css/extra.css`): `text-center`, `text-small`, `grid-75-25`, `grid3` y `grid-66-33`.
 
 ---
 
-## 4. Despliegue Automatizado (CI/CD)
+## 4. Reglas de Formato Críticas
 
-El repositorio incluye un workflow en `.github/workflows/build-push-mkdocs.yml`:
-- Se activa ante un `push` a la rama `main` o mediante disparo manual (`workflow_dispatch`).
-- Instala `mkdocs`, `mkdocs-material` y `mkdocs-glightbox`.
-- Ejecuta `mkdocs build` generando los archivos estáticos en `site/`.
-- Publica el sitio usando la acción nativa y oficial de GitHub Pages (`actions/upload-pages-artifact@v3` y `actions/deploy-pages@v4`) sin necesidad de gestionar ramas intermedias (`gh-pages`).
+### Listas (Python-Markdown)
+
+1. **Deja siempre una línea en blanco antes de una lista.** Si sigue a un párrafo sin ella, los elementos se funden en ese párrafo.
+2. **Indenta las sublistas con 4 espacios** (8 dentro de una pestaña) y deja una línea en blanco antes.
+3. **Separa con una línea en blanco** los pasos numerados que tengan explicaciones, sublistas o código.
+4. **Indenta 4 espacios** los bloques de código dentro de una lista.
+5. **Usa `-` para las viñetas,** nunca `*`.
+
+```markdown
+Instala lo siguiente:
+
+- Elemento A
+
+    - Subelemento A1
+```
+
+### Mermaid
+
+- **Pon comillas en cualquier texto con paréntesis u otros símbolos,** tanto en nodos como en títulos de `subgraph`: `subgraph Id ["Título (detalle)"]`. Sin ellas, el diagrama entero falla.
+- Para los saltos de línea dentro de un nodo, usa `<br/>`.
+- Reutiliza `classDef` con la paleta pastel de los diagramas existentes.
+
+---
+
+## 5. Páginas Ocultas
+
+Una página oculta se publica y es accesible por su URL directa, pero no aparece en la navegación del sitio:
+
+- Debe estar fuera de `nav` en `mkdocs.yml` y no recibir enlaces de otras páginas.
+- Debe llevar este encabezado para quedar fuera del buscador:
+
+```yaml
+---
+search:
+  exclude: true
+---
+```
+
+Sigue siendo pública: figura en `sitemap.xml` y en el repositorio.
+
+---
+
+## 6. Despliegue
+
+`.github/workflows/build-push-mkdocs.yml` compila y publica en GitHub Pages en cada `push` a `main`, o de forma manual. `help-build.md` describe un flujo anterior; la referencia es el workflow.
