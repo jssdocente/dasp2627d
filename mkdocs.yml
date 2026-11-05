@@ -13,7 +13,6 @@ nav:
       # - "1.5 Actividades Prácticas, Retos y Debates": temas/01-digitalizacion/05-Actividades.md
   - "Unidad 2: Tecnologías Habilitadoras Digitales (THD)":
       - "Presentación de la Unidad": temas/02-tecnologias-habilitadoras/index.md
-      - "Proyecto de Investigación THD": temas/02-tecnologias-habilitadoras/proyecto-investigacion-thd.md
       - "2.1 ¿Qué son las THD?": temas/02-tecnologias-habilitadoras/thd-que-son.md
       - "2.2 Internet de las Cosas (IoT)": temas/02-tecnologias-habilitadoras/thd-iot.md
       - "2.3 Computación en la Nube": temas/02-tecnologias-habilitadoras/thd-cloud.md
