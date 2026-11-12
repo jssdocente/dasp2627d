@@ -24,6 +24,8 @@ nav:
       - "2.9 Impacto en la Empresa": temas/02-tecnologias-habilitadoras/thd-impacto.md
       - "2.10 Cómo Investigar y Comparar": temas/02-tecnologias-habilitadoras/thd-investigar.md
       - "2.11 Informe y Exposición": temas/02-tecnologias-habilitadoras/thd-informe-exposicion.md
+      - "Actividades":
+          - "2.12 Consultoría exprés": temas/02-tecnologias-habilitadoras/thd-consultoria-expres.md
 
 
 theme:

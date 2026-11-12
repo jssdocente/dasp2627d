@@ -18,6 +18,8 @@ flowchart LR
     B -.-> P["Tu proyecto"]
     D -.-> P
     E -.-> P
+    B -.-> R["Repasar<br/>2.12 Consultoría exprés"]
+    C -.-> R
 ```
 
 ---
@@ -49,6 +51,7 @@ Al terminar esta unidad serás capaz de:
 | **[2.9 Impacto en la empresa](./thd-impacto.md)** | Planta y negocio, IT y OT, mercados, sostenibilidad | Conclusiones y ampliación |
 | **[2.10 Investigar y comparar](./thd-investigar.md)** | Fuentes, análisis y comparación de casos | Búsqueda, casos y comparativa |
 | **[2.11 Informe y exposición](./thd-informe-exposicion.md)** | Redacción, presentación y revisión | Entregables |
+| **[2.12 Consultoría exprés](./thd-consultoria-expres.md)** | Actividad en grupo para repasar la unidad | Repaso |
 
 **Cómo usar estas páginas.** Cada tecnología sigue la misma estructura que se te pide en el proyecto: qué es en tres ideas, miniglosario, casos reales, riesgos y buenas prácticas. Fíjate en cómo está hecho, pero recuerda que **tus casos deben ser distintos**.
 
