@@ -3,7 +3,10 @@
 Hasta ahora has estudiado cada tecnología por separado. En la empresa real nadie te pedirá «usa IoT»: te contarán un **problema** y tendrás que decidir qué tecnología ayuda, cuál sobra y qué riesgos trae. En esta actividad vuestro grupo será una pequeña consultora con **25 minutos** para dar una recomendación a un cliente.
 
 !!! info "Qué necesitáis"
-    Un dispositivo por grupo con estos apuntes abiertos y una hoja o documento compartido para la ficha. Podéis consultar cualquier página de la unidad.
+    Un dispositivo por grupo con estos apuntes abiertos. Podéis consultar cualquier página de la unidad.
+
+    - **Plantilla:** haced una copia de la [ficha de la consultora](https://docs.google.com/document/d/1zCrTE6Pe-9WkHC_7zLlEYq9pvhm9l9Rd3XImKNIAcbA/copy) y compartidla con el grupo.
+    - **Entrega:** una persona por grupo sube la ficha en PDF a la [tarea de Moodle (DAW2A)](https://informatica.iesalbarregas.com/mod/assign/view.php?id=14342).
 
 ---
 
