@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ejemplo de entregable - Gemelos digitales</title>
+<style>
+@page { size: A4; margin: 18mm 17mm 16mm;
+  @top-right { content: "DOCUMENTO DE EJEMPLO"; font: bold 7.5pt Helvetica, Arial, sans-serif; color: #2e7d32; letter-spacing: .5pt; }
+  @bottom-left { content: "DASP · Proyecto de Investigación THD · Ejemplo elaborado por el profesor"; font: 8pt Helvetica, Arial, sans-serif; color: #667; }
+  @bottom-right { content: counter(page) " / " counter(pages); font: 8pt Helvetica, Arial, sans-serif; color: #667; } }
+@page :first { @top-right { content: none; } }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font: 10.5pt/1.45 Helvetica, Arial, sans-serif; color: #1c2733; margin: 0; }
+h2 { font-size: 13.5pt; margin: 14pt 0 5pt; padding-bottom: 2pt; border-bottom: 1.2pt solid #0b7fab; color: #0b5a7d; break-after: avoid; }
+h3 { font-size: 11pt; margin: 9pt 0 3pt; color: #0b5a7d; break-after: avoid; }
+p { margin: 0 0 6pt; } ul, ol { margin: 3pt 0 6pt; padding-left: 16pt; } li { margin-bottom: 2pt; }
+table { width: 100%; border-collapse: collapse; margin: 4pt 0 8pt; font-size: 9pt; break-inside: avoid; }
+th { background: #e3f2f8; text-align: left; } th, td { border: .6pt solid #9fb4c0; padding: 3pt 5pt; vertical-align: top; }
+td { overflow-wrap: anywhere; }
+.fuente { font-size: 9pt; color: #445; }
+.ref p { padding-left: 14pt; text-indent: -14pt; font-size: 9.5pt; overflow-wrap: anywhere; }
+.caso { break-inside: avoid; }
+/* Notas de guía: no forman parte del trabajo */
+.guia { margin: 6pt 0 9pt; padding: 5pt 9pt; border: 1pt dashed #2e7d32; background: #eef7ee; font-size: 9pt; color: #1b4d1e; break-inside: avoid; }
+.guia::before { content: "GUÍA · "; font-weight: bold; }
+/* Portada */
+.portada { height: 245mm; display: flex; flex-direction: column; justify-content: space-between; break-after: page; }
+.portada .aviso { border: 1.5pt solid #2e7d32; background: #eef7ee; color: #1b4d1e; padding: 8pt 11pt; font-size: 9.5pt; }
+.portada .aviso b { display: block; font-size: 11pt; margin-bottom: 3pt; }
+.portada .titulo { margin-top: 30mm; }
+.portada .thd { font-size: 11pt; color: #0b7fab; font-weight: bold; text-transform: uppercase; letter-spacing: 1pt; }
+.portada h1 { font-size: 26pt; line-height: 1.15; color: #0b5a7d; margin: 6pt 0 10pt; }
+.portada .sub { font-size: 12pt; color: #445; }
+.portada dl { display: grid; grid-template-columns: 30mm 1fr; gap: 3pt 8pt; font-size: 10.5pt; margin: 0; }
+.portada dt { font-weight: bold; color: #0b5a7d; }
+.portada dd { margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- 1. PORTADA -->
+<section class="portada">
+  <div class="aviso">
+    <b>Documento de ejemplo</b>
+    Este trabajo muestra cómo debe quedar tu entrega. Trata una THD que no entra en el sorteo, los gemelos digitales, para que puedas copiar la estructura pero no el contenido. Los recuadros verdes discontinuos marcados como «GUÍA» explican cada apartado y no deben aparecer en tu trabajo.
+  </div>
+  <div class="titulo">
+    <div class="thd">THD: gemelos digitales</div>
+    <h1>¿Qué aporta realmente un gemelo digital y qué necesita para funcionar?</h1>
+    <div class="sub">Análisis de tres casos: abastecimiento de agua, automoción y logística portuaria</div>
+  </div>
+  <dl>
+    <dt>Alumno/a</dt><dd>Nombre y apellidos (ejemplo)</dd>
+    <dt>Grupo</dt><dd>Tu grupo</dd>
+    <dt>Módulo</dt><dd>Digitalización Aplicada a los Sectores Productivos</dd>
+    <dt>Fecha</dt><dd>12/11/2026</dd>
+  </dl>
+</section>
+
+<!-- 2. INTRODUCCIÓN -->
+<h2>1. Introducción</h2>
+<p>Un gemelo digital es una copia virtual de algo real, como una máquina, una fábrica o una red de tuberías, que se mantiene actualizada con datos de sensores. Sirve para probar cambios en el ordenador antes de hacerlos en el mundo físico, donde equivocarse es caro.</p>
+<p>Me interesa porque une varias THD que vemos en el módulo: el IoT aporta los datos, la nube los almacena y la IA ayuda a predecir. Además, el software que hay detrás lo desarrollan perfiles como los de DAM y DAW.</p>
+<p>Hoy se usa sobre todo en industria, energía, agua, infraestructuras y logística. Sin embargo, el término se ha puesto de moda y muchas empresas llaman «gemelo digital» a simples modelos 3D, así que quería comprobar qué hay detrás de los casos reales.</p>
+<div class="guia">Media página como máximo. Responde a las tres preguntas del índice: qué es, por qué te interesa y dónde se usa. Fíjate en que ya aparece una duda que el trabajo intentará resolver.</div>
+
+<!-- 3. PREGUNTA Y OBJETIVOS -->
+<h2>2. Pregunta de Investigación y Objetivos</h2>
+<p><b>Pregunta:</b> ¿qué aporta realmente un gemelo digital a una organización y qué necesita para funcionar?</p>
+<ol>
+  <li>Identificar qué problema resolvía el gemelo digital en tres organizaciones reales de sectores distintos.</li>
+  <li>Distinguir los resultados medidos de las promesas y previsiones.</li>
+  <li>Reconocer los requisitos y riesgos que comparten los tres casos.</li>
+</ol>
+<div class="guia">Tú no inventas la pregunta: copia la de tu THD del enunciado del proyecto. Esta es inventada porque los gemelos digitales no tienen pregunta asignada. Los objetivos sí son tuyos: como máximo tres, y que empiecen por un verbo.</div>
+
+<!-- 4. CÓMO BUSQUÉ -->
+<h2>3. Cómo Busqué Información</h2>
+<p>Busqué en español y en inglés con las palabras clave «gemelo digital caso real», «digital twin water network», «virtual factory BMW» y «digital twin port». Di prioridad a las fuentes primarias, es decir, a las notas de prensa y páginas de las propias organizaciones, y abrí cada una para comprobar la fecha y si la cifra estaba realmente allí. Descarté blogs y artículos que repetían cifras sin decir de dónde salían. Cuando un dato procedía de la empresa que vende la tecnología, lo anoté como tal, porque no es lo mismo que un resultado verificado por alguien independiente.</p>
+<div class="guia">Entre 5 y 7 líneas. Lo importante son los criterios para fiarte de una fuente, no la lista de webs, que ya va en la matriz.</div>
+
+<!-- 5. QUÉ ES -->
+<h2>4. Qué Es un Gemelo Digital</h2>
+<p>Un gemelo digital es una representación virtual de un objeto, proceso o sistema físico que se actualiza con datos reales y que permite simular su comportamiento. Tres ideas clave:</p>
+<ol>
+  <li><b>Está conectado:</b> recibe datos de sensores del objeto real. Un modelo 3D que nadie actualiza no es un gemelo digital, sino un plano.</li>
+  <li><b>Sirve para simular:</b> permite preguntar «¿qué pasaría si…?» sin arriesgar la instalación real.</li>
+  <li><b>Depende de sus datos:</b> si los sensores fallan o el modelo no se ajusta a la realidad, las simulaciones serán erróneas aunque parezcan precisas.</li>
+</ol>
+<h3>Miniglosario</h3>
+<table>
+  <tr><th style="width:24%">Término</th><th>Significado</th></tr>
+  <tr><td><b>Simulación</b></td><td>Cálculo en el ordenador de cómo se comportaría un sistema ante una situación concreta.</td></tr>
+  <tr><td><b>Calibración</b></td><td>Ajuste del modelo comparándolo con medidas reales para que sus resultados se parezcan a la realidad.</td></tr>
+  <tr><td><b>SCADA</b></td><td>Sistema que supervisa y controla instalaciones industriales a distancia, como bombas o válvulas.</td></tr>
+  <tr><td><b>Agua no registrada</b></td><td>Agua que se introduce en la red pero no llega a facturarse, sobre todo por fugas y errores de medida.</td></tr>
+  <tr><td><b>Fábrica virtual</b></td><td>Modelo digital completo de una planta que se usa para planificarla antes de construirla o modificarla.</td></tr>
+</table>
+<div class="guia">Unos tres cuartos de página. Define con tus palabras: si copias la definición de una web, no podrás explicarla en la exposición. El miniglosario recoge los términos que necesita tu lector para entender los casos.</div>
+
+<!-- 6. CASOS -->
+<h2>5. Casos Reales</h2>
+
+<div class="caso">
+<h3>Caso A. Red de agua de Valencia (sector: abastecimiento de agua)</h3>
+<p>Global Omnium gestiona el abastecimiento de Valencia y su área metropolitana con un gemelo digital de la plataforma GoAigua, que según su proveedor funciona desde 2009. El problema era operar una red grande y compleja, con plantas potabilizadoras, depósitos, bombas y válvulas, sin saber en tiempo real qué ocurría en cada punto. El gemelo es un modelo hidráulico calibrado que combina datos de contadores inteligentes, sensores, SCADA y sistemas de información geográfica, y que permite simular escenarios y prever la demanda a 24 horas. El proveedor afirma una reducción del 30 % del agua no registrada, del 15 % de la energía usada en el tratamiento y del 20 % de los costes de mantenimiento. <b>Son cifras de la empresa que vende la tecnología</b> y la página no indica el periodo ni cómo se midieron.</p>
+<p class="fuente">Fuente: Idrica, caso de éxito «Global Omnium saves over 1 bn gallons of water a year thanks to GoAigua's Digital Twin».</p>
+</div>
+
+<div class="caso">
+<h3>Caso B. Planta de BMW en Debrecen, Hungría (sector: automoción)</h3>
+<p>En marzo de 2023, BMW Group anunció que su nueva planta de Debrecen era la primera que había planificado y validado por completo de forma virtual, con la plataforma NVIDIA Omniverse. El problema era coordinar el diseño de una fábrica entera, con sus robots y su logística, entre equipos de distintos países antes de construirla. La producción virtual empezó más de dos años antes que la real, y la producción en serie del BMW iX3 comenzó a finales de 2025. BMW afirma que el proceso ahorra tiempo y costes, pero <b>no publica ninguna cifra</b>. Además, mientras la planta no existía, el modelo no recibía datos reales: en sentido estricto era una fábrica virtual que solo se convierte en gemelo digital cuando se conecta a la planta en funcionamiento.</p>
+<p class="fuente">Fuentes: BMW Group, nota de prensa del 21/03/2023, y web de la planta de Debrecen.</p>
+</div>
+
+<div class="caso">
+<h3>Caso C. Puerto de Róterdam, Países Bajos (sector: logística portuaria)</h3>
+<p>A comienzos de 2018, la autoridad portuaria de Róterdam e IBM anunciaron un proyecto plurianual para digitalizar el puerto con una plataforma IoT en la nube. El objetivo era conocer en tiempo real el estado del agua, el tiempo y el tráfico en un área portuaria de 42 km, mediante sensores y un panel centralizado. Supply Chain Dive deduce, a partir de un blog de IBM, que el resultado sería un gemelo digital del puerto. Según el anuncio, las navieras y el puerto podrían ahorrar hasta una hora de atraque, con un valor de unos 80.000 dólares, aunque las dos fuentes no coinciden en si esa cantidad es por hora o en total. <b>Es una previsión de 2018, no un resultado medido</b>, y no he encontrado datos posteriores que la confirmen.</p>
+<p class="fuente">Fuentes: Supply Chain Dive, 31/01/2018, y The Maritime Executive, 08/02/2018.</p>
+</div>
+<div class="guia">Cada caso responde a cuatro preguntas: qué organización y sector, qué problema había, qué se hizo y qué resultado hubo. Fíjate en las frases en negrita: indicar quién da la cifra y si es una previsión vale más que una cifra espectacular. Tus casos deben ser distintos de los que aparecen en los apuntes.</div>
+
+<!-- 7. COMPARATIVA -->
+<h2>6. Comparativa</h2>
+<table>
+  <tr><th style="width:17%">Criterio</th><th>Caso A: agua de Valencia</th><th>Caso B: BMW Debrecen</th><th>Caso C: puerto de Róterdam</th></tr>
+  <tr><td><b>Valor aportado</b></td><td>Alto: ahorro de agua, energía y mantenimiento, según el proveedor</td><td>Medio-alto: planificar una planta entera antes de construirla</td><td>Incierto: solo hay ahorros previstos y las fuentes no coinciden en la cifra</td></tr>
+  <tr><td><b>Coste/recursos</b></td><td>Alto: sensores y contadores en toda la red; coste no publicado</td><td>Alto: escaneo de instalaciones y equipo especializado; coste no publicado</td><td>Alto: sensores en 42 km y plataforma en la nube; coste no publicado</td></tr>
+  <tr><td><b>Dificultad</b></td><td>Alta: más de 10 años de desarrollo y calibración continua</td><td>Alta: coordinación entre países y proveedores</td><td>Alta: muchas organizaciones implicadas en el puerto</td></tr>
+  <tr><td><b>Riesgos clave</b></td><td>Calidad de los datos y ciberataques a la red de agua</td><td>Dependencia del proveedor de la plataforma</td><td>Promesas sin resultados comprobables</td></tr>
+  <tr><td><b>Tipo de evidencia</b></td><td>Cifras del proveedor, sin metodología</td><td>Nota de prensa sin cifras</td><td>Previsión de 2018</td></tr>
+</table>
+<div class="guia">Cada valoración va acompañada de un motivo breve que sale de tus fuentes. Puedes añadir criterios: aquí se ha añadido «Tipo de evidencia», que ayuda a responder al segundo objetivo.</div>
+
+<!-- 8. RIESGOS -->
+<h2>7. Riesgos y Buenas Prácticas</h2>
+<ul>
+  <li><b>Datos de mala calidad:</b> un sensor averiado produce simulaciones erróneas. Medida: filtrar y validar los datos antes de usarlos, como hace el caso A.</li>
+  <li><b>Ciberseguridad:</b> conectar el gemelo a sistemas que controlan bombas o máquinas abre una vía de ataque a la instalación real. Medida: separar las redes de control y limitar quién puede enviar órdenes desde el gemelo.</li>
+  <li><b>Dependencia del proveedor:</b> el modelo y los datos pueden quedar atados a una plataforma comercial. Medida: exigir formatos abiertos y la posibilidad de exportar los datos.</li>
+  <li><b>Falsa precisión:</b> una simulación muy visual parece más fiable de lo que es. Medida: recalibrar el modelo y comparar sus predicciones con lo que ocurre de verdad.</li>
+  <li><b>Coste de mantenimiento:</b> el gemelo debe actualizarse cada vez que cambia la instalación real. Medida: incluir ese mantenimiento en el presupuesto desde el principio.</li>
+</ul>
+<div class="guia">Entre 4 y 6 riesgos, cada uno con una medida concreta. Si puedes, relaciónalos con tus casos.</div>
+
+<!-- 9. CONCLUSIONES -->
+<h2>8. Conclusiones</h2>
+<p>Un gemelo digital aporta sobre todo la posibilidad de probar decisiones antes de aplicarlas, y para funcionar necesita muchos datos fiables, años de ajuste y personal especializado. Solo he respondido a la pregunta en parte: los tres casos describen beneficios, pero ninguno los acompaña de una medición independiente, y en dos de ellos ni siquiera hay cifras comprobables. Tampoco he encontrado el coste de ninguno de los proyectos. Como siguiente paso, buscaría informes de organismos públicos o estudios académicos que comparen resultados antes y después, y un caso de una pyme para saber si esta tecnología está a su alcance.</p>
+<div class="guia">Entre 5 y 7 líneas, con tres partes: la respuesta a la pregunta, lo que no has podido comprobar y el siguiente paso. Reconocer los límites no resta nota: demuestra que has investigado de verdad.</div>
+
+<!-- 10. FUENTES -->
+<h2>9. Webgrafía y Matriz de Fuentes</h2>
+<div class="ref">
+<p>BMW Group. <i>BMW Group at NVIDIA GTC: Virtual Production Under way in Future Plant Debrecen</i>. newsroom.bmwgroup.com, 2023. https://www.press.bmwgroup.com/global/article/detail/T0411467EN/ (Consulta: 12/11/2026).</p>
+<p>BMW Group. <i>BMW Group Plant Debrecen</i>. bmwgroup-werke.com. https://www.bmwgroup-werke.com/debrecen/en.html (Consulta: 12/11/2026).</p>
+<p>Idrica. <i>Global Omnium saves over 1 bn gallons of water a year thanks to GoAigua's Digital Twin</i>. idrica.com. https://www.idrica.com/case-studies/digital-twin-valencia/ (Consulta: 12/11/2026).</p>
+<p>Patrick Macri, Kate. <i>'World's smartest port': How IBM plans to digitize Port of Rotterdam</i>. Supply Chain Dive, 2018. https://www.supplychaindive.com/news/ibm-digitize-port-of-rotterdam/516006/ (Consulta: 12/11/2026).</p>
+<p>The Maritime Executive. <i>Port of Rotterdam Teams with IBM in Smart Port Initiative</i>. maritime-executive.com, 2018. https://www.maritime-executive.com/corporate/port-of-rotterdam-teams-with-ibm-in-smart-port-initiative (Consulta: 12/11/2026).</p>
+</div>
+<table>
+  <tr><th style="width:23%">Título/Autor</th><th style="width:22%">Enlace</th><th style="width:8%">Año</th><th style="width:7%">Tipo</th><th>¿Por qué la uso?</th></tr>
+  <tr><td>Virtual Production Under way in Future Plant Debrecen, BMW Group</td><td>press.bmwgroup.com</td><td>2023</td><td>Web</td><td>Fuente primaria del caso B; no aporta cifras de ahorro</td></tr>
+  <tr><td>BMW Group Plant Debrecen, BMW Group</td><td>bmwgroup-werke.com</td><td>Sin fecha</td><td>Web</td><td>Confirma que la producción en serie empezó a finales de 2025</td></tr>
+  <tr><td>Digital Twin Valencia, Idrica</td><td>idrica.com</td><td>Sin fecha</td><td>Web</td><td>Describe el caso A con detalle; es del proveedor, así que sus cifras no son independientes</td></tr>
+  <tr><td>How IBM plans to digitize Port of Rotterdam, Supply Chain Dive</td><td>supplychaindive.com</td><td>2018</td><td>Web</td><td>Describe el proyecto; lo de «gemelo digital» es una deducción del medio, no del puerto</td></tr>
+  <tr><td>Port of Rotterdam Teams with IBM, The Maritime Executive</td><td>maritime-executive.com</td><td>2018</td><td>Web</td><td>Recoge el anuncio con el ahorro previsto; reproduce una nota de prensa</td></tr>
+</table>
+<div class="guia">Mínimo 5 referencias, con el formato del enunciado y la fecha en que las consultaste. En la matriz, la columna «¿Por qué la uso?» también sirve para avisar de sus límites. Rellénala mientras investigas, no al final.</div>
+
+</body>
+</html>

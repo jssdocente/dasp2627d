@@ -67,7 +67,7 @@ Los apuntes `thd-*.md` cubren los temas de ambas referencias, salvo los desafío
 
 La versión vigente es `docs/temas/02-tecnologias-habilitadoras/proyecto-investigacion-thd.md`, que sustituye al PDF del curso anterior. Los apuntes de la UT2 deben preparar esta tarea sin resolverla; su finalidad es que el alumnado investigue.
 
-- **Fechas y grupos:** se gestionan en Moodle; no se escriben en los apuntes ni en el PDF de la tarea. DAW2A (11 estudiantes, jueves) entrega el 25 de noviembre de 2026 y presenta el 26. DAM2B (9 estudiantes, miércoles) presenta el 2 de diciembre si es posible; su fecha de entrega está sin confirmar.
+- **Fechas y grupos:** se gestionan en Moodle; no se escriben en los apuntes ni en el PDF de la tarea. Las sesiones de preparación se explican en clase y tampoco figuran. DAW2A (11 estudiantes, jueves) entrega el 25 de noviembre de 2026 y presenta el 26. DAM2B (9 estudiantes, miércoles) presenta el 2 de diciembre si es posible; su fecha de entrega está sin confirmar.
 - **Planteamiento:** trabajo individual sobre una THD asignada por sorteo, con pregunta y subpreguntas fijas y casos distintos de los de los apuntes (regla confirmada por el docente). Algunas THD se repiten en cada grupo; Blockchain tiene una sola plaza en ambos, y en DAM2B también Big Data y Cloud.
 - **PDF:** `material-docente/proyecto-investigacion-thd.pdf` se genera desde la página con `material-docente/generar_pdf.sh`, que también produce las papeletas `material-docente/sorteo-thd.pdf`. Regenéralos si cambia la página.
 - **Entregables:** documento de 4-6 páginas y presentación de 5-6 diapositivas, con exposición de 3-4 minutos.

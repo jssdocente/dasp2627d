@@ -24,21 +24,7 @@ Como hay más personas que tecnologías, algunas THD se repiten. El trabajo sigu
 
 ---
 
-## 2. Plan de Trabajo
-
-Solo hay una clase a la semana, así que buena parte del trabajo es autónomo. Este plan te ayuda a llegar a tiempo:
-
-| Cuándo | Objetivo | Al terminar deberías tener |
-| :--- | :--- | :--- |
-| **Primera semana** | Conocer tu THD y tu pregunta | Pregunta, objetivos y palabras clave |
-| **Segunda semana** | Buscar y seleccionar fuentes | Matriz con al menos 3 fuentes y 1 caso real |
-| **Tercera semana** | Analizar y comparar | 2-3 casos, comparativa y riesgos |
-| **Hasta la entrega** | Redactar y preparar la exposición | Documento y diapositivas entregados |
-| **Día de la presentación** | Presentar | Exposición de 3-4 minutos |
-
----
-
-## 3. Documento (PDF, 4-6 páginas)
+## 2. Documento (PDF, 4-6 páginas)
 
 Sigue este índice:
 
@@ -46,7 +32,7 @@ Sigue este índice:
 
 2. **Introducción (½ página):** ¿qué THD es?, ¿por qué me interesa?, ¿dónde se usa hoy?
 
-3. **Pregunta de investigación y objetivos:** la pregunta de tu THD (sección 6) y un máximo de 3 objetivos.
+3. **Pregunta de investigación y objetivos:** la pregunta de tu THD (sección 5) y un máximo de 3 objetivos.
 
 4. **Cómo busqué información (5-7 líneas):** palabras clave, webs consultadas y criterios que usaste para fiarte de ellas, como la actualidad y la claridad.
 
@@ -54,17 +40,17 @@ Sigue este índice:
 
 6. **Casos reales (2-3 casos breves):** para cada caso, el sector, qué resolvía y el resultado principal, en 3-7 frases y con su fuente. Deben ser distintos de los que aparecen en los apuntes.
 
-7. **Comparativa (tabla):** compara tus casos con los criterios de la sección 4.
+7. **Comparativa (tabla):** compara tus casos con los criterios de la sección 3.
 
 8. **Riesgos y buenas prácticas (4-6 puntos):** privacidad, seguridad, sesgos, dependencia del proveedor, etc., con medidas básicas.
 
 9. **Conclusiones (5-7 líneas):** qué has aprendido, si has respondido a la pregunta y cuál sería el siguiente paso.
 
-10. **Webgrafía, bibliografía y matriz de fuentes:** mínimo 5 referencias (sección 5).
+10. **Webgrafía, bibliografía y matriz de fuentes:** mínimo 5 referencias (sección 4).
 
 ---
 
-## 4. Tabla Comparativa
+## 3. Tabla Comparativa
 
 Este es el formato. Sustituye los valores de ejemplo por los de tus casos y apóyalos en lo que dicen tus fuentes.
 
@@ -77,7 +63,7 @@ Este es el formato. Sustituye los valores de ejemplo por los de tus casos y apó
 
 ---
 
-## 5. Fuentes
+## 4. Fuentes
 
 Necesitas un **mínimo de 5 referencias**, de las que al menos 3 deben ser webs. Los libros y artículos académicos son opcionales.
 
@@ -99,7 +85,7 @@ Ejemplo de formato: Agencia X. *Guía básica de IoT*. agenciax.es, 2026. https:
 
 ---
 
-## 6. Preguntas de Investigación
+## 5. Preguntas de Investigación
 
 Busca la pregunta de tu THD. Las subpreguntas son orientativas y te ayudan a saber qué buscar.
 
@@ -165,7 +151,7 @@ Busca la pregunta de tu THD. Las subpreguntas son orientativas y te ayudan a sab
 
 ---
 
-## 7. Presentación
+## 6. Presentación
 
 Prepara **5-6 diapositivas** (PDF o PPT) para una exposición de **3-4 minutos**. Sigue esta estructura:
 
@@ -181,7 +167,7 @@ Prepara **5-6 diapositivas** (PDF o PPT) para una exposición de **3-4 minutos**
 
 ---
 
-## 8. Entregables
+## 7. Entregables
 
 Sube a Moodle dentro del plazo:
 
