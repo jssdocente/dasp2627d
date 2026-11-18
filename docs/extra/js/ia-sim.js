@@ -1,75 +1,86 @@
 /*
- * Simulador «Entrena tu propio filtro» para la página 2.5 de los apuntes DASP.
- * Elaboración propia. Un modelo de vecinos más cercanos (k-NN) aprende de
- * ejemplos de candidaturas inventadas. Solo actúa si la página contiene .ia-sim.
+ * Simulador «Entrena un filtro de spam» para la página 2.5 de los apuntes DASP.
+ * Elaboración propia. Un modelo muy sencillo aprende puntos por palabra a partir
+ * de mensajes etiquetados. Solo actúa si la página contiene .ia-sim.
  *
- * Pasos: 0 aprender de ejemplos, 1 predecir, 2 el sesgo heredado, 3 corregirlo.
+ * Pasos: 0 enséñale, 1 ponlo a prueba, 2 el sesgo heredado, 3 corrígelo.
+ * Los mensajes, la empresa y las cifras son inventados.
  */
 (function () {
   "use strict";
 
-  var PASOS = ["Aprender de ejemplos", "Predecir", "El sesgo heredado", "Corregirlo"];
-  var X0 = 44, X1 = 384, Y0 = 262, Y1 = 18;     // área de la gráfica en el viewBox
-  var COLS = 34, FILAS = 24;
+  var PASOS = ["Enséñale", "Ponlo a prueba", "El sesgo heredado", "Corrígelo"];
 
-  // ---------- Datos ----------
+  // Palabras tan comunes que no se tienen en cuenta.
+  var VACIAS = ["para", "con", "que", "los", "las", "del", "una", "uno", "por", "tus", "sus",
+    "este", "esta", "esto", "has", "hay", "les", "nos", "más", "muy"];
 
-  function azar(semilla) {
-    var s = semilla;
-    return function () {
-      s = (s * 1664525 + 1013904223) % 4294967296;
-      return s / 4294967296;
-    };
-  }
-
-  function merito(p) { return (p.nota / 10) * 0.6 + (p.exp / 5) * 0.4; }
-
-  // Decisiones antiguas de una empresa inventada: al centro B se le exigía mucho más.
-  function historico(revisado) {
-    var r = azar(17), datos = [];
-    for (var i = 0; i < 44; i++) {
-      var centro = i < 30 ? "A" : "B";
-      var p = { nota: 3 + r() * 7, exp: r() * 5, centro: centro };
-      p.localidad = r() < 0.9 ? centro : (centro === "A" ? "B" : "A");
-      var exigencia = centro === "B" && !revisado ? 0.78 : 0.56;
-      p.si = merito(p) > exigencia;
-      datos.push(p);
-    }
-    return datos;
-  }
-
-  // Candidaturas de prueba con la misma calidad en los dos centros.
-  function prueba() {
-    var r = azar(99), lista = [];
-    ["A", "B"].forEach(function (c) {
-      for (var i = 0; i < 80; i++) {
-        lista.push({ nota: 3 + r() * 7, exp: r() * 5, centro: c, localidad: r() < 0.9 ? c : (c === "A" ? "B" : "A") });
-      }
-    });
-    return lista;
-  }
-
-  var INICIALES = [
-    { nota: 8.5, exp: 4, si: true }, { nota: 9, exp: 2.5, si: true },
-    { nota: 4, exp: 1, si: false }, { nota: 5, exp: 0.5, si: false }
+  // Paso 0: el alumnado etiqueta estos mensajes. «spam» es la etiqueta esperada.
+  var ENTRENO = [
+    { texto: "Has ganado un premio: reclama tu regalo gratis", spam: true },
+    { texto: "Mañana cambiamos la hora de la reunión del proyecto", spam: false },
+    { texto: "Oferta exclusiva: un móvil gratis si pulsas hoy", spam: true },
+    { texto: "Te envío el informe del examen de Bases de Datos", spam: false },
+    { texto: "Último aviso: tu premio caduca hoy, pulsa aquí", spam: true },
+    { texto: "¿Quedamos el jueves para revisar el proyecto?", spam: false },
+    { texto: "Gana dinero desde casa con esta oferta", spam: true },
+    { texto: "Recuerda entregar la práctica antes del viernes", spam: false }
   ];
-  var NUEVAS = [{ nota: 7.5, exp: 3.2 }, { nota: 4.5, exp: 2 }, { nota: 9.8, exp: 0.1 }, { nota: 2.5, exp: 4.8 }];
 
-  // ---------- Modelo: k vecinos más cercanos ----------
+  // Paso 1: mensajes nuevos que el filtro no ha visto.
+  var PRUEBA = [
+    { de: "promo@ofertas-ya.example", texto: "Premio gratis para ti, pulsa hoy", spam: true },
+    { de: "Lucía (compañera de clase)", texto: "Revisamos el proyecto mañana a primera hora", spam: false },
+    { de: "Secretaría del centro", texto: "Entrada gratis a la charla de empresas del viernes", spam: false,
+      aviso: "El filtro no entiende que es un aviso de tu centro: solo ve la palabra «gratis», que en tus ejemplos siempre era spam." },
+    { de: "envios@paqueteria-rapida.example", texto: "Tu paquete está retenido: confirma el pago", spam: true,
+      aviso: "Ninguna de estas palabras estaba en tus ejemplos, así que suma 0 y el filtro lo deja pasar. No avisa de que no sabe." }
+  ];
 
-  function distancia(a, b, cols) {
-    var dx = (a.nota - b.nota) / 10, dy = (a.exp - b.exp) / 5, d = dx * dx + dy * dy;
-    if (cols.centro && a.centro !== b.centro) d += 0.09;
-    if (cols.localidad && a.localidad !== b.localidad) d += 0.09;
-    return Math.sqrt(d);
+  // Pasos 2 y 3: la libreta de una empresa inventada.
+  var EMPRESA = {
+    the: 7, you: 6, free: 6, your: 5, win: 5, offer: 5, click: 5, "for": 4, now: 4, money: 4, please: 3, hello: 3,
+    proyecto: -5, factura: -5, "reunión": -4, pedido: -4, gracias: -4, informe: -4, hola: -3, adjunto: -3
+  };
+  var VARIADA = {
+    free: 6, win: 5, offer: 5, click: 5, premio: 5, gratis: 5, money: 4, regalo: 4, reclama: 3, ganado: 3,
+    proyecto: -5, factura: -5, invoice: -4, order: -4, "reunión": -4, pedido: -4, gracias: -4, informe: -4,
+    thank: -3, hola: -3, adjunto: -3
+  };
+  var BORRABLES = ["the", "you", "please"];
+  var BANDEJA = [
+    { de: "Cliente de Irlanda", texto: "Hello, please send the invoice for order 1043. Thank you", spam: false },
+    { de: "premios@sorteo-2026.example", texto: "Has ganado un premio: reclama tu regalo gratis hoy", spam: true },
+    { de: "Proveedor de Mérida", texto: "Hola, te adjunto la factura del pedido. Gracias", spam: false }
+  ];
+
+  // ---------- Modelo ----------
+
+  function clave(palabra) {
+    return palabra.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, "");
   }
 
-  function predecir(datos, q, k, cols) {
-    var orden = datos.map(function (p) { return { p: p, d: distancia(p, q, cols) }; })
-      .sort(function (a, b) { return a.d - b.d; })
-      .slice(0, Math.min(k, datos.length));
-    var si = orden.filter(function (o) { return o.p.si; }).length;
-    return { si: si * 2 > orden.length, votos: si, k: orden.length, cerca: orden.length ? orden[0].d : 1, vecinos: orden };
+  function cuenta(c) {
+    return c.length >= 3 && VACIAS.indexOf(c) < 0 && !/^[0-9]+$/.test(c);
+  }
+
+  function palabras(texto) {
+    return texto.split(/\s+/).map(clave).filter(cuenta);
+  }
+
+  // Cada palabra de un mensaje de spam suma 1 punto; de uno normal, resta 1.
+  function entrenar(etiquetados) {
+    var libreta = {};
+    etiquetados.forEach(function (m) {
+      palabras(m.texto).forEach(function (p) {
+        libreta[p] = (libreta[p] || 0) + (m.etiqueta ? 1 : -1);
+      });
+    });
+    return libreta;
+  }
+
+  function puntuar(libreta, texto) {
+    return palabras(texto).reduce(function (s, p) { return s + (libreta[p] || 0); }, 0);
   }
 
   // ---------- Utilidades de DOM ----------
@@ -81,29 +92,67 @@
     return e;
   }
 
-  function svgEl(tag, attrs) {
-    var e = document.createElementNS("http://www.w3.org/2000/svg", tag);
-    Object.keys(attrs || {}).forEach(function (k) { e.setAttribute(k, attrs[k]); });
-    return e;
-  }
-
   function boton(texto, clase) {
     var b = el("button", "md-button" + (clase ? " " + clase : ""), texto);
     b.type = "button";
     return b;
   }
 
-  function xDe(nota) { return X0 + (nota / 10) * (X1 - X0); }
-  function yDe(exp) { return Y0 - (exp / 5) * (Y0 - Y1); }
-  function num(x) { return x.toFixed(1).replace(".", ","); }
-  function pct(x) { return Math.round(x * 100) + " %"; }
+  function signo(n) { return (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n); }
+
+  function etiquetaPal(palabra, puntos) {
+    var s = el("span", "ia-pal " + (puntos > 0 ? "ia-pal-spam" : "ia-pal-ok"), palabra);
+    s.appendChild(el("sup", null, signo(puntos)));
+    return s;
+  }
+
+  // Pinta el texto de un mensaje marcando las palabras que el filtro conoce.
+  function textoMarcado(libreta, texto) {
+    var p = el("p", "ia-texto");
+    texto.split(/(\s+)/).forEach(function (trozo) {
+      var c = clave(trozo);
+      var puntos = cuenta(c) ? (libreta[c] || 0) : 0;
+      p.appendChild(puntos ? etiquetaPal(trozo, puntos) : document.createTextNode(trozo));
+    });
+    return p;
+  }
+
+  function acierta(libreta, m) { return (puntuar(libreta, m.texto) > 0) === m.spam; }
+
+  function tarjeta(libreta, m) {
+    var t = el("div", "ia-correo");
+    t.appendChild(el("div", "ia-de", "De: " + m.de));
+    t.appendChild(textoMarcado(libreta, m.texto));
+    var puntos = puntuar(libreta, m.texto);
+    t.appendChild(el("p", "ia-resultado " + (puntos > 0 ? "iot-mal" : "iot-ok"),
+      "Suma " + signo(puntos) + " → " + (puntos > 0 ? "🚫 Va a spam" : "📥 Va a la bandeja de entrada")));
+    var ok = acierta(libreta, m);
+    t.appendChild(el("p", "ia-verdad " + (ok ? "iot-ok" : "iot-mal"),
+      (ok ? "✔ Acierta" : "✘ Se equivoca") + ": en realidad " + (m.spam ? "es spam." : "es un mensaje normal.")));
+    t.classList.add(ok ? "ia-correo-ok" : "ia-correo-mal");
+    return t;
+  }
+
+  function pintarLibreta(cont, libreta, titulo, nota) {
+    cont.appendChild(el("div", "iot-sub", titulo));
+    var lista = Object.keys(libreta).filter(function (p) { return libreta[p] !== 0; })
+      .sort(function (a, b) { return libreta[b] - libreta[a] || a.localeCompare(b); });
+    if (!lista.length) {
+      cont.appendChild(el("p", "cpg-nota", "Todavía está vacía: el filtro no sabe nada."));
+    } else {
+      var caja = el("div", "ia-libreta");
+      lista.forEach(function (p) { caja.appendChild(etiquetaPal(p, libreta[p])); });
+      cont.appendChild(caja);
+    }
+    if (nota) cont.appendChild(el("p", "cpg-nota", nota));
+  }
+
+  // ---------- Simulador ----------
 
   function iniciar(raiz) {
     raiz.textContent = "";
-    var st = { paso: 0, propios: INICIALES.slice(), etiqueta: true, añadidos: 0, nuevas: 0,
-               vista: "A", vistoB: false, cols: { centro: true, localidad: true }, revisado: false };
+    var st = { paso: 0, etiquetados: [] };
     var v = {};
-    var PRUEBA = prueba();
 
     var barra = el("div", "bc-pasos");
     var botonesPaso = PASOS.map(function (nombre, n) {
@@ -127,32 +176,34 @@
     siguiente.addEventListener("click", function () { irA(st.paso + 1); });
     repetir.addEventListener("click", function () { irA(st.paso, true); });
 
+    // Si el alumnado salta al paso 2 sin etiquetar, se completan las etiquetas esperadas.
+    function etiquetadosCompletos() {
+      return ENTRENO.map(function (m, i) {
+        return st.etiquetados[i] || { texto: m.texto, etiqueta: m.spam };
+      });
+    }
+
+    function libretaEmpresa() {
+      var base = st.paso === 3 && st.variada ? VARIADA : EMPRESA, l = {};
+      Object.keys(base).forEach(function (p) {
+        if (!(st.paso === 3 && st.borradas[p])) l[p] = base[p];
+      });
+      return l;
+    }
+
     function irA(n, reiniciar) {
       st.paso = Math.max(0, Math.min(PASOS.length - 1, n));
-      if (st.paso === 0 && reiniciar) { st.propios = INICIALES.slice(); st.añadidos = 0; }
-      st.nuevas = 0;
-      st.ultima = null;
-      st.vista = "A";
-      st.vistoB = false;
-      if (st.paso === 3) { st.cols = { centro: true, localidad: true }; st.revisado = false; st.tocado = false; }
+      if (st.paso === 0 && reiniciar) st.etiquetados = [];
+      st.visto = 0;
+      st.todos = false;
+      st.abierta = false;
+      st.error = null;
+      st.borradas = {};
+      st.variada = false;
+      st.tocado = false;
       construir();
       actualizar();
     }
-
-    function datosActuales() {
-      if (st.paso <= 1) return st.propios;
-      return historico(st.paso === 3 && st.revisado);
-    }
-
-    function colsActuales() {
-      if (st.paso <= 1) return {};
-      if (st.paso === 2) return { centro: true, localidad: true };
-      return st.cols;
-    }
-
-    function k() { return st.paso <= 1 ? 3 : 5; }
-
-    // ---------- Escena ----------
 
     function construir() {
       escena.textContent = "";
@@ -162,209 +213,116 @@
       siguiente.style.display = st.paso === PASOS.length - 1 ? "none" : "";
 
       var c = el("div", "iot-controles");
-      if (st.paso === 0) {
-        c.appendChild(document.createTextNode("Al hacer clic en la gráfica añades un ejemplo de: "));
-        [[true, "✔ Contratada"], [false, "✘ No contratada"]].forEach(function (op) {
-          var b = boton(op[1], "iot-opcion" + (st.etiqueta === op[0] ? " bc-activo" : ""));
-          b.addEventListener("click", function () {
-            st.etiqueta = op[0];
-            Array.prototype.forEach.call(c.querySelectorAll(".iot-opcion"), function (x) { x.classList.remove("bc-activo"); });
-            b.classList.add("bc-activo");
-          });
-          c.appendChild(b);
-        });
-      }
       if (st.paso === 1) {
-        v.nueva = boton("Llega una candidatura nueva", "md-button--primary");
-        v.nueva.addEventListener("click", function () {
-          st.ultima = NUEVAS[st.nuevas % NUEVAS.length];
-          st.nuevas++;
+        v.nuevo = boton("Llega un mensaje nuevo", "md-button--primary");
+        v.nuevo.addEventListener("click", function () {
+          st.visto = st.visto % PRUEBA.length + 1;
+          if (st.visto === PRUEBA.length) st.todos = true;
           actualizar();
         });
-        c.appendChild(v.nueva);
+        c.appendChild(v.nuevo);
       }
-      if (st.paso >= 2) {
-        c.appendChild(document.createTextNode("Ver el mapa como una candidatura del: "));
-        ["A", "B"].forEach(function (centro) {
-          var b = boton("Centro " + centro, "iot-opcion" + (st.vista === centro ? " bc-activo" : ""));
-          b.addEventListener("click", function () {
-            st.vista = centro;
-            if (centro === "B") st.vistoB = true;
-            Array.prototype.forEach.call(c.querySelectorAll(".iot-opcion"), function (x) { x.classList.remove("bc-activo"); });
-            b.classList.add("bc-activo");
-            actualizar();
-          });
-          c.appendChild(b);
-        });
+      if (st.paso === 2) {
+        var abrir = boton("Abrir la bandeja de entrada", "md-button--primary");
+        abrir.addEventListener("click", function () { st.abierta = true; actualizar(); });
+        c.appendChild(abrir);
       }
-      escena.appendChild(c);
-
       if (st.paso === 3) {
-        var arreglos = el("div", "iot-controles");
-        [["centro", "Usar la columna «centro»"], ["localidad", "Usar la columna «localidad»"]].forEach(function (op) {
+        BORRABLES.forEach(function (p) {
           var lab = el("label", "iot-control");
           var ch = el("input");
           ch.type = "checkbox";
-          ch.checked = st.cols[op[0]];
-          ch.addEventListener("change", function () { st.cols[op[0]] = ch.checked; st.tocado = true; actualizar(); });
+          ch.addEventListener("change", function () { st.borradas[p] = ch.checked; st.tocado = true; actualizar(); });
           lab.appendChild(ch);
-          lab.appendChild(document.createTextNode(" " + op[1]));
-          arreglos.appendChild(lab);
+          lab.appendChild(document.createTextNode(" Borrar «" + p + "»"));
+          c.appendChild(lab);
         });
-        var labR = el("label", "iot-control");
-        var chR = el("input");
-        chR.type = "checkbox";
-        chR.checked = st.revisado;
-        chR.addEventListener("change", function () { st.revisado = chR.checked; st.tocado = true; actualizar(); });
-        labR.appendChild(chR);
-        labR.appendChild(document.createTextNode(" Revisar las decisiones antiguas del centro B con el mismo criterio que las del A"));
-        arreglos.appendChild(labR);
-        escena.appendChild(arreglos);
+        var labV = el("label", "iot-control");
+        var chV = el("input");
+        chV.type = "checkbox";
+        chV.addEventListener("change", function () { st.variada = chV.checked; st.tocado = true; actualizar(); });
+        labV.appendChild(chV);
+        labV.appendChild(document.createTextNode(" Reentrenar con ejemplos variados: spam en español y correos normales en inglés"));
+        c.appendChild(labV);
       }
+      if (c.childNodes.length) escena.appendChild(c);
 
       var cuerpo = el("div", "iot-cuerpo");
-      cuerpo.appendChild(construirGrafica());
+      v.zona = el("div", "ia-zona");
       v.panel = el("div", "iot-planta ia-panel");
+      cuerpo.appendChild(v.zona);
       cuerpo.appendChild(v.panel);
       escena.appendChild(cuerpo);
     }
 
-    function construirGrafica() {
-      var g = svgEl("svg", { viewBox: "0 0 400 300", class: "ia-grafica", role: "img",
-        "aria-label": "Mapa de decisiones del modelo según la nota y los años de experiencia" });
-      v.celdas = [];
-      var w = (X1 - X0) / COLS, h = (Y0 - Y1) / FILAS;
-      for (var i = 0; i < COLS; i++) {
-        for (var j = 0; j < FILAS; j++) {
-          var r = svgEl("rect", { x: X0 + i * w, y: Y1 + j * h, width: w + 0.5, height: h + 0.5 });
-          g.appendChild(r);
-          v.celdas.push({ r: r, nota: ((i + 0.5) / COLS) * 10, exp: (1 - (j + 0.5) / FILAS) * 5 });
-        }
-      }
-      [0, 2, 4, 6, 8, 10].forEach(function (n) {
-        var t = svgEl("text", { x: xDe(n), y: Y0 + 14, "text-anchor": "middle", class: "iot-eje" });
-        t.textContent = n;
-        g.appendChild(t);
-      });
-      [0, 1, 2, 3, 4, 5].forEach(function (e) {
-        var t = svgEl("text", { x: X0 - 6, y: yDe(e) + 3, "text-anchor": "end", class: "iot-eje" });
-        t.textContent = e;
-        g.appendChild(t);
-      });
-      var tx = svgEl("text", { x: (X0 + X1) / 2, y: 296, "text-anchor": "middle", class: "iot-eje" });
-      tx.textContent = "Nota en la prueba técnica";
-      g.appendChild(tx);
-      var ty = svgEl("text", { x: 10, y: (Y0 + Y1) / 2, "text-anchor": "middle", class: "iot-eje",
-        transform: "rotate(-90 10 " + (Y0 + Y1) / 2 + ")" });
-      ty.textContent = "Años de experiencia";
-      g.appendChild(ty);
-      g.appendChild(svgEl("rect", { x: X0, y: Y1, width: X1 - X0, height: Y0 - Y1, class: "ia-marco" }));
-      v.lineas = svgEl("g");
-      v.puntos = svgEl("g");
-      g.appendChild(v.lineas);
-      g.appendChild(v.puntos);
-      if (st.paso === 0) {
-        g.classList.add("ia-clic");
-        g.addEventListener("click", function (ev) {
-          var pt = g.createSVGPoint();
-          pt.x = ev.clientX; pt.y = ev.clientY;
-          var p = pt.matrixTransform(g.getScreenCTM().inverse());
-          if (p.x < X0 || p.x > X1 || p.y < Y1 || p.y > Y0) return;
-          st.propios.push({ nota: (p.x - X0) / (X1 - X0) * 10, exp: (Y0 - p.y) / (Y0 - Y1) * 5, si: st.etiqueta });
-          st.añadidos++;
-          actualizar();
-        });
-      }
-      v.svg = g;
-      return g;
+    function etiquetar(spam) {
+      var m = ENTRENO[st.etiquetados.length];
+      st.etiquetados.push({ texto: m.texto, etiqueta: spam });
+      st.error = spam !== m.spam ? m : null;
+      actualizar();
     }
-
-    function marca(p, extra) {
-      var cx = xDe(p.nota), cy = yDe(p.exp);
-      var clase = "ia-punto " + (p.si === undefined ? "ia-nueva" : p.si ? "ia-si" : "ia-no") + (extra ? " " + extra : "");
-      if (p.centro === "B") {
-        return svgEl("path", { d: "M" + cx + "," + (cy - 6) + " L" + (cx + 6) + "," + (cy + 5) + " L" + (cx - 6) + "," + (cy + 5) + " z", class: clase });
-      }
-      return svgEl("circle", { cx: cx, cy: cy, r: p.si === undefined ? 7 : 5, class: clase });
-    }
-
-    // ---------- Pintado ----------
 
     function actualizar() {
-      var datos = datosActuales(), cols = colsActuales();
-      v.celdas.forEach(function (c) {
-        var q = { nota: c.nota, exp: c.exp, centro: st.vista, localidad: st.vista };
-        var pr = predecir(datos, q, k(), cols);
-        c.r.setAttribute("class", pr.si ? "ia-zona-si" : "ia-zona-no");
-      });
-      v.puntos.textContent = "";
-      v.lineas.textContent = "";
-      datos.forEach(function (p) { v.puntos.appendChild(marca(p)); });
-
+      v.zona.textContent = "";
       v.panel.textContent = "";
       var hecho = false;
+
       if (st.paso === 0) {
-        v.panel.appendChild(el("div", "iot-sub", "Tus ejemplos"));
-        var si = datos.filter(function (p) { return p.si; }).length;
-        v.panel.appendChild(el("p", null, si + " contratadas y " + (datos.length - si) + " no contratadas."));
-        v.panel.appendChild(el("p", "cpg-nota", "Cada zona toma el color de la mayoría de sus 3 ejemplos más cercanos. Nadie ha escrito ninguna regla."));
-        hecho = st.añadidos >= 4;
-      }
-      if (st.paso === 1) {
-        v.panel.appendChild(el("div", "iot-sub", "Predicción"));
-        if (st.ultima) {
-          var pr = predecir(datos, st.ultima, 3, {});
-          v.puntos.appendChild(marca(st.ultima));
-          pr.vecinos.forEach(function (o) {
-            v.lineas.appendChild(svgEl("line", { x1: xDe(st.ultima.nota), y1: yDe(st.ultima.exp),
-              x2: xDe(o.p.nota), y2: yDe(o.p.exp), class: "ia-vecino" }));
-          });
-          v.panel.appendChild(el("p", null, "Nota " + num(st.ultima.nota) + " y " + num(st.ultima.exp) + " años de experiencia."));
-          v.panel.appendChild(el("p", "ia-resultado " + (pr.si ? "iot-ok" : "iot-mal"),
-            (pr.si ? "✔ Contratar" : "✘ No contratar") + " · " + (pr.si ? pr.votos : pr.k - pr.votos) + " de " + pr.k + " vecinos"));
-          if (pr.cerca > 0.3) {
-            v.panel.appendChild(el("p", "ia-aviso", "Esta candidatura está lejos de todos tus ejemplos, y aun así el modelo da una respuesta sin avisar de que no sabe."));
-            st.vistoLejos = true;
-          }
+        var n = st.etiquetados.length;
+        if (n < ENTRENO.length) {
+          var t = el("div", "ia-correo");
+          t.appendChild(el("div", "ia-de", "Mensaje " + (n + 1) + " de " + ENTRENO.length));
+          t.appendChild(el("p", "ia-texto", ENTRENO[n].texto));
+          var b = el("div", "iot-controles");
+          var bs = boton("🚫 Es spam"), bn = boton("📥 Es normal");
+          bs.addEventListener("click", function () { etiquetar(true); });
+          bn.addEventListener("click", function () { etiquetar(false); });
+          b.appendChild(bs);
+          b.appendChild(bn);
+          t.appendChild(b);
+          v.zona.appendChild(t);
         } else {
-          v.panel.appendChild(el("p", null, "Pulsa «Llega una candidatura nueva»."));
+          v.zona.appendChild(el("p", "ia-resultado iot-ok", "✔ Has etiquetado los " + ENTRENO.length + " mensajes."));
         }
-        hecho = st.nuevas >= 3;
+        if (st.error) {
+          v.zona.appendChild(el("p", "ia-aviso", "Has marcado como " + (st.error.spam ? "normal" : "spam")
+            + " «" + st.error.texto + "». El filtro aprende lo que tú le enseñas, aunque sea un error."));
+        }
+        pintarLibreta(v.panel, entrenar(st.etiquetados), "La libreta del filtro",
+          "Cada palabra de un mensaje de spam suma 1 punto; de uno normal, resta 1.");
+        hecho = n === ENTRENO.length;
       }
+
+      if (st.paso === 1) {
+        var lib = entrenar(etiquetadosCompletos());
+        if (st.visto) {
+          var m = PRUEBA[st.visto - 1];
+          v.zona.appendChild(el("div", "ia-de", "Mensaje " + st.visto + " de " + PRUEBA.length));
+          v.zona.appendChild(tarjeta(lib, m));
+          if (m.aviso && !acierta(lib, m)) v.zona.appendChild(el("p", "ia-aviso", m.aviso));
+        } else {
+          v.zona.appendChild(el("p", "cpg-nota", "Pulsa «Llega un mensaje nuevo»."));
+        }
+        v.nuevo.textContent = st.visto === PRUEBA.length ? "Volver al primer mensaje" : "Llega un mensaje nuevo";
+        pintarLibreta(v.panel, lib, "Tu libreta", "Un mensaje va a spam si sus palabras suman más de 0.");
+        hecho = st.todos;
+      }
+
       if (st.paso >= 2) {
-        var pa = predecir(datos, { nota: 8, exp: 2.5, centro: "A", localidad: "A" }, 5, cols);
-        var pb = predecir(datos, { nota: 8, exp: 2.5, centro: "B", localidad: "B" }, 5, cols);
-        v.panel.appendChild(el("div", "iot-sub", "Misma candidatura, distinto centro"));
-        v.panel.appendChild(el("p", null, "Nota 8 y 2,5 años de experiencia:"));
-        [["Centro A", pa], ["Centro B", pb]].forEach(function (par) {
-          var f = el("div", "iot-estado");
-          f.appendChild(el("span", null, par[0]));
-          f.appendChild(el("strong", par[1].si ? "iot-ok" : "iot-mal", par[1].si ? "✔ Contratar" : "✘ No contratar"));
-          v.panel.appendChild(f);
-        });
-        var tasas = { A: [0, 0], B: [0, 0] };
-        PRUEBA.forEach(function (q) {
-          var r = predecir(datos, q, 5, cols);
-          tasas[q.centro][1]++;
-          if (r.si) tasas[q.centro][0]++;
-        });
-        var ta = tasas.A[0] / tasas.A[1], tb = tasas.B[0] / tasas.B[1];
-        v.panel.appendChild(el("div", "iot-sub", "Medir por grupos: candidaturas aceptadas"));
-        v.panel.appendChild(el("p", "cpg-nota", "80 candidaturas nuevas de cada centro, con la misma calidad."));
-        [["Centro A", ta], ["Centro B", tb]].forEach(function (par) {
-          var f = el("div", "ia-barra");
-          f.appendChild(el("span", null, par[0]));
-          var fondo = el("span", "ia-barra-fondo");
-          var rel = el("span", "ia-barra-relleno");
-          rel.style.width = Math.round(par[1] * 100) + "%";
-          fondo.appendChild(rel);
-          f.appendChild(fondo);
-          f.appendChild(el("strong", null, pct(par[1])));
-          v.panel.appendChild(f);
-        });
-        st.dif = Math.abs(ta - tb);
-        hecho = st.paso === 2 ? st.vistoB : (st.tocado && st.dif <= 0.1);
+        var libE = libretaEmpresa();
+        if (st.paso === 2 && !st.abierta) {
+          v.zona.appendChild(el("p", "cpg-nota", "Pulsa «Abrir la bandeja de entrada» para ver cómo trata el filtro tres mensajes que recibe la empresa."));
+        } else {
+          BANDEJA.forEach(function (msg) { v.zona.appendChild(tarjeta(libE, msg)); });
+        }
+        pintarLibreta(v.panel, libE, "La libreta de la empresa",
+          st.paso === 3 && st.variada
+            ? "Reentrenada con 400 mensajes variados: spam y correos normales en los dos idiomas."
+            : "Entrenada con 400 mensajes antiguos: todo el spam estaba en inglés y todos los normales, en español.");
+        var todosBien = BANDEJA.every(function (msg) { return acierta(libE, msg); });
+        hecho = st.paso === 2 ? st.abierta : (st.tocado && todosBien);
       }
+
       siguiente.classList.toggle("bc-listo", hecho);
       guiaTexto.innerHTML = "<strong>Paso " + (st.paso + 1) + ". " + PASOS[st.paso] + ".</strong> " + texto(hecho);
     }
@@ -373,43 +331,39 @@
       switch (st.paso) {
         case 0:
           return hecho
-            ? "El mapa se ha ido adaptando a tus ejemplos: eso es <strong>entrenar</strong>. El modelo no sabe qué es una nota ni "
-              + "qué es la experiencia; solo copia lo que se parece a lo que ya ha visto. Pulsa <em>Siguiente</em>."
-            : "Una empresa inventada quiere un modelo que decida qué candidaturas pasan a entrevista. Cada punto es una candidatura "
-              + "antigua: en verde, contratada; en rojo, no. Elige una etiqueta y <strong>haz clic en la gráfica para añadir al menos "
-              + "4 ejemplos</strong>. Mira cómo cambia el mapa de colores.";
+            ? "Tu filtro ya tiene una libreta de palabras: «gratis» y «premio» suman, «proyecto» resta. Nadie ha escrito una regla: "
+              + "<strong>las ha sacado de tus ejemplos</strong>. Eso es entrenar. Pulsa <em>Siguiente</em>."
+            : "Vas a enseñar a un filtro de correo. Lee cada mensaje y dile si es <strong>spam</strong> o un mensaje <strong>normal</strong>. "
+              + "Mira cómo se llena la libreta de la derecha con cada respuesta.";
         case 1:
-          if (hecho) {
-            return "El modelo siempre contesta, aunque la candidatura no se parezca a nada de lo que ha visto. Por eso decimos que "
-              + "<strong>predice, no comprende</strong>: no sabe cuándo no sabe. Pulsa <em>Siguiente</em>.";
-          }
-          return "Ahora llegan candidaturas que el modelo no ha visto. Para decidir, mira sus 3 ejemplos más cercanos (las líneas "
-            + "discontinuas) y vota. Pulsa el botón al menos 3 veces y fíjate en la tercera.";
+          return hecho
+            ? "El filtro acierta con los mensajes parecidos a tus ejemplos, pero falla con la charla del centro y con el paquete. "
+              + "No entiende lo que lee: <strong>suma puntos de palabras</strong>. Y con lo que no ha visto nunca decide igual, "
+              + "sin avisar. Pulsa <em>Siguiente</em>."
+            : "Llegan mensajes que el filtro no ha visto. Las palabras que conoce aparecen marcadas con sus puntos. "
+              + "Pulsa el botón hasta ver los 4 mensajes y fíjate en cuándo se equivoca.";
         case 2:
           return hecho
-            ? "Con la misma nota y la misma experiencia, al centro B se le dice que no. El modelo no tiene prejuicios propios: "
-              + "<strong>ha aprendido los de las decisiones antiguas</strong>, en las que al centro B se le exigía más. Pulsa <em>Siguiente</em>."
-            : "Ahora el modelo se entrena con 44 decisiones antiguas de la empresa. Los círculos son candidaturas del centro de formación A "
-              + "y los triángulos, del B. Pulsa <strong>Centro B</strong> para ver el mapa con los ojos de una candidatura de ese centro.";
+            ? "El filtro de la empresa bloquea el pedido de un cliente solo por estar en inglés y deja pasar el spam en español. "
+              + "Nadie lo programó así: <strong>lo aprendió de unos datos desequilibrados</strong>. Es lo mismo que le pasó a Amazon "
+              + "con la palabra <em>women's</em>. Pulsa <em>Siguiente</em>."
+            : "Ahora usas el filtro de una empresa inventada. Mira su libreta: ¿qué palabras puntúan como spam? "
+              + "Después abre la bandeja de entrada.";
         default:
           if (!st.tocado) {
-            return "Prueba a corregir el modelo. Primero quita solo la columna «centro» y mira las barras. "
-              + "Después prueba las otras opciones. El objetivo es que los dos centros tengan una tasa parecida.";
-          }
-          if (hecho && st.revisado) {
-            return "Al revisar los datos antiguos con un criterio único, las tasas se igualan aunque el modelo vea el centro. "
-              + "Es la medida más sólida: <strong>arreglar los datos y medir por grupos</strong>, no solo esconder columnas.";
+            return "Toca arreglarlo. Prueba primero a <strong>borrar palabras</strong> de la libreta, una a una, y mira qué pasa con el cliente. "
+              + "Después prueba a reentrenar.";
           }
           if (hecho) {
-            return "Las tasas se igualan al quitar también «localidad», que delataba el centro en 9 de cada 10 casos. Aquí conocíamos "
-              + "esa pista; con datos reales hay muchas pistas indirectas que no se ven, como la palabra <em>women's</em> en el caso de Amazon. "
-              + "Prueba también a revisar los datos antiguos.";
+            return "Con ejemplos variados, el filtro aprende palabras que de verdad delatan el spam, como «free» o «premio», y deja de castigar "
+              + "el inglés. La lección: <strong>el arreglo sólido está en los datos</strong>, no en tapar palabras sueltas. "
+              + "Y siempre hay que comprobar el resultado con mensajes de los dos grupos.";
           }
-          if (!st.cols.centro && st.cols.localidad) {
-            return "Sin la columna «centro», la diferencia sigue: la «localidad» coincide con el centro casi siempre y el modelo la usa como pista. "
-              + "<strong>Quitar una columna no basta.</strong>";
+          if (!st.variada) {
+            return "Al borrar una palabra, otras como «hello» o «for» siguen sumando, y el spam en español sigue entrando porque el filtro "
+              + "nunca vio uno. <strong>Borrar palabras no enseña nada nuevo.</strong> Prueba a reentrenar.";
           }
-          return "Todavía hay mucha diferencia entre centros. Prueba otra combinación.";
+          return "Todavía falla algún mensaje. Revisa las opciones.";
       }
     }
 

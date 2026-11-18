@@ -42,7 +42,7 @@ Dos ejercicios cortos sobre dos de las ideas de arriba: **la calidad importa má
 
 ---
 
-## 2. Dos Casos Reales
+## 2. Casos Reales
 
 !!! example "Caso que funciona: UPS y las rutas de reparto"
     - **Sector:** logística.
@@ -55,6 +55,25 @@ Dos ejercicios cortos sobre dos de las ideas de arriba: **la calidad importa má
     - **Idea:** estimar la gripe a partir de las búsquedas en Google.
     - **Qué pasó:** [un estudio publicado en *Science* en 2014](https://www.wbur.org/news/2014/03/14/google-flu-trends-hubris) señaló que había sobreestimado la gripe durante la mayor parte de un periodo de dos años. Unos datos tradicionales con tres semanas de retraso predecían mejor.
     - **Lección:** tener muchísimos datos no sustituye a medir bien. Las búsquedas de la gente cambian por muchos motivos, no solo porque esté enferma.
+
+!!! danger "Caso que salió mal: los positivos de COVID que no cabían en un Excel"
+    - **Sector:** salud pública, Reino Unido.
+    - **Contexto:** los laboratorios enviaban los resultados de las pruebas en ficheros CSV, y un proceso automático los cargaba en plantillas de Excel para pasarlos al sistema central.
+    - **Qué pasó:** las plantillas usaban el antiguo formato `.xls`, que admite unas 65.000 filas. Cada prueba ocupaba varias filas, así que los casos que no cabían se perdían sin ningún aviso. Public Health England [reconoció en octubre de 2020 que se habían quedado fuera 15.841 positivos](https://www.theregister.com/2020/10/05/test_and_trace/) entre el 25 de septiembre y el 2 de octubre, lo que retrasó el rastreo de sus contactos.
+    - **Lección:** el fallo no estaba en la estadística, sino en la herramienta. Un proceso de datos necesita controles de calidad: por ejemplo, comprobar que el número de registros que salen coincide con el que entra.
+
+!!! warning "Privacidad: el mapa de Strava que mostró bases militares"
+    - **Sector:** aplicaciones deportivas.
+    - **Contexto:** Strava publicó en 2017 un mapa de calor mundial con la actividad agregada de sus usuarios. No mostraba nombres, solo por dónde se corría o se pedaleaba.
+    - **Qué pasó:** en enero de 2018, varios analistas señalaron que en zonas casi deshabitadas, como partes de Afganistán o Siria, las únicas manchas de actividad eran las de soldados extranjeros haciendo deporte. El mapa [revelaba la ubicación y el trazado de bases militares](https://www.theguardian.com/world/2018/jan/28/fitness-tracking-app-gives-away-location-of-secret-us-army-bases).
+    - **Lección:** agregar o quitar nombres no siempre anonimiza. Cuando hay pocas personas en un lugar, los datos de grupo también las delatan. Antes de publicar datos, pregúntate qué se puede deducir al cruzarlos con otra información.
+
+??? example "Un caso cercano: el INE mide la movilidad con los teléfonos móviles"
+    - **Sector:** estadística pública, España.
+    - **Problema:** saber cuánta gente se desplaza cada día entre municipios exigía encuestas y censos caros, que se publican con años de retraso.
+    - **Decisión:** en 2019 el INE empezó un [estudio experimental con datos de Orange, Telefónica y Vodafone](https://www.ine.es/experimental/movilidad/experimental_em.htm). El INE no recibe datos de personas, sino recuentos agregados y anonimizados de cuántos teléfonos van de una zona a otra.
+    - **Resultado:** durante la pandemia, en 2020 y 2021, [publicó datos de movilidad cada semana](https://www.ine.es/experimental/movilidad/experimental_em4.htm), que sirvieron para seguir el efecto de las restricciones. Las tres «V» aparecen juntas: millones de posiciones (volumen), datos semanales (velocidad) y una fuente nueva que hay que combinar con las tradicionales (variedad).
+    - **Para pensar:** compáralo con Strava. ¿Qué diferencia hay entre cómo se protegen los datos en un caso y en otro?
 
 ---
 

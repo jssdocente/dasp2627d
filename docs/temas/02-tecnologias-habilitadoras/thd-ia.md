@@ -24,6 +24,15 @@ En la programación tradicional escribes las reglas: «si el importe es mayor qu
 
 Observa la flecha discontinua: las decisiones de hoy serán los datos de entrenamiento de mañana. Un sesgo no corregido puede agravarse con el tiempo.
 
+### En vídeo: qué es el *machine learning*
+
+Este vídeo de unos ocho minutos ordena los conceptos que se suelen mezclar: inteligencia artificial, *machine learning* y *deep learning*. Es de 2017, pero las ideas de base no han cambiado.
+
+<div class="video-yt" markdown="0">
+  <iframe src="https://www.youtube-nocookie.com/embed/KytW151dpqU" title="¿Qué es el Machine Learning? ¿Y Deep Learning? Un mapa conceptual" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <p class="video-pie">Dot CSV, «<a href="https://www.youtube.com/watch?v=KytW151dpqU">¿Qué es el Machine Learning? ¿Y Deep Learning? Un mapa conceptual</a>», YouTube.</p>
+</div>
+
 ### Miniglosario
 
 | Término | Significado |
@@ -34,19 +43,24 @@ Observa la flecha discontinua: las decisiones de hoy serán los datos de entrena
 | **IA generativa** | IA que crea texto, imágenes o código nuevos |
 | **Explicabilidad** | Capacidad de entender por qué un sistema dio un resultado |
 
-### Pruébalo: entrena tu propio filtro
+### Pruébalo: entrena un filtro de *spam*
 
-En este simulador entrenas un modelo muy sencillo que decide qué candidaturas pasan a entrevista. En cuatro pasos verás las tres ideas de arriba: aprende de ejemplos, predice sin comprender y hereda los sesgos de los datos. La empresa, los centros de formación y los datos son inventados.
+En este simulador enseñas a un filtro de correo a distinguir el *spam* de los mensajes normales. El modelo es muy sencillo: apunta en una «libreta» cuántos puntos de *spam* vale cada palabra. Los filtros reales siguen una idea parecida, pero con probabilidades y millones de mensajes. En cuatro pasos verás las tres ideas de arriba. Los mensajes, la empresa y las cifras son inventados.
 
 <div class="ia-sim" markdown="0">
   <p>Este simulador necesita JavaScript. Si no se carga, consulta la explicación que hay debajo.</p>
 </div>
 
 ??? success "Qué deberías haber visto"
-    - **Aprender de ejemplos:** el mapa de colores cambia con cada ejemplo que añades, sin que nadie escriba una regla.
-    - **Predecir no es comprender:** el modelo responde a una candidatura que no se parece a ningún ejemplo, sin avisar de que no sabe.
-    - **El sesgo heredado:** con la misma nota y experiencia, el centro B sale perjudicado porque las decisiones antiguas lo trataban peor.
-    - **Corregirlo:** quitar la columna «centro» no basta si otra columna, como la localidad, lo delata. Lo sólido es revisar los datos y medir los resultados por grupos.
+    - **Aprender de ejemplos:** la libreta se llena con cada mensaje que etiquetas, sin que nadie escriba una regla.
+    - **Predecir no es comprender:** el filtro manda a *spam* un aviso de tu centro solo porque dice «gratis», y deja pasar un engaño con palabras que no había visto. Siempre decide, aunque no sepa.
+    - **El sesgo heredado:** como todo el *spam* de entrenamiento estaba en inglés, el filtro de la empresa castiga el inglés y bloquea el pedido de un cliente.
+    - **Corregirlo:** borrar palabras sueltas no basta, porque otras ocupan su lugar. Lo sólido es entrenar con datos variados y comprobar el resultado con mensajes de todos los grupos.
+
+!!! tip "Para ir más allá: entrena un modelo con tu cámara"
+    [Teachable Machine](https://teachablemachine.withgoogle.com/) es una herramienta gratuita de Google para entrenar un modelo de imágenes, sonidos o posturas desde el navegador. Crea un proyecto de imagen con dos clases (por ejemplo, «pulgar arriba» y «pulgar abajo»), graba unas decenas de ejemplos de cada una con la *webcam* y entrena el modelo. El entrenamiento se hace en tu propio navegador.
+
+    Después, haz trampa a propósito: entrena una clase siempre con la misma camiseta o el mismo fondo y prueba a cambiarlos. ¿Qué ha aprendido el modelo de verdad?
 
 !!! note "Más adelante"
     La **UT4** profundizará en lenguajes, herramientas y automatización.
@@ -83,6 +97,13 @@ En este simulador entrenas un modelo muy sencillo que decide qué candidaturas p
 | Privacidad | No introducir datos personales o confidenciales en servicios externos |
 | Falta de explicación | Evitar decisiones importantes sin supervisión |
 | Coste excesivo | Comprobar si una regla sencilla resuelve el problema |
+
+!!! info "En vídeo: agentes de IA en el día a día"
+    Los **agentes de IA** no solo responden: encadenan tareas y usan otras herramientas. Este vídeo muestra cómo se usan en el trabajo diario.
+
+    :material-youtube: [Euge Oller, «Así utilizo los agentes de IA a diario»](https://www.youtube.com/watch?v=JuAQILH7dkQ&t=240s){ target="_blank" rel="noopener" }
+
+    Mientras lo ves, piensa qué riesgos de la tabla anterior aparecen y qué resultados habría que revisar antes de darlos por buenos.
 
 ---
 
