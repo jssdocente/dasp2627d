@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 290" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">Programación tradicional frente a machine learning</title>
+  <desc id="d">En la programación tradicional, la persona escribe las reglas, el programa las aplica a los datos y da un resultado. En machine learning se dan datos con sus resultados conocidos, y el entrenamiento produce un modelo con reglas aprendidas: las reglas pasan de ser la entrada a ser la salida.</desc>
+  <style>
+    .t { font-size: 15px; font-weight: 700; fill: #263238; text-anchor: middle; }
+    .s { font-size: 12.5px; fill: #37474f; text-anchor: middle; }
+    .e { font-size: 13px; font-style: italic; fill: #546e7a; }
+    .z { font-size: 14px; font-weight: 700; fill: #546e7a; }
+    .h { font-size: 17px; font-weight: 700; fill: #263238; }
+  </style>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/></marker>
+    <marker id="fi" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="900" height="290" rx="12" fill="#ffffff"/>
+  
+  <text x="20.0" y="35.0" class="z" text-anchor="start">Programación tradicional</text>
+  <text x="20.0" y="165.0" class="z" text-anchor="start">Machine learning</text>
+  <rect id="n-r1" class="nodo" x="20.0" y="59.0" width="180" height="62" rx="10" fill="#ffe0b2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="110.0" y="86.5" class="t">Reglas</text>
+    <text x="110.0" y="104.5" class="s">las escribe la persona</text>
+  <rect id="n-d1" class="nodo" x="235.0" y="59.0" width="150" height="62" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="310.0" y="94.5" class="t">Datos</text>
+  <rect id="n-p1" class="nodo" x="465.0" y="59.0" width="150" height="62" rx="10" fill="#eceff1" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="540.0" y="94.5" class="t">Programa</text>
+  <rect id="n-s1" class="nodo" x="695.0" y="59.0" width="150" height="62" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="770.0" y="94.5" class="t">Resultado</text>
+  <rect id="n-d2" class="nodo" x="20.0" y="189.0" width="180" height="62" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="110.0" y="224.5" class="t">Datos</text>
+  <rect id="n-s2" class="nodo" x="235.0" y="189.0" width="150" height="62" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="310.0" y="216.5" class="t">Resultados</text>
+    <text x="310.0" y="234.5" class="s">conocidos</text>
+  <rect id="n-p2" class="nodo" x="465.0" y="189.0" width="150" height="62" rx="10" fill="#eceff1" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="540.0" y="224.5" class="t">Entrenamiento</text>
+  <rect id="n-r2" class="nodo" x="695.0" y="189.0" width="150" height="62" rx="10" fill="#ffe0b2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="770.0" y="216.5" class="t">Modelo</text>
+    <text x="770.0" y="234.5" class="s">reglas aprendidas</text>
+  <text x="210.0" y="97.0" class="h" text-anchor="middle">+</text>
+  <text x="210.0" y="227.0" class="h" text-anchor="middle">+</text>
+  <path d="M385.0,90.0 L461.0,90.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M615.0,90.0 L691.0,90.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M385.0,220.0 L461.0,220.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M615.0,220.0 L691.0,220.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+</svg>

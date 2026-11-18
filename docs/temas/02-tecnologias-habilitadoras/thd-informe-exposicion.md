@@ -8,14 +8,10 @@ Una buena investigación pierde valor si no se entiende. En una empresa, un info
 
 Sigue el índice de tu [Proyecto de Investigación](./proyecto-investigacion-thd.md), pero no lo escribas en ese orden:
 
-```mermaid
-flowchart LR
-    A["1. Matriz de fuentes"] --> B["2. Casos y comparativa"]
-    B --> C["3. Riesgos"]
-    C --> D["4. Conclusiones"]
-    D --> E["5. Introducción"]
-    E --> F["6. Revisión final"]
-```
+<figure markdown="span">
+  ![Seis pasos para escribir el informe, con la introducción en el quinto](../../imagenes/ut2/informe-orden.svg){ width="760" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 La introducción se escribe casi al final: es más fácil presentar algo que ya existe.
 

@@ -17,21 +17,27 @@ Imagina un cuaderno de cuentas del que cada participante tiene una copia idénti
 
 ### ¿Dónde está la confianza?
 
-```mermaid
-flowchart LR
-    subgraph C ["Base de datos centralizada"]
-        A1["Empresa A"] --> ADM["Un administrador<br/>controla el registro"]
-        B1["Empresa B"] --> ADM
-    end
-    subgraph D ["Blockchain"]
-        A2["Empresa A<br/>copia"] <--> B2["Empresa B<br/>copia"]
-        B2 <--> C2["Empresa C<br/>copia"]
-        C2 <--> A2
-    end
-```
+<figure markdown="span">
+  ![Base de datos centralizada con un administrador frente a blockchain con tres empresas que guardan cada una su copia](../../imagenes/ut2/blockchain-confianza.svg){ width="720" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 !!! warning "Un error muy extendido"
     Que un registro sea difícil de alterar **no significa que el dato sea cierto**. Si alguien introduce un dato falso, quedará guardado de forma muy fiable. Por eso importa quién y cómo introduce los datos.
+
+### Pruébalo: construye la cadena paso a paso
+
+Este simulador calcula *hashes* SHA-256 reales y te lleva en seis pasos desde la huella de un texto hasta un intento de fraude: **la huella, un bloque, la cadena, minar, las copias y la trampa**. En cada paso hay una sola idea nueva y algo que hacer; cuando lo hayas hecho, el botón *Siguiente* se resalta. Al final queda un modo libre para experimentar. Los datos son un ejemplo inventado.
+
+<div class="bc-sim" markdown="0">
+  <p>Este simulador necesita JavaScript. Si no se carga, consulta la explicación que hay debajo.</p>
+</div>
+
+??? success "Qué deberías haber visto"
+    - **La huella:** un cambio mínimo en el texto cambia por completo su *hash*.
+    - **La cadena:** cada bloque guarda la huella del anterior. Si cambias un bloque, el siguiente apunta a una huella que ya no existe, y al arreglarlo se rompe el siguiente: **un cambio arrastra a todos los bloques posteriores**.
+    - **Minar:** sin más reglas, reescribir la cadena sería rápido. La regla del `000` obliga a probar miles de *nonces* por bloque; en una red real, muchísimos más.
+    - **Las copias y la trampa:** cada empresa guarda su propia copia. Aunque repares la tuya, su último *hash* no coincide con el de B y C, que son mayoría y rechazan tu versión: **la seguridad está en el *hash* más el consenso**, no en una sola copia.
 
 ### Miniglosario
 

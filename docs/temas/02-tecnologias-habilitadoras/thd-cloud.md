@@ -17,6 +17,17 @@ Es como la diferencia entre comprar un coche, alquilarlo o pedir un taxi. Cuanto
 - **Pago por uso:** se sustituye una gran compra inicial por un gasto periódico que puede variar.
 - **Responsabilidad compartida:** el proveedor gestiona una parte, pero la otra sigue siendo tuya.
 
+### Bajo demanda: ¿por qué no basta con comprar más servidores?
+
+Con servidores propios hay que decidir de antemano cuánta capacidad comprar. Si dimensionas para el pico, pagas máquinas paradas casi todo el año. Si dimensionas para un día normal, la web se cae justo cuando más vendes. En la nube, la capacidad puede crecer y reducirse con la demanda (**elasticidad**).
+
+<figure markdown="span">
+  ![Dos gráficas de una semana con un pico de demanda. Con servidores propios, la capacidad fija deja mucha capacidad sin usar y no cubre el pico. En la nube, la capacidad sigue a la demanda con un pequeño retraso](../../imagenes/ut2/cloud-elasticidad.svg){ width="760" }
+  <figcaption>Modelo ilustrativo, sin datos reales. El escalado automático tarda en reaccionar, por eso queda un hueco rojo al empezar el pico. Elaboración propia.</figcaption>
+</figure>
+
+La elasticidad no es gratis: hay que configurarla, ponerle límites de gasto y probarla antes de la campaña.
+
 ### ¿Quién gestiona qué?
 
 <figure markdown="span">
@@ -29,6 +40,14 @@ Es como la diferencia entre comprar un coche, alquilarlo o pedir un taxi. Cuanto
 | **IaaS** | Máquinas virtuales y almacenamiento | Amazon EC2 |
 | **PaaS** | Una plataforma para desplegar tu código | Heroku, Google App Engine |
 | **SaaS** | La aplicación lista para usar | Gmail, Microsoft 365 |
+
+### Pruébalo: ¿qué modelo elegirías?
+
+Primero pulsa cada modelo y mira qué capas pasan de tu empresa al proveedor. Después resuelve los casos: no hay una respuesta única, y algunas opciones son **defendibles** aunque no sean las más ajustadas. Los casos son inventados para practicar.
+
+<div class="cloud-pg" markdown="0">
+  <p>Este ejercicio necesita JavaScript. Si no se carga, usa el esquema y la tabla anteriores.</p>
+</div>
 
 ### Miniglosario
 

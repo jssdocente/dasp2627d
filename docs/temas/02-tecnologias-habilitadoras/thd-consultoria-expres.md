@@ -12,12 +12,10 @@ Hasta ahora has estudiado cada tecnología por separado. En la empresa real nadi
 
 ## 1. Cómo Funciona
 
-```mermaid
-flowchart LR
-    A["Leer el encargo<br/>3 min"] --> B["Rellenar la ficha<br/>12 min"]
-    B --> C["Auditoría cruzada<br/>5 min"]
-    C --> D["Puesta en común<br/>5 min"]
-```
+<figure markdown="span">
+  ![Barra de 25 minutos: leer el encargo 3, rellenar la ficha 12, auditoría cruzada 5 y puesta en común 5](../../imagenes/ut2/consultoria-tiempos.svg){ width="720" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 Formad grupos de cuatro y repartid estos roles:
 

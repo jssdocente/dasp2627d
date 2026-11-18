@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">El ciclo de un sistema de IA</title>
+  <desc id="d">Datos, entrenamiento, modelo, predicción, supervisión humana y decisión. Una flecha discontinua vuelve de la decisión a los datos: los resultados generan datos nuevos, y con ellos se pueden heredar sesgos.</desc>
+  <style>
+    .t { font-size: 15px; font-weight: 700; fill: #263238; text-anchor: middle; }
+    .s { font-size: 12.5px; fill: #37474f; text-anchor: middle; }
+    .e { font-size: 13px; font-style: italic; fill: #546e7a; }
+    .z { font-size: 14px; font-weight: 700; fill: #546e7a; }
+    .h { font-size: 17px; font-weight: 700; fill: #263238; }
+    @keyframes viaje { 0.00% { transform: translate(0.0px, 0.0px); opacity: 0; } 1.67% { transform: translate(0.0px, 0.0px); opacity: 1; } 7.83% { transform: translate(148.0px, 0.0px); opacity: 1; } 9.50% { transform: translate(148.0px, 0.0px); opacity: 1; } 15.67% { transform: translate(296.0px, 0.0px); opacity: 1; } 17.33% { transform: translate(296.0px, 0.0px); opacity: 1; } 23.50% { transform: translate(444.0px, 0.0px); opacity: 1; } 25.17% { transform: translate(444.0px, 0.0px); opacity: 1; } 31.33% { transform: translate(592.0px, 0.0px); opacity: 1; } 33.00% { transform: translate(592.0px, 0.0px); opacity: 1; } 39.17% { transform: translate(740.0px, 0.0px); opacity: 1; } 40.83% { transform: translate(740.0px, 0.0px); opacity: 1; } 45.00% { transform: translate(740.0px, 100.0px); opacity: 1; } 46.67% { transform: translate(740.0px, 100.0px); opacity: 1; } 77.50% { transform: translate(0.0px, 100.0px); opacity: 1; } 79.17% { transform: translate(0.0px, 100.0px); opacity: 1; } 83.33% { transform: translate(0.0px, 0.0px); opacity: 1; } 85.00% { transform: translate(0.0px, 0.0px); opacity: 1; } 88.00% { transform: translate(0.0px, 0.0px); opacity: 0; } 100% { transform: translate(0.0px, 0.0px); opacity: 0; } }
+    .punto { opacity: 0; }
+    @media (prefers-reduced-motion: no-preference) { .punto { animation: viaje 10s linear infinite; } }
+    @keyframes r0 { 0%, 0.00% { stroke: #546e7a; stroke-width: 1.5; } 0.00%, 5.67% { stroke: #e65100; stroke-width: 4; } 8.67%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-d { animation: r0 10s linear infinite; } }
+    @keyframes r1 { 0%, 7.32% { stroke: #546e7a; stroke-width: 1.5; } 7.83%, 13.50% { stroke: #e65100; stroke-width: 4; } 16.50%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-e { animation: r1 10s linear infinite; } }
+    @keyframes r2 { 0%, 15.16% { stroke: #546e7a; stroke-width: 1.5; } 15.67%, 21.33% { stroke: #e65100; stroke-width: 4; } 24.33%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-m { animation: r2 10s linear infinite; } }
+    @keyframes r3 { 0%, 22.99% { stroke: #546e7a; stroke-width: 1.5; } 23.50%, 29.17% { stroke: #e65100; stroke-width: 4; } 32.17%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-p { animation: r3 10s linear infinite; } }
+    @keyframes r4 { 0%, 30.82% { stroke: #546e7a; stroke-width: 1.5; } 31.33%, 37.00% { stroke: #e65100; stroke-width: 4; } 40.00%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-h { animation: r4 10s linear infinite; } }
+    @keyframes r5 { 0%, 38.66% { stroke: #546e7a; stroke-width: 1.5; } 39.17%, 44.83% { stroke: #e65100; stroke-width: 4; } 47.83%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-a { animation: r5 10s linear infinite; } }
+  </style>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/></marker>
+    <marker id="fi" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="900" height="250" rx="12" fill="#ffffff"/>
+  <circle class="punto" cx="80.0" cy="95" r="9" fill="#1565c0"/>
+  <rect id="n-d" class="nodo" x="16.0" y="64.0" width="128" height="62" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="80.0" y="99.5" class="t">Datos</text>
+  <rect id="n-e" class="nodo" x="164.0" y="64.0" width="128" height="62" rx="10" fill="#eceff1" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="228.0" y="99.5" class="t">Entrenamiento</text>
+  <rect id="n-m" class="nodo" x="312.0" y="64.0" width="128" height="62" rx="10" fill="#ffe0b2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="376.0" y="99.5" class="t">Modelo</text>
+  <rect id="n-p" class="nodo" x="460.0" y="64.0" width="128" height="62" rx="10" fill="#e1bee7" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="524.0" y="99.5" class="t">Predicción</text>
+  <rect id="n-h" class="nodo" x="608.0" y="64.0" width="128" height="62" rx="10" fill="#fff9c4" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="672.0" y="91.5" class="t">¿Supervisión</text>
+    <text x="672.0" y="109.5" class="s">humana?</text>
+  <rect id="n-a" class="nodo" x="756.0" y="64.0" width="128" height="62" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="820.0" y="99.5" class="t">Decisión</text>
+  <path d="M144.0,95.0 L160.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M292.0,95.0 L308.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M440.0,95.0 L456.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M588.0,95.0 L604.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M736.0,95.0 L752.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M820.0,126.0 L820.0,195.0 L80.0,195.0 L80.0,130.0" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <text x="450.0" y="225.0" class="e" text-anchor="middle">Los resultados generan datos nuevos (y pueden arrastrar sesgos)</text>
+</svg>

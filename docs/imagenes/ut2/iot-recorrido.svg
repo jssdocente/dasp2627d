@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">El recorrido de un dato en IoT</title>
+  <desc id="d">El sensor mide, la pasarela reúne y envía, la plataforma guarda y analiza, y se decide si hay que actuar. Si la respuesta es sí, un actuador o un aviso actúa y cambia lo que se mide; si es no, el dato pasa al histórico. Como en el cuerpo: sentidos, nervios, cerebro y músculos.</desc>
+  <style>
+    .t { font-size: 15px; font-weight: 700; fill: #263238; text-anchor: middle; }
+    .s { font-size: 12.5px; fill: #37474f; text-anchor: middle; }
+    .e { font-size: 13px; font-style: italic; fill: #546e7a; }
+    .z { font-size: 14px; font-weight: 700; fill: #546e7a; }
+    .h { font-size: 17px; font-weight: 700; fill: #263238; }
+    @keyframes viaje { 0.00% { transform: translate(0.0px, 0.0px); opacity: 0; } 1.57% { transform: translate(0.0px, 0.0px); opacity: 1; } 8.66% { transform: translate(180.0px, 0.0px); opacity: 1; } 10.23% { transform: translate(180.0px, 0.0px); opacity: 1; } 17.31% { transform: translate(360.0px, 0.0px); opacity: 1; } 18.89% { transform: translate(360.0px, 0.0px); opacity: 1; } 25.97% { transform: translate(540.0px, 0.0px); opacity: 1; } 27.55% { transform: translate(540.0px, 0.0px); opacity: 1; } 34.63% { transform: translate(720.0px, 0.0px); opacity: 1; } 36.20% { transform: translate(720.0px, 0.0px); opacity: 1; } 44.07% { transform: translate(720.0px, 200.0px); opacity: 1; } 45.65% { transform: translate(720.0px, 200.0px); opacity: 1; } 73.98% { transform: translate(0.0px, 200.0px); opacity: 1; } 75.56% { transform: translate(0.0px, 200.0px); opacity: 1; } 83.43% { transform: translate(0.0px, 0.0px); opacity: 1; } 85.00% { transform: translate(0.0px, 0.0px); opacity: 1; } 88.00% { transform: translate(0.0px, 0.0px); opacity: 0; } 100% { transform: translate(0.0px, 0.0px); opacity: 0; } }
+    .punto { opacity: 0; }
+    @media (prefers-reduced-motion: no-preference) { .punto { animation: viaje 10s linear infinite; } }
+    @keyframes r0 { 0%, 0.00% { stroke: #546e7a; stroke-width: 1.5; } 0.00%, 5.57% { stroke: #e65100; stroke-width: 4; } 8.57%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-s { animation: r0 10s linear infinite; } }
+    @keyframes r1 { 0%, 8.15% { stroke: #546e7a; stroke-width: 1.5; } 8.66%, 14.23% { stroke: #e65100; stroke-width: 4; } 17.23%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-g { animation: r1 10s linear infinite; } }
+    @keyframes r2 { 0%, 16.80% { stroke: #546e7a; stroke-width: 1.5; } 17.31%, 22.89% { stroke: #e65100; stroke-width: 4; } 25.89%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-p { animation: r2 10s linear infinite; } }
+    @keyframes r3 { 0%, 25.46% { stroke: #546e7a; stroke-width: 1.5; } 25.97%, 31.55% { stroke: #e65100; stroke-width: 4; } 34.55%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-q { animation: r3 10s linear infinite; } }
+    @keyframes r4 { 0%, 34.12% { stroke: #546e7a; stroke-width: 1.5; } 34.63%, 40.20% { stroke: #e65100; stroke-width: 4; } 43.20%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-a { animation: r4 10s linear infinite; } }
+  </style>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/></marker>
+    <marker id="fi" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="900" height="350" rx="12" fill="#ffffff"/>
+  <circle class="punto" cx="90.0" cy="100" r="9" fill="#1565c0"/>
+  <text x="90.0" y="42.0" class="e" text-anchor="middle">como los sentidos</text>
+  <text x="270.0" y="42.0" class="e" text-anchor="middle">como los nervios</text>
+  <text x="450.0" y="42.0" class="e" text-anchor="middle">como el cerebro</text>
+  <text x="810.0" y="42.0" class="e" text-anchor="middle">como los músculos</text>
+  <rect id="n-s" class="nodo" x="17.5" y="67.0" width="145" height="66" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="90.0" y="96.5" class="t">Sensor</text>
+    <text x="90.0" y="114.5" class="s">mide</text>
+  <rect id="n-g" class="nodo" x="197.5" y="67.0" width="145" height="66" rx="10" fill="#eceff1" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="270.0" y="96.5" class="t">Pasarela</text>
+    <text x="270.0" y="114.5" class="s">reúne y envía</text>
+  <rect id="n-p" class="nodo" x="377.5" y="67.0" width="145" height="66" rx="10" fill="#e1bee7" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="450.0" y="96.5" class="t">Plataforma</text>
+    <text x="450.0" y="114.5" class="s">guarda y analiza</text>
+  <rect id="n-q" class="nodo" x="557.5" y="67.0" width="145" height="66" rx="10" fill="#fff9c4" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="630.0" y="96.5" class="t">¿Hay que</text>
+    <text x="630.0" y="114.5" class="s">actuar?</text>
+  <rect id="n-a" class="nodo" x="737.5" y="67.0" width="145" height="66" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="810.0" y="96.5" class="t">Actuador</text>
+    <text x="810.0" y="114.5" class="s">o aviso</text>
+  <rect id="n-h" class="nodo" x="557.5" y="190.0" width="145" height="50" rx="10" fill="#eceff1" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="630.0" y="219.5" class="t">Histórico</text>
+  <path d="M162.5,100.0 L193.5,100.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M342.5,100.0 L373.5,100.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M522.5,100.0 L553.5,100.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M702.5,100.0 L733.5,100.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <text x="718.0" y="90.0" class="e" text-anchor="middle">Sí</text>
+  <path d="M630.0,133.0 L630.0,186.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <text x="646.0" y="163.5" class="e" text-anchor="middle">No</text>
+  <path d="M810.0,133.0 L810.0,300.0 L90.0,300.0 L90.0,137.0" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <text x="270.0" y="325.0" class="e" text-anchor="middle">La acción cambia lo que se mide</text>
+</svg>

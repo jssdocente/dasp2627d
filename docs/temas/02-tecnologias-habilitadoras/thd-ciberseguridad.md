@@ -19,18 +19,10 @@ Es como proteger una casa: puedes poner una buena cerradura y una alarma, pero t
 
 ### Cómo avanza un ataque y dónde cortarlo
 
-```mermaid
-flowchart LR
-    A["Correo engañoso<br/>phishing"] --> B["Roba o infecta<br/>una cuenta"]
-    B --> C["Se mueve por la red"]
-    C --> D["Cifra datos<br/>ransomware"]
-    D --> E["Parada y<br/>recuperación"]
-    A1["Formación"] -.-> A
-    B1["Doble factor"] -.-> B
-    C1["Parches y red segmentada"] -.-> C
-    D1["Mínimos permisos"] -.-> D
-    E1["Copias probadas"] -.-> E
-```
+<figure markdown="span">
+  ![Etapas de un ataque, del correo engañoso a la parada, y la defensa que corta cada etapa](../../imagenes/ut2/ciber-ataque.svg){ width="760" }
+  <figcaption>Cuando el ataque llega a una etapa, se ilumina la defensa que podría cortarlo. Elaboración propia.</figcaption>
+</figure>
 
 ### Miniglosario
 

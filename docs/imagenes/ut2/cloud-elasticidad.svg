@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">Capacidad fija frente a capacidad elástica</title>
+  <desc id="d">Dos gráficas de una semana con un pico de demanda por una campaña de ventas. Con servidores propios la capacidad es fija: casi toda la semana sobra capacidad pagada y, en el pico, la demanda la supera y parte de los clientes no recibe servicio. En la nube la capacidad sube y baja siguiendo la demanda, con un pequeño retraso al empezar el pico.</desc>
+  <style>
+    .lbl { font-size: 14px; fill: #455a64; }
+    .tit { font-size: 18px; font-weight: 700; fill: #263238; }
+    .cover { fill: #ffffff; }
+    .cursor { stroke: #263238; stroke-width: 2; stroke-dasharray: 4 4; opacity: 0; }
+    @media (prefers-reduced-motion: no-preference) {
+      .cover { transform-box: fill-box; transform-origin: right center; animation: barrido 10s linear infinite; }
+      .cursor { animation: cursor 10s linear infinite; }
+    }
+    @keyframes barrido { 0% { transform: scaleX(1); } 70% { transform: scaleX(0); } 100% { transform: scaleX(0); } }
+    @keyframes cursor { 0% { transform: translateX(0); opacity: 1; } 70% { transform: translateX(360px); opacity: 1; } 71% { opacity: 0; } 100% { opacity: 0; } }
+  </style>
+  <defs>
+    <pattern id="rayas" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="#eceff1"/><line x1="0" y1="0" x2="0" y2="8" stroke="#b0bec5" stroke-width="3"/>
+    </pattern>
+    <clipPath id="sobreFija"><rect x="60" y="70" width="360" height="128.0"/></clipPath>
+    <clipPath id="sobreElastica"><polygon points="500.0,70.0 500.0,255.2 530.0,255.2 530.0,246.4 560.0,246.4 560.0,246.4 590.0,246.4 590.0,237.6 620.0,237.6 620.0,228.8 650.0,228.8 650.0,215.6 680.0,215.6 680.0,215.6 710.0,215.6 710.0,110.0 740.0,110.0 740.0,118.8 770.0,118.8 770.0,211.2 800.0,211.2 800.0,233.2 830.0,233.2 830.0,246.4 860.0,246.4 860.0,70.0"/></clipPath>
+  </defs>
+  <rect width="900" height="470" rx="12" fill="#ffffff"/>
+  <text class="tit" x="240.0" y="36" text-anchor="middle">Servidores propios: capacidad fija</text>
+  <text class="tit" x="680.0" y="36" text-anchor="middle">Nube: capacidad elástica</text>
+  <g>
+    <polygon points="60,330 60,198.0 420,198.0 420,330" fill="url(#rayas)"/>
+    <polygon points="60.0,330.0 60.0,281.6 90.0,272.8 120.0,264.0 150.0,270.6 180.0,255.2 210.0,246.4 240.0,233.2 270.0,127.6 300.0,136.4 330.0,228.8 360.0,250.8 390.0,264.0 420.0,277.2 420.0,330.0" fill="#90caf9"/>
+    <polygon points="60.0,330.0 60.0,281.6 90.0,272.8 120.0,264.0 150.0,270.6 180.0,255.2 210.0,246.4 240.0,233.2 270.0,127.6 300.0,136.4 330.0,228.8 360.0,250.8 390.0,264.0 420.0,277.2 420.0,330.0" fill="#e57373" clip-path="url(#sobreFija)"/>
+    <polyline points="60.0,281.6 90.0,272.8 120.0,264.0 150.0,270.6 180.0,255.2 210.0,246.4 240.0,233.2 270.0,127.6 300.0,136.4 330.0,228.8 360.0,250.8 390.0,264.0 420.0,277.2" fill="none" stroke="#1565c0" stroke-width="3"/>
+    <polyline points="60,198.0 420,198.0" fill="none" stroke="#e65100" stroke-width="3"/>
+    <rect class="cover" x="61" y="65" width="360" height="264"/>
+    <line class="cursor" x1="60" y1="70" x2="60" y2="330"/>
+  </g>
+  <line x1="60" y1="330" x2="420" y2="330" stroke="#263238" stroke-width="2"/>
+  <line x1="60" y1="330" x2="60" y2="65" stroke="#263238" stroke-width="2"/>
+  <text class="lbl" x="240.0" y="352" text-anchor="middle">Lunes → Domingo (campaña el jueves)</text>
+  <text class="lbl" x="48" y="210.0" text-anchor="middle" transform="rotate(-90 48 210.0)">Recursos</text>
+  <g>
+    <polygon points="500.0,330.0 500.0,255.2 530.0,255.2 530.0,246.4 560.0,246.4 560.0,246.4 590.0,246.4 590.0,237.6 620.0,237.6 620.0,228.8 650.0,228.8 650.0,215.6 680.0,215.6 680.0,215.6 710.0,215.6 710.0,110.0 740.0,110.0 740.0,118.8 770.0,118.8 770.0,211.2 800.0,211.2 800.0,233.2 830.0,233.2 830.0,246.4 860.0,246.4 860.0,330.0" fill="url(#rayas)"/>
+    <polygon points="500.0,330.0 500.0,281.6 530.0,272.8 560.0,264.0 590.0,270.6 620.0,255.2 650.0,246.4 680.0,233.2 710.0,127.6 740.0,136.4 770.0,228.8 800.0,250.8 830.0,264.0 860.0,277.2 860.0,330.0" fill="#90caf9"/>
+    <polygon points="500.0,330.0 500.0,281.6 530.0,272.8 560.0,264.0 590.0,270.6 620.0,255.2 650.0,246.4 680.0,233.2 710.0,127.6 740.0,136.4 770.0,228.8 800.0,250.8 830.0,264.0 860.0,277.2 860.0,330.0" fill="#e57373" clip-path="url(#sobreElastica)"/>
+    <polyline points="500.0,281.6 530.0,272.8 560.0,264.0 590.0,270.6 620.0,255.2 650.0,246.4 680.0,233.2 710.0,127.6 740.0,136.4 770.0,228.8 800.0,250.8 830.0,264.0 860.0,277.2" fill="none" stroke="#1565c0" stroke-width="3"/>
+    <polyline points="500.0,255.2 530.0,255.2 530.0,246.4 560.0,246.4 560.0,246.4 590.0,246.4 590.0,237.6 620.0,237.6 620.0,228.8 650.0,228.8 650.0,215.6 680.0,215.6 680.0,215.6 710.0,215.6 710.0,110.0 740.0,110.0 740.0,118.8 770.0,118.8 770.0,211.2 800.0,211.2 800.0,233.2 830.0,233.2 830.0,246.4 860.0,246.4" fill="none" stroke="#e65100" stroke-width="3"/>
+    <rect class="cover" x="501" y="65" width="360" height="264"/>
+    <line class="cursor" x1="500" y1="70" x2="500" y2="330"/>
+  </g>
+  <line x1="500" y1="330" x2="860" y2="330" stroke="#263238" stroke-width="2"/>
+  <line x1="500" y1="330" x2="500" y2="65" stroke="#263238" stroke-width="2"/>
+  <text class="lbl" x="680.0" y="352" text-anchor="middle">Lunes → Domingo (campaña el jueves)</text>
+  <text class="lbl" x="488" y="210.0" text-anchor="middle" transform="rotate(-90 488 210.0)">Recursos</text>
+  <rect x="60" y="387" width="18" height="18" fill="url(#rayas)" stroke="#90a4ae"/>
+  <text class="lbl" x="86" y="401">Capacidad pagada sin usar</text>
+  <rect x="330" y="387" width="18" height="18" fill="#90caf9" stroke="#90a4ae"/>
+  <text class="lbl" x="356" y="401">Demanda atendida</text>
+  <rect x="530" y="387" width="18" height="18" fill="#e57373" stroke="#90a4ae"/>
+  <text class="lbl" x="556" y="401">Demanda sin atender: web lenta o caída</text>
+  <line x1="60" y1="431" x2="78" y2="431" stroke="#1565c0" stroke-width="3"/><text class="lbl" x="86" y="436">Demanda (visitas, pedidos…)</text>
+  <line x1="330" y1="431" x2="348" y2="431" stroke="#e65100" stroke-width="3"/><text class="lbl" x="356" y="436">Capacidad disponible</text>
+</svg>

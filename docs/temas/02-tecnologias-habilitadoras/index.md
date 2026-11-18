@@ -9,18 +9,10 @@ Inteligencia artificial, nube, *blockchain*... Todo el mundo habla de ellas, per
 
 ## Ruta de la Unidad
 
-```mermaid
-flowchart LR
-    A["Entender<br/>2.1 Qué son las THD"] --> B["Conocer<br/>2.2 a 2.8 Las tecnologías"]
-    B --> C["Analizar<br/>2.9 Impacto en la empresa"]
-    C --> D["Investigar<br/>2.10 Fuentes y casos"]
-    D --> E["Comunicar<br/>2.11 Informe y exposición"]
-    B -.-> P["Tu proyecto"]
-    D -.-> P
-    E -.-> P
-    B -.-> R["Repasar<br/>2.12 Consultoría exprés"]
-    C -.-> R
-```
+<figure markdown="span">
+  ![Ruta de la unidad: entender, conocer, analizar, investigar y comunicar, con el proyecto y el repaso](../../imagenes/ut2/ut2-ruta.svg){ width="760" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 ---
 

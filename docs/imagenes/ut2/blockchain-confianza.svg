@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">Dónde está la confianza: base de datos centralizada frente a blockchain</title>
+  <desc id="d">A la izquierda, las empresas A y B envían sus datos a un único administrador que controla el registro. A la derecha, en una blockchain, las empresas A, B y C guardan cada una una copia completa y se comprueban entre sí, sin un administrador central.</desc>
+  <style>
+    .t { font-size: 15px; font-weight: 700; fill: #263238; text-anchor: middle; }
+    .s { font-size: 12.5px; fill: #37474f; text-anchor: middle; }
+    .e { font-size: 13px; font-style: italic; fill: #546e7a; }
+    .z { font-size: 14px; font-weight: 700; fill: #546e7a; }
+    .h { font-size: 17px; font-weight: 700; fill: #263238; }
+  </style>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/></marker>
+    <marker id="fi" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="900" height="360" rx="12" fill="#ffffff"/>
+  
+  <text x="225.0" y="40.0" class="h" text-anchor="middle">Base de datos centralizada</text>
+  <text x="675.0" y="40.0" class="h" text-anchor="middle">Blockchain</text>
+  <line x1="450" y1="20" x2="450" y2="340" stroke="#cfd8dc" stroke-width="2"/>
+  <rect id="n-a1" class="nodo" x="50.0" y="85.0" width="130" height="50" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="115.0" y="114.5" class="t">Empresa A</text>
+  <rect id="n-b1" class="nodo" x="270.0" y="85.0" width="130" height="50" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="335.0" y="114.5" class="t">Empresa B</text>
+  <rect id="n-adm" class="nodo" x="120.0" y="212.0" width="210" height="66" rx="10" fill="#ffe0b2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="225.0" y="241.5" class="t">Un administrador</text>
+    <text x="225.0" y="259.5" class="s">controla el único registro</text>
+  <path d="M135.4,135.0 L195.6,208.9" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M314.6,135.0 L254.4,208.9" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <text x="225.0" y="325.0" class="e" text-anchor="middle">Si el administrador falla o hace trampa, todos dependen de él.</text>
+  <rect id="n-a2" class="nodo" x="605.0" y="80.0" width="140" height="60" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="675.0" y="106.5" class="t">Empresa A</text>
+    <text x="675.0" y="124.5" class="s">copia completa</text>
+  <rect id="n-b2" class="nodo" x="485.0" y="220.0" width="140" height="60" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="555.0" y="246.5" class="t">Empresa B</text>
+    <text x="555.0" y="264.5" class="s">copia completa</text>
+  <rect id="n-c2" class="nodo" x="725.0" y="220.0" width="140" height="60" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="795.0" y="246.5" class="t">Empresa C</text>
+    <text x="795.0" y="264.5" class="s">copia completa</text>
+  <path d="M646.7,143.0 L583.3,217.0" fill="none" stroke="#546e7a" stroke-width="2" marker-start="url(#fi)" marker-end="url(#f)"/>
+  <path d="M629.0,250.0 L721.0,250.0" fill="none" stroke="#546e7a" stroke-width="2" marker-start="url(#fi)" marker-end="url(#f)"/>
+  <path d="M766.7,217.0 L703.3,143.0" fill="none" stroke="#546e7a" stroke-width="2" marker-start="url(#fi)" marker-end="url(#f)"/>
+  <text x="675.0" y="325.0" class="e" text-anchor="middle">Cada una guarda su copia y comprueba lo que añaden las demás.</text>
+</svg>

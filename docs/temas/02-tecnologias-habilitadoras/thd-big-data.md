@@ -17,14 +17,10 @@ Todas las empresas tienen datos, pero pocas los convierten en decisiones. El **a
 
 ### Del dato a la decisión
 
-```mermaid
-flowchart LR
-    F["Fuentes<br/>ventas, sensores, web"] --> L["Limpieza<br/>errores, duplicados"]
-    L --> A["Análisis<br/>totales, grupos, tendencias"]
-    A --> K["KPI<br/>indicador clave"]
-    K --> D["Decisión"]
-    D -.->|¿Ha funcionado?| K
-```
+<figure markdown="span">
+  ![Flujo de fuentes, limpieza, análisis, KPI y decisión, con vuelta al KPI para comprobar si ha funcionado](../../imagenes/ut2/bigdata-flujo.svg){ width="760" }
+  <figcaption>El punto cambia de color al limpiarse: los datos sucios no sirven para decidir. Elaboración propia.</figcaption>
+</figure>
 
 ### Miniglosario
 

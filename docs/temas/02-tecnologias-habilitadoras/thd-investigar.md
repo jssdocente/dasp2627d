@@ -2,15 +2,10 @@
 
 Internet está lleno de artículos que afirman que una tecnología lo mejora todo. Tu trabajo en el [Proyecto de Investigación](./proyecto-investigacion-thd.md) consiste en **separar lo demostrado de lo que solo se promete**.
 
-```mermaid
-flowchart LR
-    P["Pregunta"] --> B["Búsqueda"]
-    B --> F["Filtrar fuentes"]
-    F --> C["Analizar casos"]
-    C --> T["Comparar"]
-    T --> R["Responder"]
-    F -.->|Si no encuentras nada útil, cambia las palabras clave| B
-```
+<figure markdown="span">
+  ![Pregunta, búsqueda, filtrar fuentes, analizar casos, comparar y responder, con vuelta a la búsqueda](../../imagenes/ut2/investigar-proceso.svg){ width="760" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 ---
 

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 230" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">Orden recomendado para escribir el informe</title>
+  <desc id="d">Seis pasos: matriz de fuentes, casos y comparativa, riesgos, conclusiones, introducción y revisión final. La introducción se escribe casi al final.</desc>
+  <style>
+    .t { font-size: 15px; font-weight: 700; fill: #263238; text-anchor: middle; }
+    .s { font-size: 12.5px; fill: #37474f; text-anchor: middle; }
+    .e { font-size: 13px; font-style: italic; fill: #546e7a; }
+    .z { font-size: 14px; font-weight: 700; fill: #546e7a; }
+    .h { font-size: 17px; font-weight: 700; fill: #263238; }
+  </style>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/></marker>
+    <marker id="fi" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="900" height="230" rx="12" fill="#ffffff"/>
+  
+  <rect id="n-0" class="nodo" x="16.0" y="54.0" width="128" height="82" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="80.0" y="83.5" class="t">1</text>
+    <text x="80.0" y="101.5" class="s">Matriz</text>
+    <text x="80.0" y="117.5" class="s">de fuentes</text>
+  <rect id="n-1" class="nodo" x="164.0" y="54.0" width="128" height="82" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="228.0" y="83.5" class="t">2</text>
+    <text x="228.0" y="101.5" class="s">Casos</text>
+    <text x="228.0" y="117.5" class="s">y comparativa</text>
+  <rect id="n-2" class="nodo" x="312.0" y="54.0" width="128" height="82" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="376.0" y="91.5" class="t">3</text>
+    <text x="376.0" y="109.5" class="s">Riesgos</text>
+  <rect id="n-3" class="nodo" x="460.0" y="54.0" width="128" height="82" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="524.0" y="91.5" class="t">4</text>
+    <text x="524.0" y="109.5" class="s">Conclusiones</text>
+  <rect id="n-4" class="nodo" x="608.0" y="54.0" width="128" height="82" rx="10" fill="#ffe0b2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="672.0" y="91.5" class="t">5</text>
+    <text x="672.0" y="109.5" class="s">Introducción</text>
+  <rect id="n-5" class="nodo" x="756.0" y="54.0" width="128" height="82" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="820.0" y="91.5" class="t">6</text>
+    <text x="820.0" y="109.5" class="s">Revisión final</text>
+  <path d="M144.0,95.0 L160.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M292.0,95.0 L308.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M440.0,95.0 L456.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M588.0,95.0 L604.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M736.0,95.0 L752.0,95.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M672.0,195.0 L672.0,140.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <text x="672.0" y="215.0" class="e" text-anchor="middle">Se escribe casi al final</text>
+</svg>

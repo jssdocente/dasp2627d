@@ -76,6 +76,10 @@ extra:
   #property: G-X6D0LR7TC8
 extra_css:
   - extra/css/extra.css
+extra_javascript:
+  - extra/js/blockchain-sim.js
+  - extra/js/cloud-playground.js
+  - extra/js/iot-sim.js
 
 plugins:
   - search

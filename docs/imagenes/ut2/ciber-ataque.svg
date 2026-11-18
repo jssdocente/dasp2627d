@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">Cómo avanza un ataque y dónde cortarlo</title>
+  <desc id="d">Arriba, las etapas de un ataque típico: correo engañoso, robo o infección de una cuenta, movimiento por la red, cifrado de datos (ransomware) y parada. Abajo, la defensa que corta cada etapa: formación, doble factor, parches y red segmentada, mínimos permisos y copias probadas.</desc>
+  <style>
+    .t { font-size: 15px; font-weight: 700; fill: #263238; text-anchor: middle; }
+    .s { font-size: 12.5px; fill: #37474f; text-anchor: middle; }
+    .e { font-size: 13px; font-style: italic; fill: #546e7a; }
+    .z { font-size: 14px; font-weight: 700; fill: #546e7a; }
+    .h { font-size: 17px; font-weight: 700; fill: #263238; }
+    @keyframes viaje { 0.00% { transform: translate(0.0px, 0.0px); opacity: 0; } 3.70% { transform: translate(0.0px, 0.0px); opacity: 1; } 20.33% { transform: translate(180.0px, 0.0px); opacity: 1; } 24.02% { transform: translate(180.0px, 0.0px); opacity: 1; } 40.65% { transform: translate(360.0px, 0.0px); opacity: 1; } 44.35% { transform: translate(360.0px, 0.0px); opacity: 1; } 60.98% { transform: translate(540.0px, 0.0px); opacity: 1; } 64.67% { transform: translate(540.0px, 0.0px); opacity: 1; } 81.30% { transform: translate(720.0px, 0.0px); opacity: 1; } 85.00% { transform: translate(720.0px, 0.0px); opacity: 1; } 88.00% { transform: translate(720.0px, 0.0px); opacity: 0; } 100% { transform: translate(720.0px, 0.0px); opacity: 0; } }
+    .punto { opacity: 0; }
+    @media (prefers-reduced-motion: no-preference) { .punto { animation: viaje 9s linear infinite; } }
+    @keyframes r0 { 0%, 0.00% { stroke: #546e7a; stroke-width: 1.5; } 0.00%, 7.70% { stroke: #e65100; stroke-width: 4; } 10.70%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-a1 { animation: r0 9s linear infinite; } }
+    @keyframes r1 { 0%, 19.82% { stroke: #546e7a; stroke-width: 1.5; } 20.33%, 28.02% { stroke: #e65100; stroke-width: 4; } 31.02%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-b1 { animation: r1 9s linear infinite; } }
+    @keyframes r2 { 0%, 40.14% { stroke: #546e7a; stroke-width: 1.5; } 40.65%, 48.35% { stroke: #e65100; stroke-width: 4; } 51.35%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-c1 { animation: r2 9s linear infinite; } }
+    @keyframes r3 { 0%, 60.47% { stroke: #546e7a; stroke-width: 1.5; } 60.98%, 68.67% { stroke: #e65100; stroke-width: 4; } 71.67%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-d1 { animation: r3 9s linear infinite; } }
+    @keyframes r4 { 0%, 80.79% { stroke: #546e7a; stroke-width: 1.5; } 81.30%, 89.00% { stroke: #e65100; stroke-width: 4; } 92.00%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-e1 { animation: r4 9s linear infinite; } }
+  </style>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/></marker>
+    <marker id="fi" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="900" height="330" rx="12" fill="#ffffff"/>
+  <circle class="punto" cx="90.0" cy="90" r="9" fill="#c62828"/>
+  <text x="20.0" y="30.0" class="z" text-anchor="start">El ataque avanza…</text>
+  <text x="20.0" y="320.0" class="z" text-anchor="start">…y cada capa de defensa puede cortarlo</text>
+  <rect id="n-a" class="nodo" x="17.5" y="57.0" width="145" height="66" rx="10" fill="#ffcdd2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="90.0" y="86.5" class="t">Correo engañoso</text>
+    <text x="90.0" y="104.5" class="s">phishing</text>
+  <rect id="n-b" class="nodo" x="197.5" y="57.0" width="145" height="66" rx="10" fill="#ffcdd2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="270.0" y="86.5" class="t">Roba o infecta</text>
+    <text x="270.0" y="104.5" class="s">una cuenta</text>
+  <rect id="n-c" class="nodo" x="377.5" y="57.0" width="145" height="66" rx="10" fill="#ffcdd2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="450.0" y="86.5" class="t">Se mueve</text>
+    <text x="450.0" y="104.5" class="s">por la red</text>
+  <rect id="n-d" class="nodo" x="557.5" y="57.0" width="145" height="66" rx="10" fill="#ffcdd2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="630.0" y="86.5" class="t">Cifra datos</text>
+    <text x="630.0" y="104.5" class="s">ransomware</text>
+  <rect id="n-e" class="nodo" x="737.5" y="57.0" width="145" height="66" rx="10" fill="#ffcdd2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="810.0" y="86.5" class="t">Parada y</text>
+    <text x="810.0" y="104.5" class="s">recuperación</text>
+  <rect id="n-a1" class="nodo" x="17.5" y="234.0" width="145" height="62" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="90.0" y="269.5" class="t">Formación</text>
+  <rect id="n-b1" class="nodo" x="197.5" y="234.0" width="145" height="62" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="270.0" y="269.5" class="t">Doble factor</text>
+  <rect id="n-c1" class="nodo" x="377.5" y="234.0" width="145" height="62" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="450.0" y="261.5" class="t">Parches y</text>
+    <text x="450.0" y="279.5" class="s">red segmentada</text>
+  <rect id="n-d1" class="nodo" x="557.5" y="234.0" width="145" height="62" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="630.0" y="261.5" class="t">Mínimos</text>
+    <text x="630.0" y="279.5" class="s">permisos</text>
+  <rect id="n-e1" class="nodo" x="737.5" y="234.0" width="145" height="62" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="810.0" y="261.5" class="t">Copias</text>
+    <text x="810.0" y="279.5" class="s">probadas</text>
+  <path d="M162.5,90.0 L193.5,90.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M342.5,90.0 L373.5,90.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M522.5,90.0 L553.5,90.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M702.5,90.0 L733.5,90.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <path d="M90.0,234.0 L90.0,127.0" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <path d="M270.0,234.0 L270.0,127.0" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <path d="M450.0,234.0 L450.0,127.0" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <path d="M630.0,234.0 L630.0,127.0" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <path d="M810.0,234.0 L810.0,127.0" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+</svg>

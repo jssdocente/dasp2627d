@@ -17,17 +17,10 @@ Una cámara, un contador de la luz o un motor de avión tienen algo en común: p
 
 ### El recorrido de un dato
 
-```mermaid
-flowchart LR
-    S["Sensor<br/>mide"] --> G["Pasarela<br/>reúne y envía"]
-    G --> P["Plataforma<br/>guarda y analiza"]
-    P --> D{"¿Hay que<br/>actuar?"}
-    D -->|Sí| A["Actuador o aviso"]
-    D -->|No| H["Histórico"]
-    A -.->|Cambia lo que se mide| S
-```
-
-Es como el sistema nervioso: los sensores son los sentidos, la red son los nervios, la plataforma es el cerebro y el actuador, los músculos.
+<figure markdown="span">
+  ![Recorrido de un dato IoT: sensor, pasarela, plataforma, decisión, actuador o histórico, con la analogía del cuerpo humano](../../imagenes/ut2/iot-recorrido.svg){ width="760" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 ### Miniglosario
 
@@ -37,7 +30,36 @@ Es como el sistema nervioso: los sensores son los sentidos, la red son los nervi
 | **Actuador** | Dispositivo que ejecuta una acción física, como abrir una válvula |
 | **Pasarela (*gateway*)** | Equipo que conecta los dispositivos con la red o la nube |
 | **MQTT** | Protocolo ligero muy usado para enviar datos de dispositivos |
+| **Broker** | Servidor MQTT que recibe los mensajes y los reparte entre quienes están suscritos |
+| ***Topic*** | «Dirección» de un mensaje MQTT, como `cooperativa/camara1/temperatura` |
 | **Telemetría** | Envío automático de medidas a distancia |
+
+### Pruébalo: una noche en la cámara frigorífica
+
+Este simulador recorre en cinco pasos lo que pasa con un dato IoT: se mide, se envía por MQTT, se reparte, activa una regla y, si se cae Internet, puede no llegar a ninguna parte. Una cooperativa de cereza guarda la fruta en frío y esta noche se avería el compresor. El escenario y las temperaturas son inventados.
+
+<div class="iot-sim" markdown="0">
+  <p>Este simulador necesita JavaScript. Si no se carga, consulta la explicación que hay debajo.</p>
+</div>
+
+??? success "Qué deberías haber visto"
+    - **Medir no basta:** sin nadie que reciba y use el dato, la fruta se estropea aunque el sensor lo haya registrado todo.
+    - **MQTT:** el sensor publica mensajes en un *topic* y el *broker* los reparte. Quien publica no sabe quién escucha, así que se pueden añadir suscriptores sin tocar los sensores.
+    - **La regla:** un umbral demasiado alto actúa tarde, y uno demasiado bajo salta por cualquier variación.
+    - **Sin conexión:** si la regla vive en la nube y se cae Internet, nadie actúa. Lo crítico debe decidirse en local, cerca del dispositivo.
+
+!!! note "¿Y qué programarías tú?"
+    En un sistema IoT, la mayor parte del trabajo de DAM y DAW está lejos del sensor:
+
+    - **DAM:** la app que se suscribe a los avisos y los muestra como notificaciones en el móvil.
+    - **DAW:** el panel web con gráficas e histórico, y la API que guarda las lecturas en una base de datos.
+    - **Ambos:** las reglas que se ejecutan en la pasarela o en la nube, y la gestión de usuarios y permisos.
+
+    El mensaje que llega a tu código suele ser un JSON tan sencillo como este, publicado en el *topic* `cooperativa/camara1/temperatura`:
+
+    ```json
+    {"camara": 1, "temperatura": 3.4, "hora": "2026-11-18T23:10:00"}
+    ```
 
 ---
 
@@ -54,6 +76,11 @@ Es como el sistema nervioso: los sensores son los sentidos, la red son los nervi
     - **Problema:** miles de cámaras y grabadores se vendían con contraseñas de fábrica que casi nadie cambiaba.
     - **Qué pasó:** el 21 de octubre de 2016, la red de dispositivos infectados por el *malware* Mirai atacó a Dyn, un proveedor de DNS. Hubo problemas de acceso a [sitios como Twitter, GitHub o Netflix](https://krebsonsecurity.com/2016/10/hacked-cameras-dvrs-powered-todays-massive-internet-outage/).
     - **Lección:** un dispositivo barato e inseguro no es solo un problema de quien lo compra. Puede convertirse en un arma contra terceros.
+
+<figure markdown="span">
+  ![Animación en tres fases: Mirai infecta cámaras y grabadores con contraseña de fábrica, todos atacan a la vez al DNS de Dyn y las personas no consiguen llegar a webs como Twitter, GitHub o Netflix](../../imagenes/ut2/iot-mirai.svg){ width="760" }
+  <figcaption>Esquema simplificado del ataque de 2016. Las webs seguían funcionando; lo que fallaba era encontrar su dirección. Elaboración propia.</figcaption>
+</figure>
 
 ---
 
@@ -76,7 +103,7 @@ Es como el sistema nervioso: los sensores son los sentidos, la red son los nervi
 
     1. Elegid qué sensor y qué actuador instalaríais.
 
-    2. Dibujad el recorrido del dato, como en el diagrama anterior.
+    2. Dibujad el recorrido del dato, como en el esquema del apartado 1.
 
     3. Decidid qué debe seguir funcionando si cae Internet.
 

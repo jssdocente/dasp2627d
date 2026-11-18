@@ -23,18 +23,10 @@ Las THD no actúan en un único lugar de la empresa. La misma tecnología puede 
 
 En la [Unidad 1](../01-digitalizacion/03-organizacion-convergencia-ot-it.md) viste que **IT** gestiona la información y **OT** controla las máquinas. Conectarlos es lo que permite muchas de las mejoras de las THD:
 
-```mermaid
-flowchart LR
-    subgraph OT ["OT: planta"]
-        M["Sensor en una máquina<br/>vibración anómala"]
-    end
-    subgraph IT ["IT: gestión"]
-        A["Análisis<br/>predice una avería"] --> ERP["ERP<br/>pide el repuesto"]
-        ERP --> PL["Planificación<br/>programa la parada"]
-    end
-    M -->|Conexión segura| A
-    PL -.->|Parada en el mejor momento| M
-```
+<figure markdown="span">
+  ![Un sensor de planta detecta una vibración, IT predice la avería, el ERP pide el repuesto y se programa la parada](../../imagenes/ut2/impacto-it-ot.svg){ width="760" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 - **Antes:** la máquina se avería, se detiene la producción y se busca el repuesto con urgencia.
 - **Después:** se detecta el problema, llega el repuesto y se para en el momento menos perjudicial.

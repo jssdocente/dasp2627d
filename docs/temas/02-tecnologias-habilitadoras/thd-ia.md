@@ -2,17 +2,10 @@
 
 En la programación tradicional escribes las reglas: «si el importe es mayor que 1.000, avisa». En el ***machine learning*** (ML) das ejemplos y el sistema **aprende las reglas a partir de los datos**. Por eso una IA puede ser tan buena o tan mala como los ejemplos que recibe.
 
-```mermaid
-flowchart TB
-    subgraph T ["Programación tradicional"]
-        direction LR
-        R1["Reglas + datos"] --> S1["Resultado"]
-    end
-    subgraph M ["Machine learning"]
-        direction LR
-        R2["Datos + resultados conocidos"] --> S2["Modelo con reglas aprendidas"]
-    end
-```
+<figure markdown="span">
+  ![En la programación tradicional las reglas son la entrada; en machine learning, el modelo con reglas aprendidas es la salida](../../imagenes/ut2/ia-tradicional-ml.svg){ width="720" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 ---
 
@@ -24,15 +17,10 @@ flowchart TB
 
 ### El ciclo de un sistema de IA
 
-```mermaid
-flowchart LR
-    D["Datos"] --> E["Entrenamiento"]
-    E --> M["Modelo"]
-    M --> P["Predicción"]
-    P --> H{"¿Supervisión<br/>humana?"}
-    H --> A["Decisión"]
-    A -.->|Los resultados generan datos nuevos| D
-```
+<figure markdown="span">
+  ![Ciclo de un sistema de IA: datos, entrenamiento, modelo, predicción, supervisión humana y decisión, con vuelta a los datos](../../imagenes/ut2/ia-ciclo.svg){ width="760" }
+  <figcaption>Elaboración propia.</figcaption>
+</figure>
 
 Observa la flecha discontinua: las decisiones de hoy serán los datos de entrenamiento de mañana. Un sesgo no corregido puede agravarse con el tiempo.
 
