@@ -10,6 +10,15 @@ Tu proyecto se centra en seis tecnologías, pero hay otras que están cambiando 
 | **Realidades inmersivas** | Superponen o simulan entornos (RA y RV) | Formación en maniobras peligrosas | ¿Es más seguro o barato que practicar en real? |
 | **Fabricación aditiva** | Impresión 3D de piezas | Repuestos en pequeñas series | ¿Sale a cuenta frente a fabricar en serie? |
 
+### Cómo funciona un gemelo digital
+
+Un gemelo digital no es una simple maqueta en 3D: está **conectado a datos reales** de la máquina o la línea que copia. Eso permite probar cambios en la copia y aplicar en la realidad solo los que funcionan.
+
+<figure markdown="span">
+  ![Una línea de producción con sensores envía datos a su gemelo digital, donde se prueban dos cambios; solo el que funciona se aplica en la línea real](../../imagenes/ut2/gemelo-digital.svg){ width="760" }
+  <figcaption>Esquema simplificado. Elaboración propia.</figcaption>
+</figure>
+
 ---
 
 ## Un Caso Cercano: Platero

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" role="img" aria-labelledby="t d" font-family="Roboto, Arial, sans-serif">
+  <title id="t">Cómo funciona un gemelo digital</title>
+  <desc id="d">A la izquierda, la línea de producción real con sensores envía datos en tiempo real a su gemelo digital, una copia virtual. En el gemelo se prueban cambios: la prueba A crea un cuello de botella y la prueba B funciona mejor. Solo lo que ha funcionado en el gemelo se aplica después en la línea real, sin pararla para probar.</desc>
+  <style>
+    .t { font-size: 15px; font-weight: 700; fill: #263238; text-anchor: middle; }
+    .s { font-size: 12.5px; fill: #37474f; text-anchor: middle; }
+    .e { font-size: 13px; font-style: italic; fill: #546e7a; }
+    .z { font-size: 14px; font-weight: 700; fill: #546e7a; }
+    .h { font-size: 17px; font-weight: 700; fill: #263238; }
+    @keyframes viaje { 0.00% { transform: translate(0.0px, 0.0px); opacity: 0; } 1.55% { transform: translate(0.0px, 0.0px); opacity: 1; } 14.33% { transform: translate(330.0px, 0.0px); opacity: 1; } 15.88% { transform: translate(330.0px, 0.0px); opacity: 1; } 25.12% { transform: translate(565.0px, -40.0px); opacity: 1; } 26.67% { transform: translate(565.0px, -40.0px); opacity: 1; } 35.90% { transform: translate(330.0px, 0.0px); opacity: 1; } 37.45% { transform: translate(330.0px, 0.0px); opacity: 1; } 46.84% { transform: translate(565.0px, 60.0px); opacity: 1; } 48.39% { transform: translate(565.0px, 60.0px); opacity: 1; } 52.27% { transform: translate(565.0px, 160.0px); opacity: 1; } 53.82% { transform: translate(565.0px, 160.0px); opacity: 1; } 75.70% { transform: translate(0.0px, 160.0px); opacity: 1; } 77.25% { transform: translate(0.0px, 160.0px); opacity: 1; } 83.45% { transform: translate(0.0px, 0.0px); opacity: 1; } 85.00% { transform: translate(0.0px, 0.0px); opacity: 1; } 88.00% { transform: translate(0.0px, 0.0px); opacity: 0; } 100% { transform: translate(0.0px, 0.0px); opacity: 0; } }
+    .punto { opacity: 0; }
+    @media (prefers-reduced-motion: no-preference) { .punto { animation: viaje 11s linear infinite; } }
+    @keyframes r0 { 0%, 0.00% { stroke: #546e7a; stroke-width: 1.5; } 0.00%, 5.55% { stroke: #e65100; stroke-width: 4; } 8.55%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-linea { animation: r0 11s linear infinite; } }
+    @keyframes r1 { 0%, 13.82% { stroke: #546e7a; stroke-width: 1.5; } 14.33%, 19.88% { stroke: #e65100; stroke-width: 4; } 22.88%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-modelo { animation: r1 11s linear infinite; } }
+    @keyframes r2 { 0%, 24.61% { stroke: #546e7a; stroke-width: 1.5; } 25.12%, 30.67% { stroke: #e65100; stroke-width: 4; } 33.67%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-pa { animation: r2 11s linear infinite; } }
+    @keyframes r3 { 0%, 46.33% { stroke: #546e7a; stroke-width: 1.5; } 46.84%, 52.39% { stroke: #e65100; stroke-width: 4; } 55.39%, 100% { stroke: #546e7a; stroke-width: 1.5; } }
+    @media (prefers-reduced-motion: no-preference) { #n-pb { animation: r3 11s linear infinite; } }
+  </style>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/></marker>
+    <marker id="fi" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="900" height="350" rx="12" fill="#ffffff"/>
+  <rect x="20" y="40" width="300" height="225" rx="12" fill="#fff8e1" stroke="#b0bec5" stroke-dasharray="4 4"/>
+  <text x="34" y="64" class="z">Mundo real</text>
+  <rect x="350" y="40" width="530" height="225" rx="12" fill="#e3f2fd" stroke="#b0bec5" stroke-dasharray="4 4"/>
+  <text x="364" y="64" class="z">Gemelo digital</text>
+  <circle class="punto" cx="170" cy="140" r="9" fill="#1565c0"/>
+  <rect id="n-linea" class="nodo" x="60.0" y="105.0" width="220" height="70" rx="10" fill="#ffe0b2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="170.0" y="136.5" class="t">Línea de producción</text>
+    <text x="170.0" y="154.5" class="s">con sensores</text>
+  <rect id="n-modelo" class="nodo" x="410.0" y="105.0" width="180" height="70" rx="10" fill="#bbdefb" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="500.0" y="136.5" class="t">Modelo virtual</text>
+    <text x="500.0" y="154.5" class="s">copia de la línea</text>
+  <rect id="n-pa" class="nodo" x="630.0" y="72.0" width="210" height="56" rx="10" fill="#ffcdd2" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="735.0" y="96.5" class="t">Prueba A</text>
+    <text x="735.0" y="114.5" class="s">crea un cuello de botella</text>
+  <rect id="n-pb" class="nodo" x="630.0" y="172.0" width="210" height="56" rx="10" fill="#c8e6c9" stroke="#546e7a" stroke-width="1.5"/>
+    <text x="735.0" y="196.5" class="t">Prueba B</text>
+    <text x="735.0" y="214.5" class="s">funciona mejor</text>
+  <path d="M280.0,140.0 L406.0,140.0" fill="none" stroke="#546e7a" stroke-width="2" marker-end="url(#f)"/>
+  <text x="343.0" y="128.0" class="e" text-anchor="middle">Datos en tiempo real</text>
+  <path d="M590.0,124.7 L626.1,118.5" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <path d="M590.0,163.0 L626.1,172.2" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <path d="M735.0,228.0 L735.0,300.0 L170.0,300.0 L170.0,175.0" fill="none" stroke="#546e7a" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#f)"/>
+  <text x="450.0" y="325.0" class="e" text-anchor="middle">Solo se aplica en la línea real lo que ha funcionado en el gemelo</text>
+</svg>

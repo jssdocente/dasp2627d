@@ -479,7 +479,69 @@ def iot_mirai():
     d.guardar()
 
 
+def gemelo_digital():
+    d = Diagrama("gemelo-digital", 900, 350, "Cómo funciona un gemelo digital",
+                 "A la izquierda, la línea de producción real con sensores envía datos en tiempo real a su gemelo digital, "
+                 "una copia virtual. En el gemelo se prueban cambios: la prueba A crea un cuello de botella y la prueba B "
+                 "funciona mejor. Solo lo que ha funcionado en el gemelo se aplica después en la línea real, sin pararla para probar.")
+    d.zona(20, 40, 300, 225, "Mundo real", "#fff8e1")
+    d.zona(350, 40, 530, 225, "Gemelo digital", "#e3f2fd")
+    puntos = [(170, 140), (500, 140), (735, 100), (500, 140), (735, 200), (735, 300), (170, 300), (170, 140)]
+    d.recorrido(puntos, duracion=11, color="#1565c0",
+                resaltar=[("linea", 0), ("modelo", 1), ("pa", 2), ("pb", 4)])
+    d.caja("linea", 170, 140, ["Línea de producción", "con sensores"], "naranja", w=220, h=70)
+    d.caja("modelo", 500, 140, ["Modelo virtual", "copia de la línea"], "azul", w=180, h=70)
+    d.caja("pa", 735, 100, ["Prueba A", "crea un cuello de botella"], "rojo", w=210, h=56)
+    d.caja("pb", 735, 200, ["Prueba B", "funciona mejor"], "verde", w=210, h=56)
+    d.flecha("linea", "modelo", etiqueta="Datos en tiempo real", desp=(0, -12))
+    d.flecha("modelo", "pa", discontinua=True)
+    d.flecha("modelo", "pb", discontinua=True)
+    d.camino([(735, 228), (735, 300), (170, 300), (170, 175)],
+             etiqueta="Solo se aplica en la línea real lo que ha funcionado en el gemelo", pos=(450, 325))
+    d.guardar()
+
+
+def animar_cadena():
+    """Añade al SVG hecho a mano cadena-thd.svg un punto que recorre la cadena.
+
+    Es idempotente: sustituye la animación anterior si ya existe.
+    """
+    ruta = os.path.join(SALIDA, "cadena-thd.svg")
+    with open(ruta, encoding="utf-8") as f:
+        svg = f.read()
+    import re
+    svg = re.sub(r"\n  <!-- animacion -->.*?<!-- /animacion -->", "", svg, flags=re.S)
+    aux = Diagrama("aux", 900, 400, "", "")
+    puntos = [(105, 165), (320, 165), (535, 165), (772, 165), (772, 275), (105, 275), (105, 165)]
+    aux.recorrido(puntos, duracion=10, color="#1565c0")
+    cajas = [("30", 0), ("245", 1), ("460", 2), ("675", 3)]
+    css = list(aux.css)
+    # Resalta cada caja (identificada por su x) cuando llega el punto, con los mismos tiempos que recorrido().
+    tiempos = []
+    pausa, viaje = 40, 85.0
+    tramos = [math.hypot(puntos[i + 1][0] - puntos[i][0], puntos[i + 1][1] - puntos[i][1]) for i in range(len(puntos) - 1)]
+    total = sum(tramos) + pausa * len(puntos)
+    acum = 0
+    for i in range(len(puntos)):
+        tiempos.append((acum / total * viaje, (acum + pausa) / total * viaje))
+        acum += pausa + (tramos[i] if i < len(tramos) else 0)
+    for x, idx in cajas:
+        a, b = tiempos[idx]
+        fin = min(b + 4, 99)
+        css.append(f"@keyframes c{x} {{ 0%, {max(a - 0.5, 0):.2f}% {{ stroke-width: 2; }} {a:.2f}%, {fin:.2f}% {{ stroke-width: 5; }} "
+                   f"{min(fin + 3, 99.9):.2f}%, 100% {{ stroke-width: 2; }} }}")
+        css.append(f"@media (prefers-reduced-motion: no-preference) {{ rect[x=\"{x}\"][y=\"110\"] {{ animation: c{x} 10s linear infinite; }} }}")
+    bloque = ("\n  <!-- animacion -->\n  <style>\n    " + "\n    ".join(css) + "\n  </style>\n  "
+              + aux.fondo[0] + "\n  <!-- /animacion -->")
+    fondo = '<rect width="900" height="400" rx="12" fill="#ffffff"/>'
+    assert fondo in svg
+    svg = svg.replace(fondo, fondo + bloque, 1)
+    with open(ruta, "w", encoding="utf-8") as f:
+        f.write(svg)
+    print("animado", os.path.normpath(ruta))
+
+
 if __name__ == "__main__":
     for f in (ruta_unidad, blockchain_confianza, bigdata_flujo, ciber_ataque, ia_tradicional_ml, ia_ciclo,
-              informe_orden, consultoria_tiempos, iot_recorrido, impacto_it_ot, investigar_proceso, iot_mirai):
+              informe_orden, consultoria_tiempos, iot_recorrido, impacto_it_ot, investigar_proceso, iot_mirai, gemelo_digital, animar_cadena):
         f()

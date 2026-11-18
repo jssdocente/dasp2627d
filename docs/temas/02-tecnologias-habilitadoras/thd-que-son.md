@@ -39,7 +39,7 @@ Lo habitual es que las THD formen una cadena: el dato nace en un sensor, viaja a
 
 <figure markdown="span">
   ![Cadena de THD: IoT, cloud, Big Data e IA, con la ciberseguridad protegiendo el conjunto y blockchain como registro entre varias partes](../../imagenes/ut2/cadena-thd.svg){ width="760" }
-  <figcaption>Cómo se combinan las seis THD. Elaboración propia.</figcaption>
+  <figcaption>Cómo se combinan las seis THD. El punto sigue el recorrido del dato. Elaboración propia.</figcaption>
 </figure>
 
 **Un ejemplo: una flota de reparto.** Los sensores de los vehículos miden posición y consumo (IoT). Esos datos se almacenan en servidores remotos (*cloud*), donde se analizan para encontrar patrones (*Big Data*). Con ello, un algoritmo propone mejores rutas (IA). Y todo debe protegerse de ataques (ciberseguridad).
