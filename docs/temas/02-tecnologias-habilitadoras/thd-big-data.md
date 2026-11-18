@@ -32,6 +32,14 @@ Todas las empresas tienen datos, pero pocas los convierten en decisiones. El **a
 | **Las «V» del *Big Data*** | Volumen, velocidad y variedad, a las que suelen añadirse veracidad y valor |
 | **Gobernanza del dato** | Reglas sobre quién es responsable de los datos y cómo se usan |
 
+### Pruébalo: limpia los datos
+
+Dos ejercicios cortos sobre dos de las ideas de arriba: **la calidad importa más que la cantidad** y **correlación no es causa**. La tienda, los pedidos y las cifras son inventados.
+
+<div class="bd-sim" markdown="0">
+  <p>Este ejercicio necesita JavaScript.</p>
+</div>
+
 ---
 
 ## 2. Dos Casos Reales

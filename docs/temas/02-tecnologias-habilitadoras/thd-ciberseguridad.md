@@ -34,6 +34,14 @@ Es como proteger una casa: puedes poner una buena cerradura y una alarma, pero t
 | **Copia 3-2-1** | 3 copias, en 2 soportes distintos y 1 fuera de la empresa |
 | **Parche** | Actualización que corrige un fallo |
 
+### Pruébalo: ¿es *phishing*?
+
+Trabajas en una empresa cerámica inventada y te llegan estos ocho correos. Decide en cada uno si es legítimo o *phishing*; al responder se marcan las señales en las que fijarse. Antes de decidir, pulsa **¿Adónde lleva?** en los enlaces: es lo mismo que pasar el ratón por encima en un correo real. Las empresas, las personas y los dominios son inventados (`.example` es un dominio reservado para ejemplos).
+
+<div class="ph-sim" markdown="0">
+  <p>Este ejercicio necesita JavaScript.</p>
+</div>
+
 ---
 
 ## 2. Dos Casos Reales

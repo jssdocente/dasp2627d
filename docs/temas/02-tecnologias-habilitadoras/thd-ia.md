@@ -34,6 +34,20 @@ Observa la flecha discontinua: las decisiones de hoy serán los datos de entrena
 | **IA generativa** | IA que crea texto, imágenes o código nuevos |
 | **Explicabilidad** | Capacidad de entender por qué un sistema dio un resultado |
 
+### Pruébalo: entrena tu propio filtro
+
+En este simulador entrenas un modelo muy sencillo que decide qué candidaturas pasan a entrevista. En cuatro pasos verás las tres ideas de arriba: aprende de ejemplos, predice sin comprender y hereda los sesgos de los datos. La empresa, los centros de formación y los datos son inventados.
+
+<div class="ia-sim" markdown="0">
+  <p>Este simulador necesita JavaScript. Si no se carga, consulta la explicación que hay debajo.</p>
+</div>
+
+??? success "Qué deberías haber visto"
+    - **Aprender de ejemplos:** el mapa de colores cambia con cada ejemplo que añades, sin que nadie escriba una regla.
+    - **Predecir no es comprender:** el modelo responde a una candidatura que no se parece a ningún ejemplo, sin avisar de que no sabe.
+    - **El sesgo heredado:** con la misma nota y experiencia, el centro B sale perjudicado porque las decisiones antiguas lo trataban peor.
+    - **Corregirlo:** quitar la columna «centro» no basta si otra columna, como la localidad, lo delata. Lo sólido es revisar los datos y medir los resultados por grupos.
+
 !!! note "Más adelante"
     La **UT4** profundizará en lenguajes, herramientas y automatización.
 

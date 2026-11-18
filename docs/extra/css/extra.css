@@ -583,3 +583,224 @@
   from { box-shadow: 0 0 0 6px rgba(67, 160, 71, 0.5); }
   to { box-shadow: 0 0 0 0 rgba(67, 160, 71, 0); }
 }
+
+/* Simulador de IA (2.5); reutiliza estilos de los simuladores de blockchain e IoT */
+.md-typeset .ia-sim {
+  margin: 1em 0;
+  padding: 0.8em;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4em;
+  font-size: 0.7rem;
+}
+.md-typeset .ia-grafica {
+  flex: 2 1 20em;
+  max-width: 30em;
+}
+.md-typeset .ia-grafica.ia-clic {
+  cursor: crosshair;
+}
+.md-typeset .ia-panel p {
+  margin: 0 0 0.5em;
+}
+.md-typeset .ia-zona-si { fill: rgba(67, 160, 71, 0.22); }
+.md-typeset .ia-zona-no { fill: rgba(229, 57, 53, 0.16); }
+.md-typeset .ia-marco { fill: none; stroke: var(--md-default-fg-color--lighter); }
+.md-typeset .ia-punto { stroke: #fff; stroke-width: 1.5; }
+.md-typeset .ia-si { fill: #2e7d32; }
+.md-typeset .ia-no { fill: #c62828; }
+.md-typeset .ia-nueva { fill: #f9a825; stroke: #263238; stroke-width: 2; }
+.md-typeset .ia-vecino { stroke: #263238; stroke-width: 1.5; stroke-dasharray: 4 3; }
+[data-md-color-scheme="slate"] .md-typeset .ia-vecino { stroke: #eceff1; }
+.md-typeset .ia-resultado {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.md-typeset .ia-aviso {
+  padding: 0.4em 0.6em;
+  border-left: 4px solid #f9a825;
+  background: rgba(249, 168, 37, 0.12);
+}
+.md-typeset .ia-barra {
+  display: grid;
+  grid-template-columns: 5em 1fr 3em;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.3em;
+}
+.md-typeset .ia-barra-fondo {
+  height: 0.8em;
+  border-radius: 0.4em;
+  background: var(--md-default-fg-color--lightest);
+  overflow: hidden;
+}
+.md-typeset .ia-barra-relleno {
+  display: block;
+  height: 100%;
+  background: var(--md-accent-fg-color);
+  transition: width 0.4s ease;
+}
+
+/* Ejercicio «¿Es phishing?» (2.7); reutiliza los botones y resultados del playground de cloud */
+.md-typeset .ph-sim {
+  margin: 1em 0;
+  padding: 0.8em;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4em;
+  font-size: 0.75rem;
+}
+.md-typeset .ph-correo {
+  margin: 0.4em 0 0.8em;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.4em;
+  overflow: hidden;
+}
+.md-typeset .ph-cabecera {
+  padding: 0.5em 0.8em;
+  background: var(--md-code-bg-color);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  word-break: break-word;
+}
+.md-typeset .ph-campo {
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .ph-dir {
+  font-family: var(--md-code-font-family);
+  font-size: 0.65rem;
+}
+.md-typeset .ph-cuerpo {
+  padding: 0.7em 0.8em;
+}
+.md-typeset .ph-enlace {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0 0.8em 0.7em;
+}
+.md-typeset .ph-boton-falso {
+  padding: 0.3em 1em;
+  border-radius: 0.2em;
+  background: #1e88e5;
+  color: #fff;
+  font-weight: 700;
+}
+.md-typeset .ph-ver {
+  margin: 0;
+  padding: 0.2em 0.7em;
+  font-size: 0.65rem;
+  cursor: pointer;
+}
+.md-typeset .ph-url {
+  font-size: 0.65rem;
+  word-break: break-all;
+}
+.md-typeset .ph-adjunto {
+  display: inline-block;
+  margin: 0 0.8em 0.7em;
+  padding: 0.2em 0.6em;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.3em;
+  font-family: var(--md-code-font-family);
+  font-size: 0.65rem;
+}
+.md-typeset .ph-revelado .ph-pista,
+.md-typeset .ph-revelado .ph-pista-cab {
+  background: rgba(249, 168, 37, 0.35);
+  outline: 2px solid #f9a825;
+  border-radius: 0.15em;
+}
+.md-typeset .cpg-resultado ul {
+  margin: 0 0 0.5em;
+}
+
+/* Ejercicio «Limpia los datos» (2.4); reutiliza estilos de los otros simuladores */
+.md-typeset .bd-sim {
+  margin: 1em 0;
+  padding: 0.8em;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4em;
+  font-size: 0.75rem;
+}
+.md-typeset .bd-cuerpo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.md-typeset .bd-tabla-caja {
+  flex: 3 1 24em;
+  min-width: 0;
+  overflow-x: auto;
+}
+.md-typeset .bd-panel {
+  flex: 2 1 15em;
+}
+.md-typeset table.bd-tabla {
+  display: table;
+  margin: 0 0 0.6em;
+  font-size: 0.65rem;
+}
+.md-typeset .bd-tabla td,
+.md-typeset .bd-tabla th {
+  padding: 0.35em 0.6em;
+}
+.md-typeset .bd-tabla tbody tr {
+  cursor: pointer;
+}
+.md-typeset .bd-tabla tbody tr:hover,
+.md-typeset .bd-tabla tbody tr:focus {
+  background: rgba(30, 136, 229, 0.08);
+  outline: none;
+}
+.md-typeset .bd-tabla td.bd-mal {
+  background: rgba(249, 168, 37, 0.35);
+  font-weight: 700;
+}
+.md-typeset .bd-tabla tr.bd-borrada td {
+  text-decoration: line-through;
+  color: var(--md-default-fg-color--lighter);
+}
+.md-typeset .bd-tabla tr.bd-limpia td {
+  background: rgba(67, 160, 71, 0.1);
+}
+.md-typeset .bd-detalle:empty {
+  display: none;
+}
+.md-typeset .bd-barra {
+  grid-template-columns: 6em 1fr 5em;
+}
+.md-typeset .bd-graf {
+  max-width: 34em;
+}
+.md-typeset .bd-s1 { fill: none; stroke: #1e88e5; stroke-width: 2.5; }
+.md-typeset .bd-s2 { fill: none; stroke: #8e24aa; stroke-width: 2.5; }
+.md-typeset .bd-s3 { fill: none; stroke: #e65100; stroke-width: 2.5; stroke-dasharray: 6 4; }
+.md-typeset .bd-leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em 1.2em;
+  font-size: 0.65rem;
+}
+.md-typeset .bd-muestra {
+  display: inline-block;
+  width: 1.4em;
+  height: 0.25em;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+.md-typeset .bd-l1 { background: #1e88e5; }
+.md-typeset .bd-l2 { background: #8e24aa; }
+.md-typeset .bd-l3 { background: #e65100; }
+.md-typeset .bd-opciones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4em;
+  margin-bottom: 0.6em;
+}
+.md-typeset .bd-opciones .bd-opcion {
+  margin: 0;
+  padding: 0.3em 0.9em;
+  font-size: 0.7rem;
+  text-align: left;
+  cursor: pointer;
+}

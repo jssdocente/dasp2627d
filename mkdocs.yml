@@ -80,6 +80,9 @@ extra_javascript:
   - extra/js/blockchain-sim.js
   - extra/js/cloud-playground.js
   - extra/js/iot-sim.js
+  - extra/js/ia-sim.js
+  - extra/js/phishing-sim.js
+  - extra/js/bigdata-sim.js
 
 plugins:
   - search
